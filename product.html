@@ -289,7 +289,8 @@ English
   .glow-card-c2 .glow-inner:hover { box-shadow: 0 0 0 2px rgba(96,165,250,0.6), 0 0 50px rgba(96,165,250,0.25), 0 30px 60px rgba(0,0,0,0.5); }
   .glow-card-c3 .glow-inner:hover { box-shadow: 0 0 0 2px rgba(248,113,113,0.6), 0 0 50px rgba(248,113,113,0.25), 0 30px 60px rgba(0,0,0,0.5); }
 
-  .card-img { transition: transform 0.8s cubic-bezier(0.19,1,0.22,1), opacity 0.6s; }
+  .card-img { opacity: 0.25; transition: transform 0.8s cubic-bezier(0.19,1,0.22,1), opacity 0.6s; }
+  .card-img-concrete { opacity: 0.35; }
   .glow-inner:hover .card-img { transform: scale(1.08) !important; opacity: 0.45 !important; }
   
   .card-icon { transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), filter 0.5s; }
@@ -326,7 +327,7 @@ English
         <div class="glow-card glow-card-c1 cursor-pointer h-[420px] lg:h-full">
           <div class="glow-inner bg-neutral-900 transition-transform duration-500 hover:-translate-y-2">
             <!-- Photo -->
-            <img loading="lazy" class="card-img absolute inset-0 w-full h-full object-cover opacity-25" src="assets/hoist-card.jpg" alt="Construction Hoist">
+            <img loading="lazy" class="card-img absolute inset-0 w-full h-full object-cover" style="opacity:0.25" src="assets/hoist-card.jpg" alt="Construction Hoist">
             <!-- Dark overlay -->
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10"></div>
             <!-- Top Category Tag -->
@@ -357,7 +358,7 @@ English
         <!-- Card 2: Tower Crane -->
         <div class="glow-card glow-card-c2 cursor-pointer h-[420px] lg:h-full">
           <div class="glow-inner bg-neutral-900 transition-transform duration-500 hover:-translate-y-2">
-            <img loading="lazy" class="card-img absolute inset-0 w-full h-full object-cover opacity-25" src="assets/tower-card.jpg" alt="Tower Cranes">
+            <img loading="lazy" class="card-img absolute inset-0 w-full h-full object-cover" style="opacity:0.25" src="assets/tower-card.jpg" alt="Tower Cranes">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10"></div>
             <div class="absolute top-6 left-6 flex items-center gap-2 z-10">
               <span class="w-2 h-2 rounded-full bg-[#60a5fa] animate-pulse"></span>
@@ -384,7 +385,7 @@ English
         <!-- Card 3: Concrete Machinery -->
         <div class="glow-card glow-card-c3 cursor-pointer h-[420px] lg:h-full">
           <div class="glow-inner bg-neutral-900 transition-transform duration-500 hover:-translate-y-2">
-            <img loading="lazy" class="card-img absolute inset-0 w-full h-full object-contain opacity-35" src="assets/small-ConcreteMachinery.png" alt="Concrete Machinery">
+            <img loading="lazy" class="card-img card-img-concrete absolute inset-0 w-full h-full object-contain" style="opacity:0.35" src="assets/small-ConcreteMachinery.png" alt="Concrete Machinery">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10"></div>
             <div class="absolute top-6 left-6 flex items-center gap-2 z-10">
               <span class="w-2 h-2 rounded-full bg-[#f87171] animate-pulse"></span>
