@@ -1690,14 +1690,14 @@ setTimeout(() => {
 </script>
 <!-- GLOBAL PRODUCT MODAL -->
 <div id="product-modal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500 ease-out backdrop-blur-md bg-stone-950/85">
-    <div class="relative w-full max-w-5xl mx-auto p-4 flex flex-col items-center transform translate-y-8 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" id="product-modal-content">
+    <div class="relative w-full max-w-7xl mx-auto p-4 flex flex-col items-center transform translate-y-8 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" id="product-modal-content">
         <!-- Close Button -->
         <button onclick="closeProductModal()" class="absolute -top-12 right-4 md:-right-0 text-white/50 hover:text-white hover:scale-110 transition-all z-10">
             <span class="material-symbols-outlined text-[40px]">cancel</span>
         </button>
         
             <!-- Main Image Display -->
-        <div id="modal-image-viewer" class="w-full bg-white rounded-t-xl overflow-hidden relative shadow-2xl flex items-center justify-center h-[400px] md:h-[600px] border border-white/10 cursor-grab select-none">
+        <div id="modal-image-viewer" class="w-full bg-white rounded-t-xl overflow-hidden relative shadow-2xl flex items-center justify-center h-[500px] md:h-[75vh] border border-white/10 cursor-grab select-none">
             <!-- Diagonal Grid Background Pattern -->
             <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000); background-size: 20px 20px; background-position: 0 0, 10px 10px;"></div>
             
@@ -1714,7 +1714,7 @@ setTimeout(() => {
                 </div>
             </div>
             
-            <img loading="lazy" id="modal-main-image" src="" class="max-w-full max-h-[500px] object-contain transition-all duration-300 ease-out origin-center relative z-10 pointer-events-none filter contrast-125" alt="Product Specification" onerror="this.onerror=null; this.src='https://placehold.co/1000x800/ffffff/111111/png?text=TECHNICAL+IMAGE+UNAVAILABLE';" />
+            <img loading="lazy" id="modal-main-image" src="" class="max-w-full max-h-[70vh] object-contain transition-all duration-300 ease-out origin-center relative z-10 pointer-events-none filter contrast-125" alt="Product Specification" onerror="this.onerror=null; this.src='https://placehold.co/1000x800/ffffff/111111/png?text=TECHNICAL+IMAGE+UNAVAILABLE';" />
             
             <!-- Navigation Arrows -->
             <button id="modal-nav-prev" onclick="changeModalImage(-1)" class="absolute left-6 top-1/2 -translate-y-1/2 z-50 bg-stone-900/40 hover:bg-stone-900 text-white p-2 rounded-full transition-all opacity-0 pointer-events-none group/nav backdrop-blur-sm border border-white/10 shrink-0">
