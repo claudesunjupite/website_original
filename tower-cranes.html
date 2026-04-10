@@ -2056,10 +2056,10 @@ setTimeout(() => {
         e.preventDefault();
         imageToPan.style.transition = 'transform 0.2s ease-out';
         currentScale += e.deltaY * -0.002;
-        currentScale = Math.min(Math.max(1, currentScale), 4); // Limit zoom 1x to 4x
-        
-        // If zoomed out completely, reset pan position
-        if(currentScale === 1) {
+        currentScale = Math.min(Math.max(0.3, currentScale), 4); // Limit zoom 0.3x to 4x
+
+        // If at or below 1x, reset pan position (center image)
+        if(currentScale <= 1) {
             currentX = 0;
             currentY = 0;
         } else {
