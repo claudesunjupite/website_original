@@ -16,6 +16,17 @@
     .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
     body { font-family: 'Roboto', sans-serif; }
     h1, h2, h3, h4 { font-family: 'Inter', sans-serif; }
+
+    /* ── Scroll Reveal ───────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 </style>
 
 <script id="spa-router">
@@ -255,6 +266,28 @@ English
 </div>
 </div>
 </section>
+<!-- Stats Bar -->
+<section class="py-16 md:py-20 bg-neutral-950">
+  <div class="max-w-5xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+    <div class="reveal">
+      <div class="text-4xl md:text-5xl font-black text-yellow-500 mb-2 stat-count" data-target="15">0</div>
+      <div class="text-[10px] uppercase tracking-[0.25em] text-neutral-400 mt-1">ปีในอุตสาหกรรม</div>
+    </div>
+    <div class="reveal" style="transition-delay:0.1s">
+      <div class="text-4xl md:text-5xl font-black text-yellow-500 mb-2 stat-count" data-target="500">0</div>
+      <div class="text-[10px] uppercase tracking-[0.25em] text-neutral-400 mt-1">โครงการที่ผ่านมา</div>
+    </div>
+    <div class="reveal" style="transition-delay:0.2s">
+      <div class="text-4xl md:text-5xl font-black text-yellow-500 mb-2 stat-count" data-target="200">0</div>
+      <div class="text-[10px] uppercase tracking-[0.25em] text-neutral-400 mt-1">ลูกค้าที่ไว้วางใจ</div>
+    </div>
+    <div class="reveal" style="transition-delay:0.3s">
+      <div class="text-4xl md:text-5xl font-black text-yellow-500 mb-2 stat-count" data-target="24">0</div>
+      <div class="text-[10px] uppercase tracking-[0.25em] text-neutral-400 mt-1">ชั่วโมง พร้อมให้บริการ</div>
+    </div>
+  </div>
+</section>
+
 <!-- Bento Grid: Capabilities -->
 <section class="py-32 md:py-40 px-8 bg-surface">
 <div class="container mx-auto">
@@ -300,6 +333,106 @@ English
 </div>
 </section>
 
+<!-- Products Preview -->
+<section class="py-24 md:py-32 px-8 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <span class="text-[10px] font-black uppercase tracking-[0.3em] text-yellow-600 flex items-center gap-3 mb-4">
+          <span class="w-10 h-0.5 bg-yellow-600 inline-block"></span>สินค้าของเรา
+        </span>
+        <h2 class="text-5xl md:text-7xl font-black text-neutral-900 tracking-tighter leading-none">OUR<br/><span class="text-yellow-600">PRODUCTS.</span></h2>
+      </div>
+      <a href="product.html" class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-neutral-500 hover:text-yellow-600 transition-colors">
+        ดูทั้งหมด <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Hoist -->
+      <a href="construction-hoists.html" class="reveal group relative overflow-hidden bg-neutral-900 h-[380px] md:h-[460px] block" style="transition-delay:0.05s">
+        <img loading="lazy" src="assets/hoist-card.jpg" alt="Construction Hoist" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        <div class="absolute top-6 left-6">
+          <span class="text-[9px] font-black uppercase tracking-[0.25em] text-red-400 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-red-400 inline-block animate-pulse"></span>Category 01
+          </span>
+        </div>
+        <div class="absolute bottom-0 left-0 p-8 w-full">
+          <span class="material-symbols-outlined text-[40px] text-red-400 mb-3 block">elevator</span>
+          <h3 class="text-3xl font-black text-white tracking-tight mb-2">Construction Hoists</h3>
+          <p class="text-neutral-400 text-sm mb-4 max-w-sm">General Hoist · Frequency Conversion · Mini Hoist · Material Hoist</p>
+          <span class="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-red-400 border border-red-400/40 px-4 py-2 group-hover:bg-red-400 group-hover:text-white transition-all duration-300">
+            ดูรายละเอียด <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </span>
+        </div>
+      </a>
+      <!-- Crane -->
+      <a href="tower-cranes.html" class="reveal group relative overflow-hidden bg-neutral-900 h-[380px] md:h-[460px] block" style="transition-delay:0.15s">
+        <img loading="lazy" src="assets/tower-card.jpg" alt="Tower Cranes" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        <div class="absolute top-6 left-6">
+          <span class="text-[9px] font-black uppercase tracking-[0.25em] text-yellow-400 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 inline-block animate-pulse"></span>Category 02
+          </span>
+        </div>
+        <div class="absolute bottom-0 left-0 p-8 w-full">
+          <span class="material-symbols-outlined text-[40px] text-yellow-400 mb-3 block">precision_manufacturing</span>
+          <h3 class="text-3xl font-black text-white tracking-tight mb-2">Tower Cranes</h3>
+          <p class="text-neutral-400 text-sm mb-4 max-w-sm">QLCM · JARLWAY · ZOOMLION · Spare Parts</p>
+          <span class="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-yellow-400 border border-yellow-400/40 px-4 py-2 group-hover:bg-yellow-400 group-hover:text-black transition-all duration-300">
+            ดูรายละเอียด <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Why Sun Jupiter -->
+<section class="py-24 md:py-32 px-8 bg-neutral-50">
+  <div class="max-w-7xl mx-auto">
+    <div class="reveal text-center mb-16">
+      <span class="text-[10px] font-black uppercase tracking-[0.3em] text-yellow-600 flex items-center justify-center gap-3 mb-4">
+        <span class="w-10 h-0.5 bg-yellow-600 inline-block"></span>ทำไมต้องเลือกเรา<span class="w-10 h-0.5 bg-yellow-600 inline-block"></span>
+      </span>
+      <h2 class="text-4xl md:text-6xl font-black text-neutral-900 tracking-tighter">WHY <span class="text-yellow-600">SUN JUPITER.</span></h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="reveal bg-white p-10 border-b-4 border-yellow-600 shadow-sm hover:shadow-xl transition-shadow duration-500" style="transition-delay:0.05s">
+        <span class="material-symbols-outlined text-5xl text-yellow-600 mb-6 block">verified</span>
+        <h3 class="text-xl font-black uppercase tracking-tight mb-3">มาตรฐานระดับสากล</h3>
+        <p class="text-neutral-500 text-sm leading-relaxed">สินค้าทุกชิ้นผ่านการรับรองมาตรฐานและการทดสอบความปลอดภัยก่อนส่งมอบ</p>
+      </div>
+      <div class="reveal bg-white p-10 border-b-4 border-yellow-600 shadow-sm hover:shadow-xl transition-shadow duration-500" style="transition-delay:0.15s">
+        <span class="material-symbols-outlined text-5xl text-yellow-600 mb-6 block">build</span>
+        <h3 class="text-xl font-black uppercase tracking-tight mb-3">ทีมช่างผู้เชี่ยวชาญ</h3>
+        <p class="text-neutral-500 text-sm leading-relaxed">ทีมวิศวกรและช่างเทคนิคที่มีประสบการณ์กว่า 15 ปี พร้อมให้บริการติดตั้งและซ่อมบำรุง</p>
+      </div>
+      <div class="reveal bg-white p-10 border-b-4 border-yellow-600 shadow-sm hover:shadow-xl transition-shadow duration-500" style="transition-delay:0.25s">
+        <span class="material-symbols-outlined text-5xl text-yellow-600 mb-6 block">support_agent</span>
+        <h3 class="text-xl font-black uppercase tracking-tight mb-3">บริการหลังการขาย</h3>
+        <p class="text-neutral-500 text-sm leading-relaxed">สต็อกอะไหล่พร้อม ทีม after-sales รวดเร็ว ลดการหยุดชะงักของงานก่อสร้าง</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Strip -->
+<section class="py-20 bg-yellow-600 reveal">
+  <div class="max-w-4xl mx-auto px-8 text-center">
+    <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter mb-4">พร้อมให้คำปรึกษาแล้ววันนี้</h2>
+    <p class="text-yellow-100 text-base mb-10 max-w-xl mx-auto">ไม่ว่าจะเป็นโครงการเล็กหรือใหญ่ ทีมงานของเราพร้อมช่วยเลือกอุปกรณ์ที่เหมาะสมที่สุดสำหรับคุณ</p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="contact.html" class="px-8 py-4 bg-white text-yellow-700 font-black uppercase tracking-widest text-sm hover:bg-neutral-100 hover:-translate-y-1 transition-all inline-flex items-center gap-2">
+        ติดต่อเรา <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+      <a href="product.html" class="px-8 py-4 border-2 border-white text-white font-black uppercase tracking-widest text-sm hover:bg-yellow-700 transition-all">
+        ดูสินค้า
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- Image Full Width Break -->
 <section class="w-full h-[614px] relative">
 <img loading="lazy" alt="tower cranes at construction site cloudy sky" class="w-full h-full object-cover" src="assets/crane-bottom.jpg"/>
@@ -332,6 +465,49 @@ English
 </div>
 </footer>
 <script>
+// ── Scroll Reveal ────────────────────────────────────────────────
+(function() {
+  const revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  // ── Stat Counter ──────────────────────────────────────────────
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var duration = 1800;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + '+';
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target + '+';
+    }
+    requestAnimationFrame(step);
+  }
+
+  var countObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        animateCount(e.target);
+        countObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-count').forEach(function(el) {
+    countObserver.observe(el);
+  });
+})();
+
 function toggleNavOverlay(open) {
   const overlay = document.getElementById('nav-overlay');
   if (!overlay) return;
