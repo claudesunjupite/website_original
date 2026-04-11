@@ -645,6 +645,16 @@ setTimeout(() => {
     let hoistImgList = [];
     let hoistImgIdx = 0;
 
+    // Preload images on hover so modal opens instantly
+    document.querySelectorAll('.product-cell[data-images]').forEach(function(cell) {
+        cell.addEventListener('mouseenter', function() {
+            var srcs = (cell.getAttribute('data-images') || '').split(',');
+            srcs.forEach(function(src) {
+                if (src) { var img = new Image(); img.src = src.trim(); }
+            });
+        }, { once: true });
+    });
+
     function hoistImgNav(dir) {
         hoistImgIdx = (hoistImgIdx + dir + hoistImgList.length) % hoistImgList.length;
         loadHoistImg(hoistImgList[hoistImgIdx]);
