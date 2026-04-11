@@ -229,8 +229,8 @@
     'Response Desk': 'ฝ่ายบริการลูกค้า',
     'Response within 24 hours': 'ตอบกลับภายใน 24 ชั่วโมง',
     'Global HQ':     'สำนักงานใหญ่',
-    'Sun Jupiter Co., Ltd. 55 Chatuchot Road, Ao Ngoen, Sai Mai, Bangkok 10220':
-      '<strong>บริษัท ซัน จูปิเตอร์ จำกัด</strong><br/>55 ถนนจตุโชติ แขวงออเงิน เขตสายไหม กรุงเทพฯ 10220',
+    'Sun Jupiter Co., Ltd. 55 Chatuchot Road, Ao Ngoen,Sai Mai, Bangkok 10220':
+      '<strong>บริษัท ซันจูปิเตอร์ จำกัด</strong><br/>55 ถนนจตุโชติ<br/>แขวงออเงิน เขตสายไหม<br/>กรุงเทพฯ 10220',
 
     /* ── DOWNLOADS PAGE ────────────────────────────────────────── */
     'Access our comprehensive library of technical documentation, safety certifications, and corporate resources. Precision and Safety in Every Lift.':
