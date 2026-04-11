@@ -238,61 +238,59 @@ English
 </div>
 <main id="main-content" class="pt-24">
 
-<!-- Map Section -->
-<section class="bg-surface-container-low px-4 md:px-8 pt-10 pb-0">
-  <div class="relative w-full h-[300px] md:h-[360px] rounded-xl overflow-hidden shadow-2xl">
-    <div class="absolute top-0 left-0 right-0 z-10 bg-neutral-900/80 backdrop-blur-sm px-5 py-3 flex items-center gap-3">
-      <span class="w-2 h-2 rounded-full bg-[#fabd00] animate-pulse"></span>
-      <span class="text-[10px] font-black uppercase tracking-[0.25em] text-[#fabd00]">SUN JUPITER CO., LTD. — HEADQUARTERS</span>
-      <span class="ml-auto text-[10px] text-neutral-400 font-mono">Bangkok, Thailand</span>
-    </div>
-    <div class="absolute top-10 left-4 w-6 h-6 border-t-2 border-l-2 border-[#fabd00] z-10"></div>
-    <div class="absolute top-10 right-4 w-6 h-6 border-t-2 border-r-2 border-[#fabd00] z-10"></div>
-    <div class="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-[#fabd00] z-10"></div>
-    <div class="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-[#fabd00] z-10"></div>
-    <iframe
-      src="https://www.google.com/maps?cid=1570725531252065377&output=embed"
-      class="w-full h-full border-0"
-      allowfullscreen=""
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Sun Jupiter Co.,Ltd. Location">
-    </iframe>
-  </div>
-</section>
+<!-- Map + Contact Card Section -->
+<section class="relative w-full h-[calc(100vh-6rem)] min-h-[600px]">
 
-<!-- Contact Info Section -->
-<section class="px-8 md:px-16 py-16 bg-surface-container-low">
-<h1 class="font-headline font-black text-4xl md:text-6xl tracking-tighter text-on-surface leading-none mb-6">
-  DIRECT<br/><span class="text-primary italic">LIAISON</span>
-</h1>
-<div class="mt-12 space-y-8">
-  <div class="flex gap-6 items-start">
-    <span class="material-symbols-outlined material-fill text-primary text-3xl">phone_in_talk</span>
-    <div>
-      <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-1 opacity-70">Direct Line</p>
-      <p class="text-2xl font-headline font-black mb-1">099-218-1919</p>
-      <p class="text-[10px] text-on-surface-variant font-medium uppercase tracking-wider">Mon-Sat 8:00 AM - 5:00 PM</p>
+  <!-- Map fills full background -->
+  <iframe
+    src="https://www.google.com/maps?cid=1570725531252065377&output=embed"
+    class="absolute inset-0 w-full h-full border-0"
+    allowfullscreen=""
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Sun Jupiter Co.,Ltd. Location">
+  </iframe>
+
+  <!-- Floating contact card -->
+  <div class="absolute top-1/2 -translate-y-1/2 left-8 md:left-16 z-10 bg-white shadow-[0_8px_48px_rgba(0,0,0,0.18)] w-full max-w-sm p-10">
+    <!-- Gold top bar -->
+    <div class="w-12 h-1 bg-[#fabd00] mb-6"></div>
+
+    <h1 class="font-headline font-black text-4xl md:text-5xl tracking-tighter text-stone-900 leading-none mb-10">
+      DIRECT<br/><span style="color:#903f00;" class="italic">LIAISON</span>
+    </h1>
+
+    <div class="space-y-7">
+      <div class="flex gap-4 items-start">
+        <span class="material-symbols-outlined material-fill text-primary text-2xl mt-0.5">phone_in_talk</span>
+        <div>
+          <p class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-0.5">Direct Line</p>
+          <p class="text-xl font-headline font-black text-stone-900">099-218-1919</p>
+          <p class="text-[9px] text-stone-400 font-medium uppercase tracking-wider mt-0.5">Mon-Sat 8:00 AM - 5:00 PM</p>
+        </div>
+      </div>
+
+      <div class="flex gap-4 items-start">
+        <span class="material-symbols-outlined material-fill text-tertiary text-2xl mt-0.5">alternate_email</span>
+        <div>
+          <p class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-0.5">Response Desk</p>
+          <p class="text-sm font-headline font-black text-stone-900 break-all">sunisa.s@sunjupiter.co.th</p>
+          <p class="text-[9px] text-stone-400 font-medium uppercase tracking-wider mt-0.5">Response within 24 hours</p>
+        </div>
+      </div>
+
+      <div class="flex gap-4 items-start">
+        <span class="material-symbols-outlined material-fill text-secondary text-2xl mt-0.5">business_center</span>
+        <div>
+          <p class="text-[9px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-0.5">Global HQ</p>
+          <p class="text-sm font-body font-medium text-stone-800 leading-relaxed">
+            <strong>Sun Jupiter Co., Ltd.</strong><br/>
+            55 Chatuchot Road, Ao Ngoen,<br/>Sai Mai, Bangkok 10220
+          </p>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="flex gap-6 items-start">
-    <span class="material-symbols-outlined material-fill text-tertiary text-3xl">alternate_email</span>
-    <div>
-      <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-1 opacity-70">Response Desk</p>
-      <p class="text-2xl font-headline font-black mb-1">sunisa.s@sunjupiter.co.th</p>
-      <p class="text-[10px] text-on-surface-variant font-medium uppercase tracking-wider">Response within 24 hours</p>
-    </div>
-  </div>
-  <div class="flex gap-6 items-start">
-    <span class="material-symbols-outlined material-fill text-secondary text-3xl">business_center</span>
-    <div>
-      <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-1 opacity-70">Global HQ</p>
-      <p class="text-base font-body font-medium leading-relaxed opacity-90">
-        <strong>Sun Jupiter Co., Ltd.</strong><br/>
-        55 Chatuchot Road, Ao Ngoen, Sai Mai, Bangkok 10220
-      </p>
-    </div>
-  </div>
-</div>
+
 </section>
 
 </main>
