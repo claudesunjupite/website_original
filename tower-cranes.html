@@ -1977,6 +1977,7 @@ setTimeout(() => {
         const modal = document.getElementById('product-modal');
         const content = document.getElementById('product-modal-content');
         
+        if (typeof setupModalZoom === 'function') setupModalZoom();
         modal.classList.remove('pointer-events-none', 'opacity-0');
         modal.classList.add('opacity-100');
         
@@ -2033,9 +2034,7 @@ setTimeout(() => {
         img.onload = function() { if (loader) loader.classList.add('hidden'); img.style.opacity = '1'; };
         img.onerror = function() { if (loader) loader.classList.add('hidden'); img.style.opacity = '1'; };
 
-        // Reset zoom/pan
-        if (typeof currentScale !== 'undefined') { currentScale = 1; translateX = 0; translateY = 0; }
-        if (typeof updateTransform === 'function') updateTransform();
+        if (typeof setupModalZoom === 'function') setupModalZoom();
 
         const modal = document.getElementById('product-modal');
         const content = document.getElementById('product-modal-content');
@@ -2254,95 +2253,88 @@ setTimeout(() => {
     };
 </script>
 <script>
-        // --- PAN & ZOOM LOGIC ---
+// --- PAN & ZOOM LOGIC ---
+let _zoomAbort = null;
+
+window.setupModalZoom = function() {
     const viewer = document.getElementById('modal-image-viewer');
     const imageToPan = document.getElementById('modal-main-image');
+    if (!viewer || !imageToPan) return;
+
+    // Remove previous listeners
+    if (_zoomAbort) _zoomAbort.abort();
+    _zoomAbort = new AbortController();
+    const sig = { signal: _zoomAbort.signal };
+
     let isDragging = false;
     let startX, startY;
-    let currentX = 0, currentY = 0;
-    let currentScale = 1;
+    window.currentX = 0; window.currentY = 0; window.currentScale = 1;
 
-    function updateTransform() {
-        imageToPan.style.transform = 'translate(' + currentX + 'px, ' + currentY + 'px) scale(' + currentScale + ')';
-    }
+    window.updateTransform = function() {
+        imageToPan.style.transform = 'translate(' + window.currentX + 'px, ' + window.currentY + 'px) scale(' + window.currentScale + ')';
+    };
 
-    // Zoom on Wheel
     viewer.addEventListener('wheel', (e) => {
         e.preventDefault();
         imageToPan.style.transition = 'transform 0.2s ease-out';
-        currentScale += e.deltaY * -0.002;
-        currentScale = Math.min(Math.max(0.3, currentScale), 4); // Limit zoom 0.3x to 4x
-
-        // If at or below 1x, reset pan position (center image)
-        if(currentScale <= 1) {
-            currentX = 0;
-            currentY = 0;
+        window.currentScale += e.deltaY * -0.002;
+        window.currentScale = Math.min(Math.max(0.3, window.currentScale), 4);
+        if (window.currentScale <= 1) {
+            window.currentX = 0; window.currentY = 0;
         } else {
-            // Keep panning within bounds on zoom out
-            const maxPanX = (currentScale - 1) * viewer.clientWidth / 2;
-            const maxPanY = (currentScale - 1) * viewer.clientHeight / 2;
-            currentX = Math.min(Math.max(-maxPanX, currentX), maxPanX);
-            currentY = Math.min(Math.max(-maxPanY, currentY), maxPanY);
+            const maxPanX = (window.currentScale - 1) * viewer.clientWidth / 2;
+            const maxPanY = (window.currentScale - 1) * viewer.clientHeight / 2;
+            window.currentX = Math.min(Math.max(-maxPanX, window.currentX), maxPanX);
+            window.currentY = Math.min(Math.max(-maxPanY, window.currentY), maxPanY);
         }
-        updateTransform();
-    }, { passive: false });
+        window.updateTransform();
+    }, { passive: false, signal: _zoomAbort.signal });
 
-    // Drag to Pan
     viewer.addEventListener('mousedown', (e) => {
-        if(currentScale <= 1) return; // Only pan if zoomed in
+        if (window.currentScale <= 1) return;
         isDragging = true;
-        imageToPan.style.transition = 'none'; // Remove delay for 1:1 tracking
-        viewer.classList.remove('cursor-grab');
-        viewer.classList.add('cursor-grabbing');
-        startX = e.pageX - currentX;
-        startY = e.pageY - currentY;
-    });
+        imageToPan.style.transition = 'none';
+        viewer.classList.replace('cursor-grab','cursor-grabbing');
+        startX = e.pageX - window.currentX;
+        startY = e.pageY - window.currentY;
+    }, sig);
 
     viewer.addEventListener('mouseleave', () => {
-        if(isDragging) {
-            isDragging = false;
-            viewer.classList.remove('cursor-grabbing');
-            viewer.classList.add('cursor-grab');
-            imageToPan.style.transition = 'transform 0.2s ease-out';
-        }
-    });
+        if (!isDragging) return;
+        isDragging = false;
+        viewer.classList.replace('cursor-grabbing','cursor-grab');
+        imageToPan.style.transition = 'transform 0.2s ease-out';
+    }, sig);
 
     viewer.addEventListener('mouseup', () => {
-        if(isDragging) {
-            isDragging = false;
-            viewer.classList.remove('cursor-grabbing');
-            viewer.classList.add('cursor-grab');
-            imageToPan.style.transition = 'transform 0.2s ease-out';
-        }
-    });
+        if (!isDragging) return;
+        isDragging = false;
+        viewer.classList.replace('cursor-grabbing','cursor-grab');
+        imageToPan.style.transition = 'transform 0.2s ease-out';
+    }, sig);
 
     viewer.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
         e.preventDefault();
-        
-        let targetX = e.pageX - startX;
-        let targetY = e.pageY - startY;
+        const maxPanX = (window.currentScale - 1) * viewer.clientWidth / 2;
+        const maxPanY = (window.currentScale - 1) * viewer.clientHeight / 2;
+        window.currentX = Math.min(Math.max(-maxPanX, e.pageX - startX), maxPanX);
+        window.currentY = Math.min(Math.max(-maxPanY, e.pageY - startY), maxPanY);
+        window.updateTransform();
+    }, sig);
+};
 
-        // Clamp panning strictly so it doesn't leave the screen bounds
-        const maxPanX = (currentScale - 1) * viewer.clientWidth / 2;
-        const maxPanY = (currentScale - 1) * viewer.clientHeight / 2;
-        
-        currentX = Math.min(Math.max(-maxPanX, targetX), maxPanX);
-        currentY = Math.min(Math.max(-maxPanY, targetY), maxPanY);
+// Run on direct load
+setupModalZoom();
 
-        updateTransform();
-    });
-    
-    // Reset zoom when modal closes
-    const originalClose = window.closeProductModal;
-    window.closeProductModal = function() {
-        currentScale = 1;
-        currentX = 0;
-        currentY = 0;
-        imageToPan.style.transition = 'transform 0.3s ease-out';
-        updateTransform();
-        if(typeof originalClose === 'function') originalClose();
-    };
+// Reset zoom on modal close
+const _origClose = window.closeProductModal;
+window.closeProductModal = function() {
+    window.currentScale = 1; window.currentX = 0; window.currentY = 0;
+    const img = document.getElementById('modal-main-image');
+    if (img) { img.style.transition = 'transform 0.3s ease-out'; img.style.transform = ''; }
+    if (typeof _origClose === 'function') _origClose();
+};
 </script>
 
 <script>

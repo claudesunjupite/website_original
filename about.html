@@ -86,14 +86,20 @@ if (!window.spaRouterLoaded) {
                 if (currentNav && newNav) {
                     currentNav.innerHTML = newNav.innerHTML;
                 }
-                
+
+                const currentFooter = document.querySelector('footer');
+                const newFooter = doc.querySelector('footer');
+                if (currentFooter && newFooter) {
+                    currentFooter.replaceWith(newFooter);
+                }
+
                 document.title = doc.title;
-                
+
                 // Inject/replace out-of-main body elements from fetched doc (modals, overlays, etc.)
                 // These are outside <main> so replaceWith(newMain) doesn't move them automatically
                 Array.from(doc.body.children).forEach(el => {
                     const tag = el.tagName.toLowerCase();
-                    if (tag === 'script' || tag === 'main' || tag === 'nav' || tag === 'noscript') return;
+                    if (tag === 'script' || tag === 'main' || tag === 'nav' || tag === 'footer' || tag === 'noscript') return;
                     const existingEl = el.id ? document.getElementById(el.id) : null;
                     if (existingEl) {
                         existingEl.replaceWith(el);
