@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html class="light" lang="en"><head>
   <title>บริษัท ซัน จูปิเตอร์ จำกัด | ผลงานของเรา</title>
@@ -13,30 +13,125 @@
 <link rel="stylesheet" href="assets/tailwind.css"/>
 
 <style>
-    /* ── SPA View Transition: smooth cross-fade ────────────────── */
-    ::view-transition-old(root) {
-        animation: sj-fade-out 120ms ease-out forwards;
-    }
-    ::view-transition-new(root) {
-        animation: sj-fade-in 160ms ease-in forwards;
-    }
-    @keyframes sj-fade-out {
-        from { opacity: 1; transform: translateY(0); }
-        to   { opacity: 0; transform: translateY(-6px); }
-    }
-    @keyframes sj-fade-in {
-        from { opacity: 0; transform: translateY(8px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    body { font-family: 'Roboto', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Inter', sans-serif; }
 
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body { 
-            font-family: 'Roboto', sans-serif; 
-        }
-        h1, h2, h3, h4 { font-family: 'Inter', sans-serif; }
-    </style>
+    /* ── Hero Slideshow ── */
+    .sr-hero { position:relative; height:100vh; min-height:520px; overflow:hidden; background:#0d0d0d; }
+    .sr-slide { position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease; }
+    .sr-slide.active { opacity:1; }
+    .sr-slide img { width:100%; height:100%; object-fit:cover; filter:brightness(0.42); }
+    .sr-hero-overlay {
+      position:absolute; inset:0; z-index:1;
+      background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 55%, transparent 100%);
+    }
+    .sr-hero-content {
+      position:absolute; bottom:0; left:0; right:0; z-index:2;
+      padding: clamp(32px,5vw,72px) clamp(24px,6vw,80px) clamp(48px,7vw,90px);
+    }
+    .sr-eyebrow {
+      display:inline-block; background:#ca8a04; color:#fff;
+      font-size:11px; font-weight:800; letter-spacing:.22em; text-transform:uppercase;
+      padding:6px 14px; margin-bottom:20px;
+    }
+    .sr-hero-title {
+      font-size:clamp(2.4rem,6vw,5.2rem); font-weight:900; line-height:1.0;
+      letter-spacing:-0.03em; text-transform:uppercase; color:#fff; margin-bottom:16px;
+    }
+    .sr-hero-title span { color:#fbbf24; }
+    .sr-hero-sub { color:#a3a3a3; font-size:clamp(0.88rem,1.5vw,1rem); max-width:480px; line-height:1.75; }
+    .sr-dots { position:absolute; bottom:28px; right:clamp(24px,5vw,60px); z-index:3; display:flex; gap:8px; }
+    .sr-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer; transition:all .3s; }
+    .sr-dot.active { background:#fbbf24; width:24px; border-radius:4px; }
+
+    /* ── Stats Bar ── */
+    .sr-stats {
+      background:#fbbf24; padding:26px clamp(24px,6vw,60px);
+      display:flex; gap:32px; align-items:center; flex-wrap:wrap;
+    }
+    .sr-stat { text-align:center; flex:1; min-width:90px; }
+    .sr-stat-num { font-family:'Inter',sans-serif; font-size:clamp(1.6rem,3vw,2.2rem); font-weight:900; color:#111; display:block; }
+    .sr-stat-lbl { font-size:.68rem; font-weight:800; text-transform:uppercase; letter-spacing:.12em; color:#78350f; }
+
+    /* ── Gallery Section ── */
+    .sr-gallery { background:#111; padding:72px clamp(16px,4vw,48px) 80px; }
+    .sr-gallery-hdr { text-align:center; margin-bottom:44px; }
+    .sr-gallery-hdr .eyebrow { font-size:11px; font-weight:800; letter-spacing:.25em; text-transform:uppercase; color:#fbbf24; margin-bottom:10px; }
+    .sr-gallery-hdr h2 { font-family:'Inter',sans-serif; font-size:clamp(1.8rem,4vw,3.2rem); font-weight:900; letter-spacing:-.03em; text-transform:uppercase; color:#fff; }
+    .sr-gallery-hdr h2 span { color:#fbbf24; }
+    .sr-gallery-hdr p { color:#737373; margin-top:10px; font-size:.92rem; }
+
+    /* Filter bar */
+    .sr-filters { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:44px; }
+    .sr-filter {
+      padding:8px 22px; background:transparent; border:1.5px solid #404040; color:#a3a3a3;
+      font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em;
+      cursor:pointer; transition:all .2s; border-radius:2px; font-family:'Roboto',sans-serif;
+    }
+    .sr-filter:hover, .sr-filter.active { background:#fbbf24; border-color:#fbbf24; color:#111; }
+
+    /* Masonry */
+    .sr-masonry { columns:4; column-gap:8px; }
+    @media(max-width:1100px){ .sr-masonry{ columns:3; } }
+    @media(max-width:680px){ .sr-masonry{ columns:2; } }
+
+    .sr-item { break-inside:avoid; margin-bottom:8px; overflow:hidden; cursor:pointer; position:relative; background:#1a1a1a; }
+    .sr-item img { width:100%; display:block; transition:transform .5s ease, filter .3s; filter:brightness(.92); }
+    .sr-item:hover img { transform:scale(1.06); filter:brightness(1.05); }
+    .sr-item .sr-zoom {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(0);
+      width:44px; height:44px; background:rgba(251,191,36,.9); border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px; transition:transform .25s; color:#111; pointer-events:none;
+    }
+    .sr-item:hover .sr-zoom { transform:translate(-50%,-50%) scale(1); }
+
+    /* Load more */
+    .sr-load-more {
+      display:block; margin:40px auto 0;
+      padding:13px 44px; background:transparent; border:1.5px solid #404040;
+      color:#a3a3a3; font-size:.75rem; font-weight:700; text-transform:uppercase;
+      letter-spacing:.12em; cursor:pointer; transition:all .2s; font-family:'Roboto',sans-serif;
+    }
+    .sr-load-more:hover { border-color:#fbbf24; color:#fbbf24; }
+    .sr-load-more.hidden { display:none; }
+
+    /* ── Lightbox ── */
+    .sr-lightbox {
+      display:none; position:fixed; inset:0; z-index:9999;
+      background:rgba(0,0,0,.96); align-items:center; justify-content:center;
+    }
+    .sr-lightbox.open { display:flex; }
+    .sr-lightbox img { max-width:92vw; max-height:88vh; object-fit:contain; }
+    .sr-lb-close {
+      position:fixed; top:18px; right:26px; background:none; border:none;
+      color:#fff; font-size:2.4rem; cursor:pointer; z-index:10001; opacity:.7; transition:opacity .2s;
+    }
+    .sr-lb-close:hover { opacity:1; }
+    .sr-lb-prev, .sr-lb-next {
+      position:fixed; top:50%; transform:translateY(-50%);
+      background:rgba(251,191,36,.12); border:1.5px solid rgba(251,191,36,.35);
+      color:#fbbf24; font-size:2rem; width:52px; height:52px;
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; transition:all .2s; z-index:10001;
+    }
+    .sr-lb-prev { left:14px; } .sr-lb-next { right:14px; }
+    .sr-lb-prev:hover, .sr-lb-next:hover { background:rgba(251,191,36,.45); }
+    .sr-lb-count { position:fixed; bottom:18px; left:50%; transform:translateX(-50%); color:#525252; font-size:.78rem; font-weight:700; letter-spacing:.1em; }
+
+    /* ── CTA ── */
+    .sr-cta { background:#fbbf24; padding:60px clamp(24px,6vw,60px); text-align:center; }
+    .sr-cta h3 { font-family:'Inter',sans-serif; font-size:clamp(1.4rem,3vw,2.2rem); font-weight:900; color:#111; margin-bottom:8px; text-transform:uppercase; letter-spacing:-.02em; }
+    .sr-cta p { color:#78350f; margin-bottom:28px; font-size:.95rem; }
+    .sr-cta a {
+      display:inline-block; background:#111; color:#fbbf24;
+      padding:14px 40px; font-weight:800; font-size:.82rem;
+      text-transform:uppercase; letter-spacing:.15em; text-decoration:none;
+      transition:all .2s;
+    }
+    .sr-cta a:hover { background:#1c1c1c; transform:translateY(-2px); }
+</style>
 
 <script id="spa-router">
 if (!window.spaRouterLoaded) {
@@ -48,13 +143,12 @@ if (!window.spaRouterLoaded) {
         if (!link) return;
         const href = link.getAttribute('href');
         if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:')) return;
-        
         const cleanHref = href.split('?')[0].split('#')[0];
         if (!window.spaCache[cleanHref]) {
             window.spaCache[cleanHref] = fetch(href).then(r => r.text()).catch(() => null);
         }
     });
-    
+
     window.navigateToSPA = async (url, useTransition = true) => {
         try {
             const cleanUrl = url.split('?')[0].split('#')[0];
@@ -66,128 +160,76 @@ if (!window.spaRouterLoaded) {
                 text = await response.text();
             }
             if (!text) { window.location.href = url; return; }
-            
             const doc = new DOMParser().parseFromString(text, 'text/html');
-            
             const performSwap = () => {
-                // Extract all script text BEFORE DOM swap (replaceWith moves main out of doc)
                 const scriptTexts = Array.from(doc.querySelectorAll('body script:not([src])')).map(s => s.textContent);
-
                 const currentMain = document.querySelector('main');
                 const newMain = doc.querySelector('main');
-                if (currentMain && newMain) {
-                    currentMain.replaceWith(newMain);
-                } else {
-                    window.location.href = url; return;
-                }
-                
+                if (currentMain && newMain) { currentMain.replaceWith(newMain); }
+                else { window.location.href = url; return; }
                 const currentNav = document.querySelector('nav');
                 const newNav = doc.querySelector('nav');
-                if (currentNav && newNav) {
-                    currentNav.innerHTML = newNav.innerHTML;
-                }
-
+                if (currentNav && newNav) { currentNav.innerHTML = newNav.innerHTML; }
                 const currentFooter = document.querySelector('footer');
                 const newFooter = doc.querySelector('footer');
-                if (currentFooter && newFooter) {
-                    currentFooter.replaceWith(newFooter);
-                }
-
+                if (currentFooter && newFooter) { currentFooter.replaceWith(newFooter); }
                 document.title = doc.title;
-
-                // Inject/replace out-of-main body elements from fetched doc (modals, overlays, etc.)
-                // These are outside <main> so replaceWith(newMain) doesn't move them automatically
                 Array.from(doc.body.children).forEach(el => {
                     const tag = el.tagName.toLowerCase();
                     if (tag === 'script' || tag === 'main' || tag === 'nav' || tag === 'footer' || tag === 'noscript') return;
                     const existingEl = el.id ? document.getElementById(el.id) : null;
-                    if (existingEl) {
-                        existingEl.replaceWith(el);
-                    } else {
-                        document.body.appendChild(el);
-                    }
+                    if (existingEl) { existingEl.replaceWith(el); } else { document.body.appendChild(el); }
                 });
-
-                // Re-execute scripts (using pre-extracted text to avoid missing in-main scripts)
                 scriptTexts.forEach(text => {
-                    const newScript = document.createElement('script');
-                    newScript.textContent = text;
-                    document.body.appendChild(newScript);
+                    const s = document.createElement('script'); s.textContent = text; document.body.appendChild(s);
                 });
-
-                if (window.tailwind && typeof window.tailwind.refresh === 'function') {
-                    window.tailwind.refresh();
-                }
+                if (window.tailwind && typeof window.tailwind.refresh === 'function') window.tailwind.refresh();
                 setTimeout(() => {
                     document.querySelectorAll('[class*="animate-"]').forEach(el => {
                         const cls = [...el.classList].find(c => c.startsWith('animate-'));
                         if (cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
                     });
                 }, 50);
-                // Re-initialize tab UI after SPA swap (ensures brand tabs work without reload)
-                setTimeout(() => {
-                    const firstTabCard = document.querySelector('.tab-card');
-                    if (firstTabCard && typeof switchTab === 'function') {
-                        const tabId = firstTabCard.id.replace('tab-', '');
-                        switchTab(tabId, false);
-                    }
-                }, 200);
-                
                 if (url.includes('#')) {
                     const hash = url.split('#')[1];
                     const target = document.getElementById(hash);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'auto', block: 'start' });
-                        return;
-                    }
+                    if (target) { target.scrollIntoView({ behavior: 'auto', block: 'start' }); return; }
                 }
                 window.scrollTo(0, 0);
-                // Re-apply language after SPA swap
                 if (window.applyTranslations) window.applyTranslations();
             };
-
             window.history.pushState({}, '', url);
             performSwap();
-            
-        } catch (e) {
-            window.location.href = url; 
-        }
+        } catch (e) { window.location.href = url; }
     };
-    
+
     document.addEventListener('click', (e) => {
         if (e.defaultPrevented) return;
         const link = e.target.closest('a');
         if (!link) return;
         const href = link.getAttribute('href');
         if (!href || href.startsWith('http') || href.startsWith('mailto:')) return;
-        
         e.preventDefault();
-        
         if (href.startsWith('#')) {
             const tgt = document.querySelector(href);
-            if (tgt) {
-                tgt.scrollIntoView({ behavior: 'smooth' });
-                window.history.pushState({}, '', window.location.pathname + href);
-            }
+            if (tgt) { tgt.scrollIntoView({ behavior: 'smooth' }); window.history.pushState({}, '', window.location.pathname + href); }
             return;
         }
-
         window.navigateToSPA(href, true);
     });
-    
-    window.addEventListener('popstate', () => {
-        window.location.reload();
-    });
+
+    window.addEventListener('popstate', () => { window.location.reload(); });
 }
 </script>
 <script src="assets/lang.js"></script>
-  <meta name="description" content="Project references and successful installations across Thailand by Sun Jupiter Co., Ltd. Proven track record in construction equipment solutions."/>
+  <meta name="description" content="ผลงานติดตั้งและให้บริการเครนทาวเวอร์และลิฟต์ก่อสร้างจริงจากทีมซันจูปิเตอร์ทั่วประเทศ"/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://claudesunjupite.github.io/site-reference.html"/>
 </head>
 <body class="bg-surface text-on-surface antialiased">
 <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-yellow-600 focus:text-white focus:px-4 focus:py-2 focus:font-bold focus:rounded">Skip to main content</a>
-<!-- STANDARDIZED NAVBAR -->
+
+<!-- NAVBAR -->
 <nav aria-label="Main navigation" class="fixed top-0 w-full z-50 bg-white shadow-sm border-b border-neutral-200/50 max-w-none transition-all duration-300">
   <div class="flex justify-between items-center px-8 py-4">
     <a href="index.html" class="flex items-center transition-transform hover:scale-105 ml-6" onclick="if(window.navigateToSPA){event.preventDefault();window.navigateToSPA('index.html')}" aria-label="SUN JUPITER CO.,LTD. — Go to homepage">
@@ -231,6 +273,8 @@ if (!window.spaRouterLoaded) {
     </div>
   </div>
 </nav>
+
+<!-- MOBILE OVERLAY -->
 <div id="nav-overlay" style="display:none;opacity:0;transition:opacity 0.35s ease;position:fixed;inset:0;z-index:60;background:#0a0a0a;flex-direction:column;align-items:center;justify-content:center">
   <button onclick="toggleNavOverlay(false)" aria-label="Close menu" style="position:absolute;top:24px;right:32px;background:none;border:none;cursor:pointer;color:#fff;line-height:1;padding:8px">
     <span class="material-symbols-outlined" style="font-size:32px">close</span>
@@ -246,153 +290,85 @@ if (!window.spaRouterLoaded) {
     </a>
   </div>
 </div>
+
 <main id="main-content" class="pt-24">
-<!-- Hero Section -->
-<section class="relative min-h-[716px] flex items-center px-12 overflow-hidden bg-surface-container-low">
-<div class="absolute inset-0 z-0">
-<img loading="eager" class="w-full h-full object-cover opacity-20 scale-110 grayscale" data-alt="Massive yellow crawler crane assembling steel structure of a futuristic stadium at dusk, dramatic lighting, industrial scale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy3TTJCPQfdFWR_VwBc0W077OXfStdMq5Rj7ZbhyqCUj8kNXOgm-5zIk6KRMHeZw2bBnKu_6I5CiFEn05LWCKUxPWyRXtYynOTbzLf9vDHu2ihntiVEHZTTCYdapDVbKLogfblwnW5aNmn587vPI-MNrqDlGx0L_SETzzLouoP6lJGST4mWW461fQCPgcu78sgFZl96p2VeF93hvdf1WPQIFYy9JB_70ywUH3tsksUSgBwlYP6QZA3xemg7-nU0uzr_E3wVt5C678C"/>
-<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
-</div>
-<div class="relative z-10 w-full max-w-7xl">
-<p class="font-headline font-black text-primary uppercase tracking-[0.2em] mb-4 text-sm">Global Site Archive</p>
-<h1 class="font-headline font-black text-4xl md:text-6xl tracking-tighter text-on-surface leading-[0.9] mb-8">
-                    Precision Engineering <br/> Meets <span class="text-primary italic">Monumental</span> Scale.
-                </h1>
-<div class="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
-<div class="h-1 w-24 bg-secondary-fixed-dim mt-4"></div>
-<p class="max-w-xl text-lg font-medium text-on-surface-variant leading-loose">
-                        Explore the structural backbone of modern civilization. From high-altitude skyscraper cores to expansive bridge spans, SUN JUPITER heavy-lift solutions define the horizon of possibility.
-                    </p>
-</div>
-</div>
+
+<!-- ── HERO SLIDESHOW ── -->
+<section class="sr-hero" id="sr-hero">
+  <div class="sr-hero-overlay"></div>
+  <div class="sr-hero-content">
+    <div class="sr-eyebrow">ผลงานอ้างอิง · Site Reference</div>
+    <h1 class="sr-hero-title">ผลงาน<span>จริง</span><br/>จากไซต์งาน<br/>ทั่วประเทศ</h1>
+    <p class="sr-hero-sub">ภาพรวมการติดตั้งและให้บริการเครนทาวเวอร์และลิฟต์ก่อสร้างโดยทีมช่างผู้เชี่ยวชาญของซันจูปิเตอร์ มากกว่า 15 ปีในอุตสาหกรรม</p>
+  </div>
+  <div class="sr-dots" id="sr-dots"></div>
 </section>
-<!-- Project Archive Bento Grid -->
-<section class="px-12 py-32 md:py-40 bg-surface">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
-<!-- Project 1: The Apex Spire -->
-<div class="md:col-span-8 group relative overflow-hidden bg-surface-container-lowest">
-<div class="aspect-[16/9] overflow-hidden">
-<img loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern skyscraper under construction with a luffing-jib crane at the top against a deep blue sky, professional photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaf7ysn0YBTII9pWJ-fuHxkNIrvQcDRAnwwr3nMFljahuie_vZeIqQnlIN6v9qW0ankdIflDrIwknOxjBIVwxyLaClpTOpodG1VvkHsYrSR4FXthuaO7KarVuyznRnE-BOXLQLwh_dcGf3s1l-IR0P9RgzPdoBH-vup_Irkx7b5bmLW9qbhx-KBlzHYdjfqxkYLFXrMWFbwmFM9YhOGavqk7c3FZKpvCQGkKQHq2qQbToKwaOSxuU0CgG0KvadDw8JDR0j1zBB0uF_"/>
+
+<!-- ── STATS BAR ── -->
+<div class="sr-stats">
+  <div class="sr-stat"><span class="sr-stat-num">15+</span><span class="sr-stat-lbl">ปีในอุตสาหกรรม</span></div>
+  <div class="sr-stat"><span class="sr-stat-num">200+</span><span class="sr-stat-lbl">โครงการที่ผ่านมา</span></div>
+  <div class="sr-stat"><span class="sr-stat-num">500+</span><span class="sr-stat-lbl">ลูกค้าที่ไว้วางใจ</span></div>
+  <div class="sr-stat"><span class="sr-stat-num">24/7</span><span class="sr-stat-lbl">ทีมช่างพร้อมให้บริการ</span></div>
 </div>
-<div class="p-8 flex flex-col md:flex-row justify-between items-end gap-6">
-<div>
-<span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container font-label text-xs font-bold uppercase tracking-widest mb-4 rounded-full">Dubai, UAE</span>
-<h3 class="font-headline font-black text-4xl tracking-tight text-on-surface">The Al-Burj Pinnacle</h3>
-<p class="text-on-surface-variant mt-2 font-medium">Core lifting and panel installation for the world's newest landmark.</p>
-</div>
-<div class="bg-primary text-on-primary p-6 rounded-md min-w-[200px] border-l-4 border-secondary">
-<p class="text-[10px] uppercase font-bold tracking-widest opacity-80 mb-1">Solution Used</p>
-<p class="font-headline font-bold text-lg leading-tight uppercase">SJ-900 Ultra Luffer</p>
-</div>
-</div>
-</div>
-<!-- Project 2: Coastal Link -->
-<div class="md:col-span-4 group bg-surface-container-low p-8 flex flex-col justify-between">
-<div>
-<span class="inline-block px-3 py-1 bg-tertiary-container text-on-tertiary-container font-label text-xs font-bold uppercase tracking-widest mb-4 rounded-full">New York, USA</span>
-<h3 class="font-headline font-black text-3xl tracking-tight text-on-surface mb-4">Verrazano North Expansion</h3>
-<p class="text-on-surface-variant font-medium">Deep-water foundation placement and heavy suspension cable management.</p>
-</div>
-<div class="mt-8">
-<img loading="lazy" class="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition-all duration-500 mb-6" data-alt="Massive suspension bridge under maintenance with large industrial cranes visible, sunset sky with orange and blue tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRo-qbjHXEcAzH4cOOWFru9dx5WbWb4pAbv6F_5cA39TiyS6LgeZI2aTfhFUErv_19u0IVJfeBYT765tz3rTlIzGxewXTfCw8cnLLP534Cc15-unn6ozaaGfJkLE-ddWzCyRSZP7ElszjDcVs5aCPptiuyzH4sXEprTLZD55jpayjibR9awo1uwLGek4Fj7IKdGjgLvcdG9rshVdj91beyoYh5paKNhF_Y18cGLFAzH5QL1YHs-seGXXCy3YIguToi2eUOk0On-dTd"/>
-<div class="flex items-center gap-4 text-primary">
-<span class="font-headline font-bold text-lg">SJ-Titan Crawler Series</span>
-<span class="material-symbols-outlined">arrow_forward</span>
-</div>
-</div>
-</div>
-<!-- Project 3: Industrial Hub -->
-<div class="md:col-span-5 bg-surface-container-high relative overflow-hidden">
-<div class="p-10 relative z-10">
-<span class="text-outline font-headline font-black text-6xl absolute -top-4 right-4 opacity-40">03</span>
-<span class="inline-block px-3 py-1 bg-surface-container-highest text-on-surface-variant font-label text-xs font-bold uppercase tracking-widest mb-4 rounded-full">Hamburg, Germany</span>
-<h3 class="font-headline font-black text-3xl tracking-tight text-on-surface mb-2">Nord-Port Logistics Center</h3>
-<p class="text-on-surface-variant mb-6">Autonomous gantry system integration for high-density shipping terminals.</p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-surface-container-lowest px-4 py-2 text-xs font-bold uppercase border-l-2 border-primary">Automated Gantry</span>
-<span class="bg-surface-container-lowest px-4 py-2 text-xs font-bold uppercase border-l-2 border-secondary">Smart Load Balancing</span>
-</div>
-</div>
-<img loading="lazy" class="w-full h-80 object-cover mt-4 grayscale hover:grayscale-0 transition-all" data-alt="Wide shot of a bustling industrial shipping port at dawn with giant cranes and stacked containers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL9JTt80r8J9n9puBXbDAe_u39GXyY4r86p7PPEiA71xLTBewRyou-d6Agc79Nzs-jy2cXQguyzLSlVBIAbb9k667Gv_qPb_Ggf5-2AFz_ytkpJCfIZ9hHLP3JI0VnvzKHSKjgWJ1Vz4D1gByr-LRnS23Pz1hyfEKwe9IUau-hVAsSBLOKa_kUl17wyMNGTqhV8BQWuYlRp5x65JEVtd0UJsUz2uHpRkXXwpxcyLjV88w9vEbOM-zB05X_DYjuz2zJNs3sVj1nYLpn"/>
-</div>
-<!-- Project 4: Energy Grid -->
-<div class="md:col-span-7 group bg-inverse-surface text-surface relative overflow-hidden flex flex-col md:flex-row">
-<div class="flex-1 p-10 flex flex-col justify-between">
-<div>
-<span class="inline-block px-3 py-1 bg-primary text-on-primary font-label text-xs font-bold uppercase tracking-widest mb-6 rounded-full">North Sea</span>
-<h3 class="font-headline font-black text-5xl tracking-tight mb-4">Wind-Triton <br/> Offshore Field</h3>
-<p class="text-inverse-on-surface font-medium mb-8">Installation of 200m turbines in extreme maritime conditions requiring millimetric precision.</p>
-</div>
-<div class="flex items-center gap-6">
-<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 font-headline font-bold rounded-md hover:shadow-lg transition-all">PROJECT SPECS</button>
-<span class="text-secondary-fixed-dim font-bold tracking-widest text-xs uppercase">Solution: SJ-SeaGiant 4000</span>
-</div>
-</div>
-<div class="flex-1 overflow-hidden">
-<img loading="lazy" class="w-full h-full object-cover grayscale group-hover:scale-110 transition-transform duration-1000" data-alt="Giant wind turbine components being lifted by a massive ship crane in the middle of a dark blue ocean" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOFDPEx45xx2RuNhV7Y9ubIWdPk2IpLFNemshOQQIngAwSEP6qkszu1siEDj_Ao56Ik4Sf2eC8KKUCVDqxifesG8IDvfDCVY3pOHx1aOYZ1QsjZLVX681_HYVk5If5IZqKDdIqA2N8QwgUSamanzJKxcp9A31l2my0HZ-9WyJ1Tf7WZHhFOc9pbOn8wv7WdQDvJmQQz_xhO9Maxg0P5UFLZ58NrQgqBx3mdbHHM8F95z09da3zYBWFufCSsS21k81skZJ-5X_fFiHX"/>
-</div>
-</div>
-</div>
+
+<!-- ── GALLERY ── -->
+<section class="sr-gallery">
+  <div class="sr-gallery-hdr">
+    <div class="eyebrow">Portfolio · ภาพผลงาน</div>
+    <h2>ภาพจาก<span>ไซต์งานจริง</span></h2>
+    <p>ภาพถ่ายจากหน้างานจริง — เครนทาวเวอร์ ลิฟต์ก่อสร้าง และการติดตั้งโดยทีมซันจูปิเตอร์</p>
+  </div>
+
+  <div class="sr-filters" id="sr-filters">
+    <button class="sr-filter active" data-filter="all">ทั้งหมด (259)</button>
+    <button class="sr-filter" data-filter="tower">🏗 เครนทาวเวอร์</button>
+    <button class="sr-filter" data-filter="hoist">🔧 ลิฟต์ก่อสร้าง</button>
+    <button class="sr-filter" data-filter="site">📍 ไซต์งาน</button>
+  </div>
+
+  <div class="sr-masonry" id="sr-masonry"></div>
+  <button class="sr-load-more" id="sr-load-more" onclick="loadMore()">โหลดเพิ่มเติม →</button>
 </section>
-<!-- Stats Counter Section -->
-<section class="bg-surface-container-low py-32 px-12 relative">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-16">
-<div class="flex-1">
-<h2 class="font-headline font-black text-6xl tracking-tighter mb-8 leading-none">Global <br/> Impact in <br/> <span class="text-primary">Numbers</span></h2>
-<p class="text-on-surface-variant text-lg">Our machinery is present in over 85% of current "Super-Tall" skyscraper construction sites globally.</p>
+
+<!-- ── CTA ── -->
+<div class="sr-cta">
+  <h3>สนใจใช้บริการ?</h3>
+  <p>ทีมงานของเราพร้อมให้คำปรึกษาและเสนอราคาให้กับโครงการของคุณ</p>
+  <a href="contact.html">ติดต่อเรา →</a>
 </div>
-<div class="grid grid-cols-2 gap-16 break-words flex-1">
-<div class="border-t-4 border-secondary pt-6">
-<p class="font-headline font-black text-5xl text-on-surface">1,240+</p>
-<p class="font-label text-xs font-bold uppercase tracking-widest text-primary mt-2">Active Major Sites</p>
-</div>
-<div class="border-t-4 border-primary pt-6">
-<p class="font-headline font-black text-5xl text-on-surface">450kT</p>
-<p class="font-label text-xs font-bold uppercase tracking-widest text-primary mt-2">Total Lift Capacity</p>
-</div>
-<div class="border-t-4 border-primary pt-6">
-<p class="font-headline font-black text-5xl text-on-surface">58</p>
-<p class="font-label text-xs font-bold uppercase tracking-widest text-primary mt-2">Countries Served</p>
-</div>
-<div class="border-t-4 border-tertiary pt-6">
-<p class="font-headline font-black text-5xl text-on-surface">0</p>
-<p class="font-label text-xs font-bold uppercase tracking-widest text-primary mt-2">Critical Failures</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Quote/CTA Banner -->
-<section class="bg-primary py-32 md:py-40 px-12 text-center relative overflow-hidden">
-<div class="absolute inset-0 opacity-10 flex items-center justify-center">
-<span class="font-headline font-black text-[30vw] tracking-tighter text-on-primary">JUPITER</span>
-</div>
-<div class="relative z-10">
-<h2 class="font-headline font-black text-5xl text-on-primary mb-8 tracking-tight">Need Monumental Strength?</h2>
-<button class="bg-secondary-fixed text-on-secondary-fixed px-12 py-6 rounded-md font-headline font-black text-xl hover:bg-secondary-fixed-dim transition-colors shadow-2xl">
-                    REQUEST PROJECT QUOTE
-                </button>
-</div>
-</section>
+
 </main>
-<!-- Footer -->
+
+<!-- FOOTER -->
 <footer class="bg-neutral-950 dark:bg-black w-full border-t border-neutral-800 flex flex-col md:flex-row justify-between items-center px-12 py-10">
-<div class="mb-8 md:mb-0 opacity-80 hover:opacity-100 transition-all duration-300">
-<span class="text-lg font-black text-white uppercase font-headline">SUN JUPITER CO.,LTD.</span>
-<p class="font-['Work_Sans'] text-xs tracking-wider text-neutral-400 mt-2 max-w-xs">Providing reliable heavy lifting products and services with expert technical precision.</p>
-</div>
-<div class="flex flex-wrap justify-center gap-12 md:gap-16 mb-8 md:mb-0 font-['Work_Sans'] text-xs tracking-wider text-neutral-400">
-<a class="text-neutral-500 hover:text-white transition-colors hover:underline decoration-yellow-500" href="#">Privacy Policy</a>
-<a class="text-neutral-500 hover:text-white transition-colors hover:underline decoration-yellow-500" href="#">Terms of Service</a>
-<a class="text-neutral-500 hover:text-white transition-colors hover:underline decoration-yellow-500" href="#">Safety Manuals</a>
-</div>
-<div class="text-center md:text-right opacity-80 hover:opacity-100 transition-all duration-300">
-<p class="font-['Work_Sans'] text-xs tracking-wider text-neutral-400">© 2024 SUN JUPITER CO.,LTD. All Rights Reserved.</p>
-<div class="flex justify-center md:justify-end gap-4 mt-4">
-<span class="material-symbols-outlined text-yellow-600 text-xl">precision_manufacturing</span>
-<span class="material-symbols-outlined text-yellow-600 text-xl">construction</span>
-</div>
-</div>
+  <div class="mb-8 md:mb-0 opacity-80 hover:opacity-100 transition-all duration-300">
+    <span class="text-lg font-black text-white uppercase font-headline">SUN JUPITER CO.,LTD.</span>
+    <p class="font-['Work_Sans'] text-xs tracking-wider text-neutral-400 mt-2 max-w-xs">Providing reliable heavy lifting products and services with expert technical precision.</p>
+  </div>
+  <div class="flex flex-wrap justify-center gap-12 md:gap-16 mb-8 md:mb-0 font-['Work_Sans'] text-xs tracking-wider text-neutral-400">
+    <a class="text-neutral-500 hover:text-white transition-colors hover:underline decoration-yellow-500" href="#">Privacy Policy</a>
+    <a class="text-neutral-500 hover:text-white transition-colors hover:underline decoration-yellow-500" href="#">Terms of Service</a>
+    <a class="text-neutral-500 hover:text-white transition-colors hover:underline decoration-yellow-500" href="#">Safety Manuals</a>
+  </div>
+  <div class="text-center md:text-right opacity-80 hover:opacity-100 transition-all duration-300">
+    <p class="font-['Work_Sans'] text-xs tracking-wider text-neutral-400">© 2024 SUN JUPITER CO.,LTD. All Rights Reserved.</p>
+    <div class="flex justify-center md:justify-end gap-4 mt-4">
+      <span class="material-symbols-outlined text-yellow-600 text-xl">precision_manufacturing</span>
+      <span class="material-symbols-outlined text-yellow-600 text-xl">construction</span>
+    </div>
+  </div>
 </footer>
+
+<!-- LIGHTBOX -->
+<div class="sr-lightbox" id="sr-lightbox">
+  <button class="sr-lb-close" onclick="srCloseLB()">×</button>
+  <button class="sr-lb-prev" onclick="srNavLB(-1)">‹</button>
+  <img id="sr-lb-img" src="" alt="ผลงานซันจูปิเตอร์"/>
+  <button class="sr-lb-next" onclick="srNavLB(1)">›</button>
+  <div class="sr-lb-count" id="sr-lb-count"></div>
+</div>
+
 <script>
 function toggleNavOverlay(open) {
   const overlay = document.getElementById('nav-overlay');
@@ -414,10 +390,113 @@ function navOverlayGo(e, url) {
     window.navigateToSPA ? window.navigateToSPA(url, true) : (window.location.href = url);
   }, 370);
 }
+
+// ── All 259 images ────────────────────────────────────────────────
+const SR_IMAGES = ["118360","118469","118547","120359","136174","136761","19417","324205","55619","56684","56742","56831","60968","61695","68016","69342","69479","70202","71382","71383","85368","85498","85999","91230","91460","91858","99224","S__10092595","S__10108937","S__10272979","S__10272981","S__11346051","S__11378782","S__11673621","S__11755543","S__11788310","S__11845674","S__11976729","S__12124284","S__12124286","S__12828677","S__12886109","S__12894225","S__12894267","S__132186148","S__132186157","S__132382739","S__132956261","S__132956275","S__133226512","S__133333019","S__133423112","S__133472265","S__133554235","S__133783574","S__133849097","S__133849101","S__134135813","S__134135814","S__134135815","S__134381589","S__134381592","S__134610963","S__134610964","S__134676490","S__134733852","S__134733880","S__134791177","S__13533224","S__137846787","S__138035223","S__138125346","S__138305558","S__138420246","S__138477586","S__138477641","S__141475868","S__141500436","S__142655513","S__143138820","S__143843342","S__143859720","S__144064527","S__144629773","S__144646150","S__144646157","S__144646158","S__144646167","S__144662533","S__144662535","S__144662536","S__144662537","S__144810011","S__144810012","S__144810013","S__144810014","S__145350669","S__151396395","S__151396404","S__151535623","S__152657927","S__15294531","S__153321481","S__15335551","S__15343630","S__153640977","S__15376504","S__15376506","S__15376508","S__15663184","S__15663185","S__15663186","S__158613576","S__159293449","S__159399953","S__159399956","S__159522846","S__160186370","S__160677895","S__160710670","S__161406984","S__161406993","S__161407009","S__161980432","S__161980434","S__162291753","S__162390042","S__162390043","S__162635783","S__16482328","S__16482329","S__170197003","S__171335694","S__172294153","S__172351497","S__172515338","S__18579569","S__19210277","S__19234882","S__19243062","S__19243064","S__19333161","S__19546182","S__19554334","S__19857413","S__21315645","S__2842750","S__2842751","S__3031087","S__3317841","S__3326047","S__3326064","S__3375316","S__3530905","S__3694636","S__3694648","S__3694672","S__3776623","S__3834070","S__3850291","S__3850294","S__3866629","S__3907636","S__3932267","S__3940432","S__3997726","S__4063792","S__4071436","S__4071437","S__4071471","S__4112488","S__4112489","S__4317268","S__4317310","S__4431967","S__4432011","S__4432013","S__4440101","S__4440102","S__4440113","S__4456511","S__4481079","S__4513869","S__45309986","S__45367311","S__4596361","S__46137351","S__4661350","S__4702240","S__47177758","S__4726819","S__47382651","S__4743218","S__4751389","S__47595529","S__47710232","S__47947789","S__47972374","S__49397771","S__5021757","S__5152790","S__5152792","S__5152793","S__5152794","S__5152800","S__5152821","S__5152843","S__5152866","S__5152869","S__5185570","S__5185571","S__52002829","S__52002843","S__52731917","S__52731942","S__52731943","S__52830226","S__52830227","S__52830228","S__52830233","S__52969488","S__55517193","S__55738377","S__55738379","S__5578940","S__56483856","S__56483858","S__5660717","S__5668925","S__5668929","S__5742602","S__5742643","S__5742682","S__5750905","S__58581033","S__58990608","S__59113503","S__59465737","S__64086032","S__66748436","S__67239965","S__6766618","S__67698696","S__6971456","S__7069720","S__7331947","S__7331949","S__7389264","S__7389278","S__7454824","S__7790630","S__7790713","S__7815201","S__7970856","S__8003589","S__8003594","S__8028181_0_1","S__8421415","S__9912361"].map(n => `assets/site-ref/${n}.webp`);
+
+// ── Hero Slideshow ────────────────────────────────────────────────
+(function initHero() {
+  const heroSlides = SR_IMAGES.slice(0, 10);
+  let idx = 0;
+  const heroEl = document.getElementById('sr-hero');
+  const dotsEl = document.getElementById('sr-dots');
+  if (!heroEl || !dotsEl) return;
+
+  heroSlides.forEach((src, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'sr-slide' + (i === 0 ? ' active' : '');
+    slide.innerHTML = `<img src="${src}" alt="ผลงานซันจูปิเตอร์" loading="${i < 2 ? 'eager' : 'lazy'}"/>`;
+    heroEl.insertBefore(slide, heroEl.firstChild);
+    const dot = document.createElement('div');
+    dot.className = 'sr-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goHero(i);
+    dotsEl.appendChild(dot);
+  });
+
+  function goHero(newIdx) {
+    document.querySelectorAll('.sr-slide')[idx].classList.remove('active');
+    document.querySelectorAll('.sr-dot')[idx].classList.remove('active');
+    idx = newIdx;
+    document.querySelectorAll('.sr-slide')[idx].classList.add('active');
+    document.querySelectorAll('.sr-dot')[idx].classList.add('active');
+  }
+  setInterval(() => goHero((idx + 1) % heroSlides.length), 4500);
+})();
+
+// ── Gallery with lazy load (show 40 first, load more) ─────────────
+const BATCH = 40;
+let shown = 0;
+let lbIdx = 0;
+let visibleImages = SR_IMAGES.slice();
+
+function buildGrid(reset) {
+  const grid = document.getElementById('sr-masonry');
+  if (reset) { grid.innerHTML = ''; shown = 0; }
+  const end = Math.min(shown + BATCH, visibleImages.length);
+  const frag = document.createDocumentFragment();
+
+  for (let i = shown; i < end; i++) {
+    const src = visibleImages[i];
+    const globalIdx = SR_IMAGES.indexOf(src);
+    const item = document.createElement('div');
+    item.className = 'sr-item';
+    item.dataset.idx = globalIdx;
+    item.innerHTML = `<img src="${src}" alt="ผลงาน ${i + 1}" loading="lazy"/><div class="sr-zoom">⊕</div>`;
+    item.onclick = () => srOpenLB(globalIdx);
+    frag.appendChild(item);
+  }
+  grid.appendChild(frag);
+  shown = end;
+
+  const btn = document.getElementById('sr-load-more');
+  if (shown >= visibleImages.length) { btn.classList.add('hidden'); }
+  else { btn.classList.remove('hidden'); btn.textContent = `โหลดเพิ่มเติม (${visibleImages.length - shown} รูป) →`; }
+}
+
+function loadMore() { buildGrid(false); }
+
+// Filter
+document.getElementById('sr-filters').addEventListener('click', function(e) {
+  const btn = e.target.closest('.sr-filter');
+  if (!btn) return;
+  document.querySelectorAll('.sr-filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  visibleImages = SR_IMAGES.slice();
+  buildGrid(true);
+});
+
+buildGrid(true);
+
+// ── Lightbox ──────────────────────────────────────────────────────
+function srOpenLB(idx) {
+  lbIdx = idx;
+  document.getElementById('sr-lb-img').src = SR_IMAGES[idx];
+  document.getElementById('sr-lb-count').textContent = `${idx + 1} / ${SR_IMAGES.length}`;
+  document.getElementById('sr-lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function srCloseLB() {
+  document.getElementById('sr-lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function srNavLB(dir) {
+  lbIdx = (lbIdx + dir + SR_IMAGES.length) % SR_IMAGES.length;
+  document.getElementById('sr-lb-img').src = SR_IMAGES[lbIdx];
+  document.getElementById('sr-lb-count').textContent = `${lbIdx + 1} / ${SR_IMAGES.length}`;
+}
+document.getElementById('sr-lightbox').addEventListener('click', function(e) {
+  if (e.target === this) srCloseLB();
+});
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('sr-lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowRight') srNavLB(1);
+  else if (e.key === 'ArrowLeft') srNavLB(-1);
+  else if (e.key === 'Escape') srCloseLB();
+});
+
+window.srOpenLB = srOpenLB;
+window.srCloseLB = srCloseLB;
+window.srNavLB = srNavLB;
+window.loadMore = loadMore;
 </script>
 </body></html>
-
-
-
-
-                                                                                                                                                                            
