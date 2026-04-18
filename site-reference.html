@@ -13,124 +13,10 @@
 <link rel="stylesheet" href="assets/tailwind.css"/>
 
 <style>
+    /* shared base only — page-specific CSS lives inside <main> for SPA compatibility */
     .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
     body { font-family: 'Roboto', sans-serif; }
     h1, h2, h3, h4 { font-family: 'Inter', sans-serif; }
-
-    /* ── Hero Slideshow ── */
-    .sr-hero { position:relative; height:100vh; min-height:520px; overflow:hidden; background:#0d0d0d; }
-    .sr-slide { position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease; }
-    .sr-slide.active { opacity:1; }
-    .sr-slide img { width:100%; height:100%; object-fit:cover; filter:brightness(0.42); }
-    .sr-hero-overlay {
-      position:absolute; inset:0; z-index:1;
-      background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 55%, transparent 100%);
-    }
-    .sr-hero-content {
-      position:absolute; bottom:0; left:0; right:0; z-index:2;
-      padding: clamp(32px,5vw,72px) clamp(24px,6vw,80px) clamp(48px,7vw,90px);
-    }
-    .sr-eyebrow {
-      display:inline-block; background:#ca8a04; color:#fff;
-      font-size:11px; font-weight:800; letter-spacing:.22em; text-transform:uppercase;
-      padding:6px 14px; margin-bottom:20px;
-    }
-    .sr-hero-title {
-      font-size:clamp(2.4rem,6vw,5.2rem); font-weight:900; line-height:1.0;
-      letter-spacing:-0.03em; text-transform:uppercase; color:#fff; margin-bottom:16px;
-    }
-    .sr-hero-title span { color:#fbbf24; }
-    .sr-hero-sub { color:#a3a3a3; font-size:clamp(0.88rem,1.5vw,1rem); max-width:480px; line-height:1.75; }
-    .sr-dots { position:absolute; bottom:28px; right:clamp(24px,5vw,60px); z-index:3; display:flex; gap:8px; }
-    .sr-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer; transition:all .3s; }
-    .sr-dot.active { background:#fbbf24; width:24px; border-radius:4px; }
-
-    /* ── Stats Bar ── */
-    .sr-stats {
-      background:#fbbf24; padding:26px clamp(24px,6vw,60px);
-      display:flex; gap:32px; align-items:center; flex-wrap:wrap;
-    }
-    .sr-stat { text-align:center; flex:1; min-width:90px; }
-    .sr-stat-num { font-family:'Inter',sans-serif; font-size:clamp(1.6rem,3vw,2.2rem); font-weight:900; color:#111; display:block; }
-    .sr-stat-lbl { font-size:.68rem; font-weight:800; text-transform:uppercase; letter-spacing:.12em; color:#78350f; }
-
-    /* ── Gallery Section ── */
-    .sr-gallery { background:#111; padding:72px clamp(16px,4vw,48px) 80px; }
-    .sr-gallery-hdr { text-align:center; margin-bottom:44px; }
-    .sr-gallery-hdr .eyebrow { font-size:11px; font-weight:800; letter-spacing:.25em; text-transform:uppercase; color:#fbbf24; margin-bottom:10px; }
-    .sr-gallery-hdr h2 { font-family:'Inter',sans-serif; font-size:clamp(1.8rem,4vw,3.2rem); font-weight:900; letter-spacing:-.03em; text-transform:uppercase; color:#fff; }
-    .sr-gallery-hdr h2 span { color:#fbbf24; }
-    .sr-gallery-hdr p { color:#737373; margin-top:10px; font-size:.92rem; }
-
-    /* Filter bar */
-    .sr-filters { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:44px; }
-    .sr-filter {
-      padding:8px 22px; background:transparent; border:1.5px solid #404040; color:#a3a3a3;
-      font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em;
-      cursor:pointer; transition:all .2s; border-radius:2px; font-family:'Roboto',sans-serif;
-    }
-    .sr-filter:hover, .sr-filter.active { background:#fbbf24; border-color:#fbbf24; color:#111; }
-
-    /* Masonry */
-    .sr-masonry { columns:4; column-gap:8px; }
-    @media(max-width:1100px){ .sr-masonry{ columns:3; } }
-    @media(max-width:680px){ .sr-masonry{ columns:2; } }
-
-    .sr-item { break-inside:avoid; margin-bottom:8px; overflow:hidden; cursor:pointer; position:relative; background:#1a1a1a; }
-    .sr-item img { width:100%; display:block; transition:transform .5s ease, filter .3s; filter:brightness(.92); }
-    .sr-item:hover img { transform:scale(1.06); filter:brightness(1.05); }
-    .sr-item .sr-zoom {
-      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(0);
-      width:44px; height:44px; background:rgba(251,191,36,.9); border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      font-size:20px; transition:transform .25s; color:#111; pointer-events:none;
-    }
-    .sr-item:hover .sr-zoom { transform:translate(-50%,-50%) scale(1); }
-
-    /* Load more */
-    .sr-load-more {
-      display:block; margin:40px auto 0;
-      padding:13px 44px; background:transparent; border:1.5px solid #404040;
-      color:#a3a3a3; font-size:.75rem; font-weight:700; text-transform:uppercase;
-      letter-spacing:.12em; cursor:pointer; transition:all .2s; font-family:'Roboto',sans-serif;
-    }
-    .sr-load-more:hover { border-color:#fbbf24; color:#fbbf24; }
-    .sr-load-more.hidden { display:none; }
-
-    /* ── Lightbox ── */
-    .sr-lightbox {
-      display:none; position:fixed; inset:0; z-index:9999;
-      background:rgba(0,0,0,.96); align-items:center; justify-content:center;
-    }
-    .sr-lightbox.open { display:flex; }
-    .sr-lightbox img { max-width:92vw; max-height:88vh; object-fit:contain; }
-    .sr-lb-close {
-      position:fixed; top:18px; right:26px; background:none; border:none;
-      color:#fff; font-size:2.4rem; cursor:pointer; z-index:10001; opacity:.7; transition:opacity .2s;
-    }
-    .sr-lb-close:hover { opacity:1; }
-    .sr-lb-prev, .sr-lb-next {
-      position:fixed; top:50%; transform:translateY(-50%);
-      background:rgba(251,191,36,.12); border:1.5px solid rgba(251,191,36,.35);
-      color:#fbbf24; font-size:2rem; width:52px; height:52px;
-      display:flex; align-items:center; justify-content:center;
-      cursor:pointer; transition:all .2s; z-index:10001;
-    }
-    .sr-lb-prev { left:14px; } .sr-lb-next { right:14px; }
-    .sr-lb-prev:hover, .sr-lb-next:hover { background:rgba(251,191,36,.45); }
-    .sr-lb-count { position:fixed; bottom:18px; left:50%; transform:translateX(-50%); color:#525252; font-size:.78rem; font-weight:700; letter-spacing:.1em; }
-
-    /* ── CTA ── */
-    .sr-cta { background:#fbbf24; padding:60px clamp(24px,6vw,60px); text-align:center; }
-    .sr-cta h3 { font-family:'Inter',sans-serif; font-size:clamp(1.4rem,3vw,2.2rem); font-weight:900; color:#111; margin-bottom:8px; text-transform:uppercase; letter-spacing:-.02em; }
-    .sr-cta p { color:#78350f; margin-bottom:28px; font-size:.95rem; }
-    .sr-cta a {
-      display:inline-block; background:#111; color:#fbbf24;
-      padding:14px 40px; font-weight:800; font-size:.82rem;
-      text-transform:uppercase; letter-spacing:.15em; text-decoration:none;
-      transition:all .2s;
-    }
-    .sr-cta a:hover { background:#1c1c1c; transform:translateY(-2px); }
 </style>
 
 <script id="spa-router">
@@ -292,6 +178,68 @@ if (!window.spaRouterLoaded) {
 </div>
 
 <main id="main-content" class="pt-24">
+<style>
+/* ── site-reference page styles (inside <main> so SPA picks them up) ── */
+#sr-entry-cover { position:fixed;inset:0;z-index:99998;background:#000;pointer-events:none;opacity:1;transition:opacity 0.5s ease 0.1s; }
+#sr-entry-cover.done { opacity:0; }
+.sr-hero-from-bento .sr-hero-content { opacity:0;transform:translateY(20px);transition:opacity 0.6s ease 0.4s,transform 0.6s ease 0.4s; }
+.sr-hero-from-bento.ready .sr-hero-content { opacity:1;transform:translateY(0); }
+.sr-hero-from-bento .sr-dots { opacity:0;transition:opacity 0.4s ease 0.7s; }
+.sr-hero-from-bento.ready .sr-dots { opacity:1; }
+.sr-hero { position:relative;height:100vh;min-height:520px;overflow:hidden;background:#0d0d0d; }
+.sr-slide { position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease; }
+.sr-slide.active { opacity:1; }
+.sr-slide img { width:100%;height:100%;object-fit:cover;filter:brightness(0.42); }
+.sr-hero-overlay { position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(0,0,0,.85) 0%,rgba(0,0,0,.4) 55%,transparent 100%); }
+.sr-hero-content { position:absolute;bottom:0;left:0;right:0;z-index:2;padding:clamp(32px,5vw,72px) clamp(24px,6vw,80px) clamp(48px,7vw,90px); }
+.sr-eyebrow { display:inline-block;background:#ca8a04;color:#fff;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;padding:6px 14px;margin-bottom:20px; }
+.sr-hero-title { font-size:clamp(2.4rem,6vw,5.2rem);font-weight:900;line-height:1.0;letter-spacing:-.03em;text-transform:uppercase;color:#fff;margin-bottom:16px; }
+.sr-hero-title span { color:#fbbf24; }
+.sr-hero-sub { color:#a3a3a3;font-size:clamp(.88rem,1.5vw,1rem);max-width:480px;line-height:1.75; }
+.sr-dots { position:absolute;bottom:28px;right:clamp(24px,5vw,60px);z-index:3;display:flex;gap:8px; }
+.sr-dot { width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s; }
+.sr-dot.active { background:#fbbf24;width:24px;border-radius:4px; }
+.sr-stats { background:#fbbf24;padding:26px clamp(24px,6vw,60px);display:flex;gap:32px;align-items:center;flex-wrap:wrap; }
+.sr-stat { text-align:center;flex:1;min-width:90px; }
+.sr-stat-num { font-family:'Inter',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#111;display:block; }
+.sr-stat-lbl { font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#78350f; }
+.sr-gallery { background:#111;padding:72px clamp(16px,4vw,48px) 80px; }
+.sr-gallery-hdr { text-align:center;margin-bottom:44px; }
+.sr-gallery-hdr .eyebrow { font-size:11px;font-weight:800;letter-spacing:.25em;text-transform:uppercase;color:#fbbf24;margin-bottom:10px; }
+.sr-gallery-hdr h2 { font-family:'Inter',sans-serif;font-size:clamp(1.8rem,4vw,3.2rem);font-weight:900;letter-spacing:-.03em;text-transform:uppercase;color:#fff; }
+.sr-gallery-hdr h2 span { color:#fbbf24; }
+.sr-gallery-hdr p { color:#737373;margin-top:10px;font-size:.92rem; }
+.sr-filters { display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:44px; }
+.sr-filter { padding:8px 22px;background:transparent;border:1.5px solid #404040;color:#a3a3a3;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;cursor:pointer;transition:all .2s;border-radius:2px;font-family:'Roboto',sans-serif; }
+.sr-filter:hover,.sr-filter.active { background:#fbbf24;border-color:#fbbf24;color:#111; }
+.sr-masonry { columns:6;column-gap:5px; }
+@media(max-width:1400px){ .sr-masonry{ columns:5; } }
+@media(max-width:1100px){ .sr-masonry{ columns:4; } }
+@media(max-width:768px){ .sr-masonry{ columns:3; } }
+@media(max-width:480px){ .sr-masonry{ columns:2; } }
+.sr-item { break-inside:avoid;margin-bottom:5px;overflow:hidden;cursor:pointer;position:relative;background:#1a1a1a; }
+.sr-item img { width:100%;display:block;transition:transform .5s ease,filter .3s;filter:brightness(.92); }
+.sr-item:hover img { transform:scale(1.06);filter:brightness(1.05); }
+.sr-item .sr-zoom { position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);width:44px;height:44px;background:rgba(251,191,36,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;transition:transform .25s;color:#111;pointer-events:none; }
+.sr-item:hover .sr-zoom { transform:translate(-50%,-50%) scale(1); }
+.sr-load-more { display:block;margin:40px auto 0;padding:13px 44px;background:transparent;border:1.5px solid #404040;color:#a3a3a3;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;cursor:pointer;transition:all .2s;font-family:'Roboto',sans-serif; }
+.sr-load-more:hover { border-color:#fbbf24;color:#fbbf24; }
+.sr-load-more.hidden { display:none; }
+.sr-lightbox { display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.96);align-items:center;justify-content:center; }
+.sr-lightbox.open { display:flex; }
+.sr-lightbox img { max-width:92vw;max-height:88vh;object-fit:contain; }
+.sr-lb-close { position:fixed;top:18px;right:26px;background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;z-index:10001;opacity:.7;transition:opacity .2s; }
+.sr-lb-close:hover { opacity:1; }
+.sr-lb-prev,.sr-lb-next { position:fixed;top:50%;transform:translateY(-50%);background:rgba(251,191,36,.12);border:1.5px solid rgba(251,191,36,.35);color:#fbbf24;font-size:2rem;width:52px;height:52px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10001; }
+.sr-lb-prev { left:14px; } .sr-lb-next { right:14px; }
+.sr-lb-prev:hover,.sr-lb-next:hover { background:rgba(251,191,36,.45); }
+.sr-lb-count { position:fixed;bottom:18px;left:50%;transform:translateX(-50%);color:#525252;font-size:.78rem;font-weight:700;letter-spacing:.1em; }
+.sr-cta { background:#fbbf24;padding:60px clamp(24px,6vw,60px);text-align:center; }
+.sr-cta h3 { font-family:'Inter',sans-serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:900;color:#111;margin-bottom:8px;text-transform:uppercase;letter-spacing:-.02em; }
+.sr-cta p { color:#78350f;margin-bottom:28px;font-size:.95rem; }
+.sr-cta a { display:inline-block;background:#111;color:#fbbf24;padding:14px 40px;font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.15em;text-decoration:none;transition:all .2s; }
+.sr-cta a:hover { background:#1c1c1c;transform:translateY(-2px); }
+</style>
 
 <!-- ── HERO SLIDESHOW ── -->
 <section class="sr-hero" id="sr-hero">
@@ -321,10 +269,9 @@ if (!window.spaRouterLoaded) {
   </div>
 
   <div class="sr-filters" id="sr-filters">
-    <button class="sr-filter active" data-filter="all">ทั้งหมด (259)</button>
-    <button class="sr-filter" data-filter="tower">🏗 เครนทาวเวอร์</button>
-    <button class="sr-filter" data-filter="hoist">🔧 ลิฟต์ก่อสร้าง</button>
-    <button class="sr-filter" data-filter="site">📍 ไซต์งาน</button>
+    <button class="sr-filter active" data-filter="all">ทั้งหมด (100)</button>
+    <button class="sr-filter" data-filter="tower">🏗 เครนทาวเวอร์ (100)</button>
+    <button class="sr-filter" data-filter="hoist">🔧 ลิฟต์ก่อสร้าง (50)</button>
   </div>
 
   <div class="sr-masonry" id="sr-masonry"></div>
@@ -391,34 +338,48 @@ function navOverlayGo(e, url) {
   }, 370);
 }
 
-// ── All 259 images ────────────────────────────────────────────────
-const SR_IMAGES = ["118360","118469","118547","120359","136174","136761","19417","324205","55619","56684","56742","56831","60968","61695","68016","69342","69479","70202","71382","71383","85368","85498","85999","91230","91460","91858","99224","S__10092595","S__10108937","S__10272979","S__10272981","S__11346051","S__11378782","S__11673621","S__11755543","S__11788310","S__11845674","S__11976729","S__12124284","S__12124286","S__12828677","S__12886109","S__12894225","S__12894267","S__132186148","S__132186157","S__132382739","S__132956261","S__132956275","S__133226512","S__133333019","S__133423112","S__133472265","S__133554235","S__133783574","S__133849097","S__133849101","S__134135813","S__134135814","S__134135815","S__134381589","S__134381592","S__134610963","S__134610964","S__134676490","S__134733852","S__134733880","S__134791177","S__13533224","S__137846787","S__138035223","S__138125346","S__138305558","S__138420246","S__138477586","S__138477641","S__141475868","S__141500436","S__142655513","S__143138820","S__143843342","S__143859720","S__144064527","S__144629773","S__144646150","S__144646157","S__144646158","S__144646167","S__144662533","S__144662535","S__144662536","S__144662537","S__144810011","S__144810012","S__144810013","S__144810014","S__145350669","S__151396395","S__151396404","S__151535623","S__152657927","S__15294531","S__153321481","S__15335551","S__15343630","S__153640977","S__15376504","S__15376506","S__15376508","S__15663184","S__15663185","S__15663186","S__158613576","S__159293449","S__159399953","S__159399956","S__159522846","S__160186370","S__160677895","S__160710670","S__161406984","S__161406993","S__161407009","S__161980432","S__161980434","S__162291753","S__162390042","S__162390043","S__162635783","S__16482328","S__16482329","S__170197003","S__171335694","S__172294153","S__172351497","S__172515338","S__18579569","S__19210277","S__19234882","S__19243062","S__19243064","S__19333161","S__19546182","S__19554334","S__19857413","S__21315645","S__2842750","S__2842751","S__3031087","S__3317841","S__3326047","S__3326064","S__3375316","S__3530905","S__3694636","S__3694648","S__3694672","S__3776623","S__3834070","S__3850291","S__3850294","S__3866629","S__3907636","S__3932267","S__3940432","S__3997726","S__4063792","S__4071436","S__4071437","S__4071471","S__4112488","S__4112489","S__4317268","S__4317310","S__4431967","S__4432011","S__4432013","S__4440101","S__4440102","S__4440113","S__4456511","S__4481079","S__4513869","S__45309986","S__45367311","S__4596361","S__46137351","S__4661350","S__4702240","S__47177758","S__4726819","S__47382651","S__4743218","S__4751389","S__47595529","S__47710232","S__47947789","S__47972374","S__49397771","S__5021757","S__5152790","S__5152792","S__5152793","S__5152794","S__5152800","S__5152821","S__5152843","S__5152866","S__5152869","S__5185570","S__5185571","S__52002829","S__52002843","S__52731917","S__52731942","S__52731943","S__52830226","S__52830227","S__52830228","S__52830233","S__52969488","S__55517193","S__55738377","S__55738379","S__5578940","S__56483856","S__56483858","S__5660717","S__5668925","S__5668929","S__5742602","S__5742643","S__5742682","S__5750905","S__58581033","S__58990608","S__59113503","S__59465737","S__64086032","S__66748436","S__67239965","S__6766618","S__67698696","S__6971456","S__7069720","S__7331947","S__7331949","S__7389264","S__7389278","S__7454824","S__7790630","S__7790713","S__7815201","S__7970856","S__8003589","S__8003594","S__8028181_0_1","S__8421415","S__9912361"].map(n => `assets/site-ref/${n}.webp`);
+// ── Image arrays by category ────────────────────────────────────
+const SR_CRANES = ["assets/site-ref/118360.webp","assets/site-ref/118469.webp","assets/site-ref/118547.webp","assets/site-ref/120359.webp","assets/site-ref/136174.webp","assets/site-ref/136761.webp","assets/site-ref/19417.webp","assets/site-ref/324205.webp","assets/site-ref/55619.webp","assets/site-ref/56684.webp","assets/site-ref/56742.webp","assets/site-ref/56831.webp","assets/site-ref/60968.webp","assets/site-ref/61695.webp","assets/site-ref/68016.webp","assets/site-ref/69342.webp","assets/site-ref/69479.webp","assets/site-ref/70202.webp","assets/site-ref/71382.webp","assets/site-ref/71383.webp","assets/site-ref/85368.webp","assets/site-ref/85498.webp","assets/site-ref/85999.webp","assets/site-ref/91230.webp","assets/site-ref/91460.webp","assets/site-ref/91858.webp","assets/site-ref/99224.webp","assets/site-ref/S__10092595.webp","assets/site-ref/S__10108937.webp","assets/site-ref/S__10272979.webp","assets/site-ref/S__10272981.webp","assets/site-ref/S__11346051.webp","assets/site-ref/S__11378782.webp","assets/site-ref/S__11673621.webp","assets/site-ref/S__11755543.webp","assets/site-ref/S__11788310.webp","assets/site-ref/S__11845674.webp","assets/site-ref/S__11976729.webp","assets/site-ref/S__12124284.webp","assets/site-ref/S__12124286.webp","assets/site-ref/S__12828677.webp","assets/site-ref/S__12886109.webp","assets/site-ref/S__12894225.webp","assets/site-ref/S__12894267.webp","assets/site-ref/S__132186148.webp","assets/site-ref/S__132186157.webp","assets/site-ref/S__132382739.webp","assets/site-ref/S__132956261.webp","assets/site-ref/S__132956275.webp","assets/site-ref/S__133226512.webp","assets/site-ref/S__133333019.webp","assets/site-ref/S__133423112.webp","assets/site-ref/S__133472265.webp","assets/site-ref/S__133554235.webp","assets/site-ref/S__133783574.webp","assets/site-ref/S__133849097.webp","assets/site-ref/S__133849101.webp","assets/site-ref/S__134135813.webp","assets/site-ref/S__134135814.webp","assets/site-ref/S__134135815.webp","assets/site-ref/S__134381589.webp","assets/site-ref/S__134381592.webp","assets/site-ref/S__134610963.webp","assets/site-ref/S__134610964.webp","assets/site-ref/S__134676490.webp","assets/site-ref/S__134733852.webp","assets/site-ref/S__134733880.webp","assets/site-ref/S__134791177.webp","assets/site-ref/S__13533224.webp","assets/site-ref/S__137846787.webp","assets/site-ref/S__138035223.webp","assets/site-ref/S__138125346.webp","assets/site-ref/S__138305558.webp","assets/site-ref/S__138420246.webp","assets/site-ref/S__138477586.webp","assets/site-ref/S__138477641.webp","assets/site-ref/S__141475868.webp","assets/site-ref/S__141500436.webp","assets/site-ref/S__142655513.webp","assets/site-ref/S__143138820.webp","assets/site-ref/S__143843342.webp","assets/site-ref/S__143859720.webp","assets/site-ref/S__144064527.webp","assets/site-ref/S__144629773.webp","assets/site-ref/S__144646150.webp","assets/site-ref/S__144646157.webp","assets/site-ref/S__144646158.webp","assets/site-ref/S__144646167.webp","assets/site-ref/S__144662533.webp","assets/site-ref/S__144662535.webp","assets/site-ref/S__144662536.webp","assets/site-ref/S__144662537.webp","assets/site-ref/S__144810011.webp","assets/site-ref/S__144810012.webp","assets/site-ref/S__144810013.webp","assets/site-ref/S__144810014.webp","assets/site-ref/S__145350669.webp","assets/site-ref/S__151396395.webp","assets/site-ref/S__151396404.webp","assets/site-ref/S__151535623.webp"];
+const SR_HOISTS = ["assets/site-ref/hoist/109456.webp","assets/site-ref/hoist/120074.webp","assets/site-ref/hoist/120075.webp","assets/site-ref/hoist/120097.webp","assets/site-ref/hoist/121991.webp","assets/site-ref/hoist/122004.webp","assets/site-ref/hoist/129790.webp","assets/site-ref/hoist/129791.webp","assets/site-ref/hoist/129801.webp","assets/site-ref/hoist/S__2080797.webp","assets/site-ref/hoist/S__2080801.webp","assets/site-ref/hoist/S__2080801ฟ.webp","assets/site-ref/hoist/S__2080806.webp","assets/site-ref/hoist/S__2080807.webp","assets/site-ref/hoist/S__2080808.webp","assets/site-ref/hoist/S__2080863.webp","assets/site-ref/hoist/S__2097159.webp","assets/site-ref/hoist/S__2105409.webp","assets/site-ref/hoist/S__2121808.webp","assets/site-ref/hoist/S__2842662.webp","assets/site-ref/hoist/S__2932780.webp","assets/site-ref/hoist/S__3358914.webp","assets/site-ref/hoist/S__3629077.webp","assets/site-ref/hoist/S__39084049.webp","assets/site-ref/hoist/S__39084053.webp","assets/site-ref/hoist/S__39084054.webp","assets/site-ref/hoist/S__39084057.webp","assets/site-ref/hoist/S__39084059.webp","assets/site-ref/hoist/S__39157771.webp","assets/site-ref/hoist/S__39157772.webp","assets/site-ref/hoist/S__39157773.webp","assets/site-ref/hoist/S__39157774.webp","assets/site-ref/hoist/S__39157791.webp","assets/site-ref/hoist/S__39157792.webp","assets/site-ref/hoist/S__39157793.webp","assets/site-ref/hoist/S__39206919.webp","assets/site-ref/hoist/S__39206922.webp","assets/site-ref/hoist/S__4309044.webp","assets/site-ref/hoist/S__4366388.webp","assets/site-ref/hoist/S__4366411.webp","assets/site-ref/hoist/S__63905801.webp","assets/site-ref/hoist/S__6406188.webp","assets/site-ref/hoist/S__64086030.webp","assets/site-ref/hoist/S__64086032.webp","assets/site-ref/hoist/S__64086033.webp","assets/site-ref/hoist/S__64086034.webp","assets/site-ref/hoist/S__7192646.webp","assets/site-ref/hoist/S__7241805.webp","assets/site-ref/hoist/S__7241807.webp","assets/site-ref/hoist/S__7241810.webp"];
+const SR_ALL = ["assets/site-ref/118360.webp","assets/site-ref/hoist/109456.webp","assets/site-ref/118469.webp","assets/site-ref/hoist/120074.webp","assets/site-ref/118547.webp","assets/site-ref/hoist/120075.webp","assets/site-ref/120359.webp","assets/site-ref/hoist/120097.webp","assets/site-ref/136174.webp","assets/site-ref/hoist/121991.webp","assets/site-ref/136761.webp","assets/site-ref/hoist/122004.webp","assets/site-ref/19417.webp","assets/site-ref/hoist/129790.webp","assets/site-ref/324205.webp","assets/site-ref/hoist/129791.webp","assets/site-ref/55619.webp","assets/site-ref/hoist/129801.webp","assets/site-ref/56684.webp","assets/site-ref/hoist/S__2080797.webp","assets/site-ref/56742.webp","assets/site-ref/hoist/S__2080801.webp","assets/site-ref/56831.webp","assets/site-ref/hoist/S__2080801ฟ.webp","assets/site-ref/60968.webp","assets/site-ref/hoist/S__2080806.webp","assets/site-ref/61695.webp","assets/site-ref/hoist/S__2080807.webp","assets/site-ref/68016.webp","assets/site-ref/hoist/S__2080808.webp","assets/site-ref/69342.webp","assets/site-ref/hoist/S__2080863.webp","assets/site-ref/69479.webp","assets/site-ref/hoist/S__2097159.webp","assets/site-ref/70202.webp","assets/site-ref/hoist/S__2105409.webp","assets/site-ref/71382.webp","assets/site-ref/hoist/S__2121808.webp","assets/site-ref/71383.webp","assets/site-ref/hoist/S__2842662.webp","assets/site-ref/85368.webp","assets/site-ref/hoist/S__2932780.webp","assets/site-ref/85498.webp","assets/site-ref/hoist/S__3358914.webp","assets/site-ref/85999.webp","assets/site-ref/hoist/S__3629077.webp","assets/site-ref/91230.webp","assets/site-ref/hoist/S__39084049.webp","assets/site-ref/91460.webp","assets/site-ref/hoist/S__39084053.webp","assets/site-ref/91858.webp","assets/site-ref/hoist/S__39084054.webp","assets/site-ref/99224.webp","assets/site-ref/hoist/S__39084057.webp","assets/site-ref/S__10092595.webp","assets/site-ref/hoist/S__39084059.webp","assets/site-ref/S__10108937.webp","assets/site-ref/hoist/S__39157771.webp","assets/site-ref/S__10272979.webp","assets/site-ref/hoist/S__39157772.webp","assets/site-ref/S__10272981.webp","assets/site-ref/hoist/S__39157773.webp","assets/site-ref/S__11346051.webp","assets/site-ref/hoist/S__39157774.webp","assets/site-ref/S__11378782.webp","assets/site-ref/hoist/S__39157791.webp","assets/site-ref/S__11673621.webp","assets/site-ref/hoist/S__39157792.webp","assets/site-ref/S__11755543.webp","assets/site-ref/hoist/S__39157793.webp","assets/site-ref/S__11788310.webp","assets/site-ref/hoist/S__39206919.webp","assets/site-ref/S__11845674.webp","assets/site-ref/hoist/S__39206922.webp","assets/site-ref/S__11976729.webp","assets/site-ref/hoist/S__4309044.webp","assets/site-ref/S__12124284.webp","assets/site-ref/hoist/S__4366388.webp","assets/site-ref/S__12124286.webp","assets/site-ref/hoist/S__4366411.webp","assets/site-ref/S__12828677.webp","assets/site-ref/hoist/S__63905801.webp","assets/site-ref/S__12886109.webp","assets/site-ref/hoist/S__6406188.webp","assets/site-ref/S__12894225.webp","assets/site-ref/hoist/S__64086030.webp","assets/site-ref/S__12894267.webp","assets/site-ref/hoist/S__64086032.webp","assets/site-ref/S__132186148.webp","assets/site-ref/hoist/S__64086033.webp","assets/site-ref/S__132186157.webp","assets/site-ref/hoist/S__64086034.webp","assets/site-ref/S__132382739.webp","assets/site-ref/hoist/S__7192646.webp","assets/site-ref/S__132956261.webp","assets/site-ref/hoist/S__7241805.webp","assets/site-ref/S__132956275.webp","assets/site-ref/hoist/S__7241807.webp","assets/site-ref/S__133226512.webp","assets/site-ref/hoist/S__7241810.webp"];
+const SR_IMAGES = SR_ALL; // default for lightbox
 
 // ── Hero Slideshow ────────────────────────────────────────────────
 (function initHero() {
-  const heroSlides = SR_IMAGES.slice(0, 10);
+  const heroSlides = [
+    'assets/sr-hero/S__159399956.webp',
+    'assets/sr-hero/S__161407009.webp',
+    'assets/sr-hero/S__39157773.webp',
+    'assets/sr-hero/S__4366388.webp',
+    'assets/sr-hero/S__4440101.webp',
+    'assets/sr-hero/S__67239965.webp'
+  ];
   let idx = 0;
   const heroEl = document.getElementById('sr-hero');
   const dotsEl = document.getElementById('sr-dots');
   if (!heroEl || !dotsEl) return;
 
+  const overlay = heroEl.querySelector('.sr-hero-overlay');
   heroSlides.forEach((src, i) => {
     const slide = document.createElement('div');
     slide.className = 'sr-slide' + (i === 0 ? ' active' : '');
     slide.innerHTML = `<img src="${src}" alt="ผลงานซันจูปิเตอร์" loading="${i < 2 ? 'eager' : 'lazy'}"/>`;
-    heroEl.insertBefore(slide, heroEl.firstChild);
+    heroEl.insertBefore(slide, overlay); /* insert in order, before overlay */
     const dot = document.createElement('div');
     dot.className = 'sr-dot' + (i === 0 ? ' active' : '');
     dot.onclick = () => goHero(i);
     dotsEl.appendChild(dot);
   });
 
+  const slides = heroEl.querySelectorAll('.sr-slide');
+  const dots   = dotsEl.querySelectorAll('.sr-dot');
+
   function goHero(newIdx) {
-    document.querySelectorAll('.sr-slide')[idx].classList.remove('active');
-    document.querySelectorAll('.sr-dot')[idx].classList.remove('active');
+    slides[idx].classList.remove('active');
+    dots[idx].classList.remove('active');
     idx = newIdx;
-    document.querySelectorAll('.sr-slide')[idx].classList.add('active');
-    document.querySelectorAll('.sr-dot')[idx].classList.add('active');
+    slides[idx].classList.add('active');
+    dots[idx].classList.add('active');
   }
   setInterval(() => goHero((idx + 1) % heroSlides.length), 4500);
 })();
@@ -427,7 +388,8 @@ const SR_IMAGES = ["118360","118469","118547","120359","136174","136761","19417"
 const BATCH = 40;
 let shown = 0;
 let lbIdx = 0;
-let visibleImages = SR_IMAGES.slice();
+let visibleImages = SR_ALL.slice();
+let currentImages = SR_ALL;
 
 function buildGrid(reset) {
   const grid = document.getElementById('sr-masonry');
@@ -437,7 +399,7 @@ function buildGrid(reset) {
 
   for (let i = shown; i < end; i++) {
     const src = visibleImages[i];
-    const globalIdx = SR_IMAGES.indexOf(src);
+    const globalIdx = visibleImages.indexOf(src);
     const item = document.createElement('div');
     item.className = 'sr-item';
     item.dataset.idx = globalIdx;
@@ -461,7 +423,11 @@ document.getElementById('sr-filters').addEventListener('click', function(e) {
   if (!btn) return;
   document.querySelectorAll('.sr-filter').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  visibleImages = SR_IMAGES.slice();
+  const f = btn.dataset.filter;
+  if(f==='tower') currentImages = SR_CRANES;
+  else if(f==='hoist') currentImages = SR_HOISTS;
+  else currentImages = SR_ALL;
+  visibleImages = currentImages.slice();
   buildGrid(true);
 });
 
@@ -498,5 +464,34 @@ window.srOpenLB = srOpenLB;
 window.srCloseLB = srCloseLB;
 window.srNavLB = srNavLB;
 window.loadMore = loadMore;
+
+// ── Bento Entry Animation ─────────────────────────────────────────
+(function() {
+  const fromBento = location.search.includes('from=bento');
+  if (!fromBento) return;
+
+  // Create black cover that starts full
+  const cover = document.createElement('div');
+  cover.id = 'sr-entry-cover';
+  document.body.appendChild(cover);
+
+  const hero = document.getElementById('sr-hero');
+  if (hero) hero.classList.add('sr-hero-from-bento');
+
+  // Wait for page to paint, then fade out the cover
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        cover.classList.add('done');
+        if (hero) hero.classList.add('ready');
+        // Remove cover after fade
+        setTimeout(() => cover.remove(), 700);
+      }, 80);
+    });
+  });
+
+  // Clean up URL without reload
+  history.replaceState({}, '', location.pathname);
+})();
 </script>
 </body></html>
