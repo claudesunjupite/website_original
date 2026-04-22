@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 
-<html class="light" lang="en"><head>
+<html class="light" lang="th"><head>
   <title>บริษัท ซัน จูปิเตอร์ จำกัด | Concrete Machinery</title>
   <link rel="icon" type="image/png" href="assets/favicon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -17,35 +17,6 @@
 <noscript></noscript>
 
 <style>
-    /* ── SPA View Transition: smooth horizontal slide ─────────── */
-    ::view-transition-old(root) {
-        animation: sj-slide-out 350ms cubic-bezier(0.4,0,0.2,1) forwards;
-    }
-    ::view-transition-new(root) {
-        animation: sj-slide-in 350ms cubic-bezier(0.4,0,0.2,1) forwards;
-    }
-    :root.nav-prev ::view-transition-old(root) {
-        animation: sj-slide-out-right 350ms cubic-bezier(0.4,0,0.2,1) forwards;
-    }
-    :root.nav-prev ::view-transition-new(root) {
-        animation: sj-slide-in-left 350ms cubic-bezier(0.4,0,0.2,1) forwards;
-    }
-    @keyframes sj-slide-out {
-        from { opacity: 1; transform: translateX(0); }
-        to   { opacity: 0; transform: translateX(-60px); }
-    }
-    @keyframes sj-slide-in {
-        from { opacity: 0; transform: translateX(60px); }
-        to   { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes sj-slide-out-right {
-        from { opacity: 1; transform: translateX(0); }
-        to   { opacity: 0; transform: translateX(60px); }
-    }
-    @keyframes sj-slide-in-left {
-        from { opacity: 0; transform: translateX(-60px); }
-        to   { opacity: 1; transform: translateX(0); }
-    }
 
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -57,6 +28,33 @@
         .text-shadow-sm {
             text-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
+/* ════ SITE FOOTER ════ */
+.site-footer { background: #111214; border-top: 3px solid #d4572a; }
+.footer-main { max-width: 1280px; margin: 0 auto; padding: 64px 60px 52px; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; }
+.foot-logo-wrap { display: inline-block; margin-bottom: 20px; text-decoration: none; }
+.foot-logo-wrap img { height: 40px; width: auto; display: block; }
+.foot-company-th { font-family: 'Kanit', sans-serif; font-size: 1rem; font-weight: 600; color: #e8e4dc; line-height: 1.4; margin-bottom: 2px; }
+.foot-company-en { font-family: 'Kanit', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; color: #d4572a; margin-bottom: 18px; }
+.foot-address { font-size: 0.84rem; line-height: 1.9; font-weight: 400; color: rgba(232,228,220,0.45); }
+.foot-col-title { font-family: 'Kanit', sans-serif; font-size: 1.05rem; font-weight: 600; color: #e8e4dc; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: 12px; }
+.foot-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; }
+.foot-list li { display: flex; align-items: flex-start; gap: 8px; }
+.foot-list li::before { content: '›'; color: #d4572a; font-size: 1rem; line-height: 1.4; flex-shrink: 0; }
+.foot-list a, .foot-list span { font-size: 0.875rem; font-weight: 400; color: rgba(232,228,220,0.52); line-height: 1.4; transition: color 0.2s; text-decoration: none; }
+.foot-list a:hover { color: #d4572a; }
+.foot-contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; text-decoration: none; }
+.foot-contact-icon { width: 30px; height: 30px; border-radius: 50%; background: rgba(212,87,42,0.12); border: 1px solid rgba(212,87,42,0.22); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #d4572a; font-size: 0.85rem; }
+.foot-contact-text { font-size: 0.875rem; font-weight: 400; color: rgba(232,228,220,0.52); line-height: 1.4; transition: color 0.2s; }
+.foot-contact-item:hover .foot-contact-text { color: #d4572a; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 18px 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.footer-copy { font-size: 0.75rem; font-weight: 400; color: rgba(232,228,220,0.28); letter-spacing: 0.02em; }
+.footer-policy { display: flex; gap: 20px; }
+.footer-policy a { font-size: 0.72rem; color: rgba(232,228,220,0.28); transition: color 0.2s; text-decoration: none; }
+.footer-policy a:hover { color: #d4572a; }
+@media (max-width: 960px) {
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 36px; padding: 48px 28px 36px; }
+  .footer-bottom { padding: 16px 28px; flex-direction: column; gap: 8px; align-items: flex-start; }
+}
     </style>
 <style>
 html { background-color: #faf8f5; overflow-y: scroll; overflow-x: hidden; }
@@ -214,33 +212,7 @@ if (!window.spaRouterLoaded) {
         window.navigateToSPA(href, true);
     });
     
-    window.addEventListener('popstate', () => {
-        window.location.reload();
-    });
-}
-    window.toggleModalText = function() {
-        const textContainer = document.getElementById('modal-description-text');
-        const fadeObj = document.getElementById('modal-text-fade');
-        const icon = document.getElementById('modal-read-more-icon');
-        const readText = document.getElementById('modal-read-more-text');
-        
-        if (textContainer.classList.contains('max-h-[40px]')) {
-            // Expand
-            textContainer.classList.remove('max-h-[40px]', 'md:max-h-[44px]');
-            textContainer.classList.add('max-h-[300px]');
-            fadeObj.style.opacity = '0';
-            icon.textContent = 'expand_less';
-            readText.textContent = 'Show Less';
-        } else {
-            // Collapse
-            textContainer.classList.add('max-h-[40px]', 'md:max-h-[44px]');
-            textContainer.classList.remove('max-h-[300px]');
-            fadeObj.style.opacity = '1';
-            icon.textContent = 'expand_more';
-            readText.textContent = 'Read More';
-        }
-    };
-</script>
+    $curtainJS
 <script src="assets/lang.js"></script>
   <meta name="description" content="Professional concrete machinery and equipment from Sun Jupiter Co., Ltd. Durable, high-performance machines for all construction needs in Thailand."/>
   <meta name="robots" content="index, follow"/>
@@ -248,7 +220,7 @@ if (!window.spaRouterLoaded) {
   <link rel="preload" as="image" href="assets/3.jpg" fetchpriority="high"/>
 </head>
 <body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
-<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-yellow-600 focus:text-white focus:px-4 focus:py-2 focus:font-bold focus:rounded">Skip to main content</a>
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-orange-600 focus:text-white focus:px-4 focus:py-2 focus:font-bold focus:rounded">Skip to main content</a>
 <!-- STANDARDIZED NAVBAR -->
 <nav aria-label="Main navigation" class="fixed top-0 w-full z-50 bg-white shadow-sm border-b border-neutral-200/50 max-w-none transition-all duration-300">
   <div class="flex justify-between items-center px-8 py-4">
@@ -256,36 +228,24 @@ if (!window.spaRouterLoaded) {
       <img loading="eager" alt="SUN JUPITER CO.,LTD. Logo" class="h-10 md:h-12 w-auto object-contain" src="assets/sunjupiter-logo.webp"/>
     </a>
     <div class="hidden md:flex items-center space-x-8 font-headline font-bold tracking-tight text-sm uppercase">
-      <a class="text-neutral-700 hover:text-yellow-600 transition-colors transition-all duration-300" href="index.html" onclick="if(window.navigateToSPA){event.preventDefault();window.navigateToSPA('index.html')}">Home</a>
-      <a class="text-neutral-700 hover:text-yellow-600 transition-colors transition-all duration-300" href="about.html" onclick="if(window.navigateToSPA){event.preventDefault();window.navigateToSPA('about.html')}">About Us</a>
-      <a class="text-yellow-600 border-b-2 border-yellow-600 pb-1 transition-all duration-300" href="product.html" onclick="if(window.navigateToSPA){event.preventDefault();window.navigateToSPA('product.html')}">Product</a>
-      <a class="text-neutral-700 hover:text-yellow-600 transition-colors transition-all duration-300" href="site-reference.html" onclick="if(window.navigateToSPA){event.preventDefault();window.navigateToSPA('site-reference.html')}">Site Reference</a>
-      <a class="text-neutral-700 hover:text-yellow-600 transition-colors transition-all duration-300" href="contact.html" onclick="if(window.navigateToSPA){event.preventDefault();window.navigateToSPA('contact.html')}">Contact Us</a>
+      <a class="text-neutral-700 hover:text-orange-600 transition-colors transition-all duration-300" href="index.html" onclick="if(window.navigateToSPA){event.preventDefault();window.navigateToSPA('index.html')}">Home</a>
+      <a class="text-neutral-700 hover:text-orange-600 transition-colors transition-all duration-300" href="about.html" onclick="if(window.navigateToSPA){event.preventDefault();window.navigateToSPA('about.html')}">About Us</a>
+      <a class="text-orange-600 border-b-2 border-orange-600 pb-1 transition-all duration-300" href="product.html" onclick="if(window.navigateToSPA){event.preventDefault();window.navigateToSPA('product.html')}">Product</a>
+      <a class="text-neutral-700 hover:text-orange-600 transition-colors transition-all duration-300" href="site-reference.html" onclick="if(window.navigateToSPA){event.preventDefault();window.navigateToSPA('site-reference.html')}">Site Reference</a>
+      <a class="text-neutral-700 hover:text-orange-600 transition-colors transition-all duration-300" href="contact.html" onclick="if(window.navigateToSPA){event.preventDefault();window.navigateToSPA('contact.html')}">Contact Us</a>
     </div>
     <div class="flex items-center gap-4 mr-6">
       <a href="https://www.facebook.com/SUNJUPITERFANPAGE/" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-[#1877F2] transition-colors" aria-label="Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12.073C24 5.406 18.627 0 12 0S0 5.406 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
       </a>
       <div class="h-5 w-px bg-neutral-200"></div>
-      <a href="tel:0992181919" class="hidden md:flex items-center gap-2 text-neutral-800 hover:text-yellow-600 transition-colors font-bold text-sm tracking-wide">
-        <span class="material-symbols-outlined text-yellow-600 text-xl">phone_in_talk</span>
+      <a href="tel:0992181919" class="hidden md:flex items-center gap-2 text-neutral-800 hover:text-orange-600 transition-colors font-bold text-sm tracking-wide">
+        <span class="material-symbols-outlined text-orange-600 text-xl">phone_in_talk</span>
         099-218-1919
       </a>
       <div class="h-5 w-px bg-neutral-200 hidden lg:block"></div>
       <img loading="eager" src="assets/credo.webp" alt="CREDO" class="hidden lg:block h-7 w-auto object-contain">
-      <div class="h-5 w-px bg-neutral-200"></div>
-      <div class="mobile-center-abs relative group">
-        <button class="flex items-center gap-1 text-xs font-bold text-neutral-600 hover:text-yellow-600 uppercase tracking-widest transition-colors py-2" aria-label="Select language" aria-haspopup="true" aria-expanded="false">
-          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">language</span>
-          EN
-          <span class="material-symbols-outlined text-[16px] transition-transform group-hover:rotate-180" aria-hidden="true">expand_more</span>
-        </button>
-        <div class="absolute right-0 top-full w-32 bg-white border border-neutral-100 shadow-xl rounded-md overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-          <a href="#" class="block px-4 py-3 text-xs text-neutral-700 hover:bg-neutral-50 hover:text-yellow-600 font-bold tracking-wider" data-lang="en" onclick="event.preventDefault();window.setLanguage('en')">English</a>
-          <a href="#" class="block px-4 py-3 text-xs text-neutral-700 hover:bg-neutral-50 hover:text-yellow-600 font-bold tracking-wider" data-lang="th" onclick="event.preventDefault();window.setLanguage('th')">ภาษาไทย</a>
-        </div>
-      </div>
-      <button class="md:hidden flex flex-col items-center justify-center" id="hamburger-btn" aria-label="Open navigation menu" onclick="toggleNavOverlay(true)" style="gap:5px;width:38px;height:38px;border:2px solid #a3a3a3;border-radius:6px;background:transparent;cursor:pointer;flex-shrink:0;transition:border-color 0.2s" onmouseover="this.style.borderColor='#ca8a04'" onmouseout="this.style.borderColor='#a3a3a3'">
+      <button class="md:hidden flex flex-col items-center justify-center" id="hamburger-btn" aria-label="Open navigation menu" onclick="toggleNavOverlay(true)" style="gap:5px;width:38px;height:38px;border:2px solid #a3a3a3;border-radius:6px;background:transparent;cursor:pointer;flex-shrink:0;transition:border-color 0.2s" onmouseover="this.style.borderColor='#d4572a'" onmouseout="this.style.borderColor='#a3a3a3'">
         <span style="display:block;width:16px;height:2px;background:#404040;border-radius:1px"></span>
         <span style="display:block;width:16px;height:2px;background:#404040;border-radius:1px"></span>
         <span style="display:block;width:16px;height:2px;background:#404040;border-radius:1px"></span>
@@ -294,16 +254,19 @@ if (!window.spaRouterLoaded) {
   </div>
 </nav>
 <div id="nav-overlay" style="display:none;opacity:0;transition:opacity 0.35s ease;position:fixed;inset:0;z-index:60;background:#0a0a0a;flex-direction:column;align-items:center;justify-content:center">
-  <button onclick="toggleNavOverlay(false)" aria-label="Close menu" style="position:absolute;top:24px;right:32px;background:none;border:none;cursor:pointer;color:#fff;line-height:1;padding:8px">
-    <span class="material-symbols-outlined" style="font-size:32px">close</span>
-  </button>
-  <div style="display:flex;flex-direction:column;align-items:flex-start;gap:28px;padding:48px 32px">
-    <a href="index.html" onclick="navOverlayGo(event,'index.html')" style="font-size:clamp(28px,5vw,52px);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#ca8a04'" onmouseout="this.style.color='#fff'">Home</a>
-    <a href="about.html" onclick="navOverlayGo(event,'about.html')" style="font-size:clamp(28px,5vw,52px);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#ca8a04'" onmouseout="this.style.color='#fff'">About Us</a>
-    <span style="font-size:clamp(28px,5vw,52px);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#ca8a04">Product</span>
-    <a href="site-reference.html" onclick="navOverlayGo(event,'site-reference.html')" style="font-size:clamp(28px,5vw,52px);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#ca8a04'" onmouseout="this.style.color='#fff'">Site Reference</a>
-    <a href="contact.html" onclick="navOverlayGo(event,'contact.html')" style="font-size:clamp(28px,5vw,52px);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#ca8a04'" onmouseout="this.style.color='#fff'">Contact Us</a>
-  </div>
+<button onclick="toggleNavOverlay(false)" aria-label="ปิดเมนู" style="position:absolute;top:24px;right:32px;background:none;border:none;cursor:pointer;color:#fff;line-height:1;padding:8px">
+  <span class="material-symbols-outlined" style="font-size:32px">close</span>
+</button>
+<div style="display:flex;flex-direction:column;align-items:flex-start;gap:28px;padding:48px 32px">
+  <a href="index.html" onclick="navOverlayGo(event,'index.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">หน้าแรก</a>
+  <a href="about.html" onclick="navOverlayGo(event,'about.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">เกี่ยวกับเรา</a>
+  <span style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#d4572a">ผลิตภัณฑ์</span>
+  <a href="site-reference.html" onclick="navOverlayGo(event,'site-reference.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">ผลงาน</a>
+  <a href="contact.html" onclick="navOverlayGo(event,'contact.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">ติดต่อเรา</a>
+  <a href="tel:0992181919" style="font-family:'Kanit',sans-serif;font-size:clamp(18px,3.5vw,32px);font-weight:700;color:#d4572a;text-decoration:none;display:flex;align-items:center;gap:8px;margin-top:8px;">
+    <span class="material-symbols-outlined" style="font-size:24px">phone_in_talk</span>099-218-1919
+  </a>
+</div>
 </div>
 <main id="main-content" class="pt-24 has-hero">
 <!-- Hero Section -->
@@ -334,7 +297,7 @@ if (!window.spaRouterLoaded) {
     <div class="flex items-center gap-6 transform group-hover:-translate-x-2 transition-transform duration-700 ease-out">
         <span class="material-symbols-outlined text-3xl md:text-5xl text-white/30 group-hover:text-white/90 transition-colors duration-500" style="font-variation-settings: 'wght' 200;">arrow_back_ios_new</span>
         <div class="flex flex-col opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-700 delay-75 hidden md:flex">
-            <span class="text-[9px] font-bold uppercase tracking-[0.3em] text-[#fabd00] mb-1 drop-shadow-md">Previous Category</span>
+            <span class="text-[9px] font-bold uppercase tracking-[0.3em] text-[#d4572a] mb-1 drop-shadow-md">Previous Category</span>
             <span class="text-xs font-black uppercase tracking-[0.2em] text-white drop-shadow-lg">Tower Cranes</span>
         </div>
     </div>
@@ -344,7 +307,7 @@ if (!window.spaRouterLoaded) {
 <a href="construction-hoists.html" class="absolute right-0 top-0 bottom-0 w-24 md:w-64 z-20 flex flex-col items-end justify-center pr-4 md:pr-10 group bg-gradient-to-l from-black/0 hover:from-black/70 to-transparent transition-all duration-700 ease-in-out">
     <div class="flex items-center gap-6 transform group-hover:translate-x-2 transition-transform duration-700 ease-out">
         <div class="flex flex-col items-end opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-700 delay-75 hidden md:flex text-right">
-            <span class="text-[9px] font-bold uppercase tracking-[0.3em] text-[#fabd00] mb-1 drop-shadow-md">Next Category</span>
+            <span class="text-[9px] font-bold uppercase tracking-[0.3em] text-[#d4572a] mb-1 drop-shadow-md">Next Category</span>
             <span class="text-xs font-black uppercase tracking-[0.2em] text-white drop-shadow-lg">Construction Hoists</span>
         </div>
         <span class="material-symbols-outlined text-3xl md:text-5xl text-white/30 group-hover:text-white/90 transition-colors duration-500" style="font-variation-settings: 'wght' 200;">arrow_forward_ios</span>
@@ -356,7 +319,7 @@ if (!window.spaRouterLoaded) {
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
 <!-- Tab 1 -->
-<div id="tab-pump" onclick="switchTab('pump')" class="tab-card bg-white p-8 flex flex-col justify-between cursor-pointer border-[3px] border-[#fabd00] shadow-lg scale-[1.02] transition-all duration-300 relative overflow-hidden">
+<div id="tab-pump" onclick="switchTab('pump')" class="tab-card bg-white p-8 flex flex-col justify-between cursor-pointer border-[3px] border-[#d4572a] shadow-lg scale-[1.02] transition-all duration-300 relative overflow-hidden">
     <div class="relative z-10 pointer-events-none">
         <span class="text-[9px] font-bold text-[#bda892] tracking-widest uppercase mb-2 block">Pumping Solutions</span>
         <h2 class="text-3xl font-black tracking-tight text-stone-900 mb-3 font-headline uppercase leading-none">Concrete <br class="hidden xl:block">Station Pump</h2>
@@ -405,66 +368,66 @@ if (!window.spaRouterLoaded) {
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 border-l border-t border-stone-900 bg-transparent">
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT70SR16130P</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT70SR16130P</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT70SR16145C</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT70SR16145C</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT80SR13130P</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT80SR13130P</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT80SR13145C</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT80SR13145C</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT80SR16174C</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT80SR16174C</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT80SR21195C</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT80SR21195C</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT85SR16195C</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT85SR16195C</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT90SR13174C</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT90SR13174C</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT120SR13195C</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT120SR13195C</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 </div>
@@ -477,59 +440,59 @@ if (!window.spaRouterLoaded) {
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 border-l border-t border-stone-900 bg-transparent">
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT50S1690C</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT50S1690C</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT60S1075C</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT60S1075C</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT60S1390C</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT60S1390C</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT60S16110C/B</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT60S16110C/B</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT60S18132B</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT60S18132B</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT80S13110C/B</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT80S13110C/B</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT80S13110D</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT80S13110D</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HBT80S16110C/B</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HBT80S16110C/B</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 </div>
@@ -553,17 +516,17 @@ if (!window.spaRouterLoaded) {
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 border-l border-t border-stone-900 bg-transparent">
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HGY28C</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HGY28C</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HGY28G</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HGY28G</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 </div>
@@ -576,17 +539,17 @@ if (!window.spaRouterLoaded) {
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 border-l border-t border-stone-900 bg-transparent">
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HGY32G</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HGY32G</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">HGY32E</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">HGY32E</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 </div>
@@ -610,66 +573,66 @@ if (!window.spaRouterLoaded) {
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 border-l border-t border-stone-900 bg-transparent">
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">Boom</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">Boom</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">Climbing</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">Climbing</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">Column</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">Column</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">Control</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">Control</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">Hydraulic</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">Hydraulic</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">Oil Tank</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">Oil Tank</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">Reducer</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">Reducer</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">Remote</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">Remote</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 <div class="product-cell border-r border-b border-stone-900 p-4 lg:p-6 flex flex-col justify-center hover:bg-[#faf8f5] transition-all duration-300 cursor-pointer relative overflow-hidden group">
-    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#fabd00]">Slewing</span>
+    <span class="text-[10px] sm:text-xs font-black text-stone-800 tracking-widest uppercase transition-colors duration-300 group-hover:text-[#d4572a]">Slewing</span>
     <div class="product-actions max-h-0 opacity-0 overflow-hidden flex flex-col xl:flex-row items-start xl:items-center gap-3 xl:gap-5 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:max-h-[150px] group-hover:opacity-100 group-hover:pt-4">
-        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
-        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#fabd00] hover:border-[#fabd00] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
+        <button onclick="openProductModal(event, this)" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-100">VIEW DETAILS</button>
+        <button onclick="event.stopPropagation(); alert('File download initiated.');" class="text-[9px] sm:text-[10px] font-bold text-stone-900 border-b border-stone-900 pb-0.5 flex items-center gap-1 hover:text-[#d4572a] hover:border-[#d4572a] transition-colors whitespace-nowrap uppercase tracking-widest delay-200"><svg class="w-3 h-3 mb-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> DOWNLOAD</button>
     </div>
 </div>
 </div>
@@ -710,12 +673,12 @@ if (!window.spaRouterLoaded) {
         tabs.forEach(t => {
             const tabBox = document.getElementById('tab-' + t);
             if(tabBox) {
-                tabBox.classList.remove('border-[#fabd00]', 'shadow-lg', 'scale-[1.02]', 'bg-white');
+                tabBox.classList.remove('border-[#d4572a]', 'shadow-lg', 'scale-[1.02]', 'bg-white');
                 tabBox.classList.add('border-transparent');
                 
                 if(t === tabId) {
                     tabBox.classList.remove('border-transparent');
-                    tabBox.classList.add('border-[#fabd00]', 'shadow-lg', 'scale-[1.02]', 'bg-white');
+                    tabBox.classList.add('border-[#d4572a]', 'shadow-lg', 'scale-[1.02]', 'bg-white');
                 }
             }
         });
@@ -747,23 +710,76 @@ if (!window.spaRouterLoaded) {
 </script>
 </main>
 <!-- Footer -->
-<footer class="bg-neutral-950 dark:bg-black w-full border-t border-neutral-800 flex flex-col md:flex-row justify-between items-center px-12 py-10">
-<div class="mb-8 md:mb-0 opacity-80 hover:opacity-100 transition-all duration-300">
-<span class="text-lg font-black text-white uppercase font-headline">SUN JUPITER CO.,LTD.</span>
-<p class="font-['Work_Sans'] text-xs tracking-wider text-neutral-400 mt-2 max-w-xs">Providing reliable heavy lifting products and services with expert technical precision.</p>
-</div>
-<div class="flex flex-wrap justify-center gap-12 md:gap-16 mb-8 md:mb-0 font-['Work_Sans'] text-xs tracking-wider text-neutral-400">
-<a class="text-neutral-500 hover:text-white transition-colors hover:underline decoration-yellow-500" href="#">Privacy Policy</a>
-<a class="text-neutral-500 hover:text-white transition-colors hover:underline decoration-yellow-500" href="#">Terms of Service</a>
-<a class="text-neutral-500 hover:text-white transition-colors hover:underline decoration-yellow-500" href="#">Safety Manuals</a>
-</div>
-<div class="text-center md:text-right opacity-80 hover:opacity-100 transition-all duration-300">
-<p class="font-['Work_Sans'] text-xs tracking-wider text-neutral-400">© 2024 SUN JUPITER CO.,LTD. All Rights Reserved.</p>
-<div class="flex justify-center md:justify-end gap-4 mt-4">
-<span class="material-symbols-outlined text-yellow-600 text-xl">precision_manufacturing</span>
-<span class="material-symbols-outlined text-yellow-600 text-xl">construction</span>
-</div>
-</div>
+<footer class="site-footer">
+  <div class="footer-main">
+    <div>
+      <a href="index.html" class="foot-logo-wrap">
+        <img src="assets/sunjupiter-logo.webp" alt="Sun Jupiter">
+      </a>
+      <div class="foot-company-th">บริษัท ซันจูปิเตอร์ จำกัด</div>
+      <div class="foot-company-en">SUN JUPITER CO., LTD.</div>
+      <div class="foot-address">
+        55 ถนนจตุโชติ<br>
+        แขวงออเงิน เขตสายไหม<br>
+        กรุงเทพฯ 10220
+      </div>
+    </div>
+    <div>
+      <div class="foot-col-title">ติดต่อเรา</div>
+      <a href="https://www.facebook.com/sunjupiter" target="_blank" class="foot-contact-item">
+        <span class="foot-contact-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </span>
+        <span class="foot-contact-text">Facebook : sunjupiter</span>
+      </a>
+      <a href="#" class="foot-contact-item">
+        <span class="foot-contact-icon" style="font-size:0.75rem;font-weight:700;letter-spacing:-0.04em;">LINE</span>
+        <span class="foot-contact-text">LINE ID : @sunjupiter</span>
+      </a>
+      <a href="#" class="foot-contact-item">
+        <span class="foot-contact-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </span>
+        <span class="foot-contact-text">WeChat : sunjupiter</span>
+      </a>
+      <a href="mailto:info@sunjupiter.com" class="foot-contact-item">
+        <span class="foot-contact-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </span>
+        <span class="foot-contact-text">info@sunjupiter.com</span>
+      </a>
+      <a href="tel:0992181919" class="foot-contact-item">
+        <span class="foot-contact-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 0 0 .12 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        </span>
+        <span class="foot-contact-text">099-218-1919</span>
+      </a>
+    </div>
+    <div>
+      <div class="foot-col-title">ผลิตภัณฑ์</div>
+      <ul class="foot-list">
+        <li><a href="tower-cranes.html">ทาวเวอร์เครน</a></li>
+        <li><a href="construction-hoists.html">ลิฟต์ก่อสร้าง</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-title">เมนูหลัก</div>
+      <ul class="foot-list">
+        <li><a href="index.html">หน้าแรก</a></li>
+        <li><a href="about.html">เกี่ยวกับเรา</a></li>
+        <li><a href="product.html">ผลิตภัณฑ์</a></li>
+        <li><a href="site-reference.html">ผลงานอ้างอิง</a></li>
+        <li><a href="contact.html">ติดต่อเรา</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2569 บริษัท ซันจูปิเตอร์ จำกัด · SUN JUPITER CO., LTD. All rights reserved.</span>
+    <div class="footer-policy">
+      <a href="#">นโยบายความเป็นส่วนตัว</a>
+      <a href="#">ข้อกำหนดการใช้งาน</a>
+    </div>
+  </div>
 </footer>
 <script>
 setTimeout(() => {
@@ -848,19 +864,19 @@ setTimeout(() => {
                 <div class="w-px h-3 bg-white/30"></div>
                 <div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px]">drag_pan</span> <span class="text-[9px] font-bold tracking-widest uppercase">Drag to Pan</span></div>
             </div>
-            <span id="modal-tab-title" class="absolute top-8 right-8 font-label font-bold text-[10px] uppercase tracking-[0.2em] text-[#fabd00] bg-stone-900 px-5 py-2 rounded-none border-l-4 border-[#fabd00] shadow-md">Dimensions</span>
+            <span id="modal-tab-title" class="absolute top-8 right-8 font-label font-bold text-[10px] uppercase tracking-[0.2em] text-[#d4572a] bg-stone-900 px-5 py-2 rounded-none border-l-4 border-[#d4572a] shadow-md">Dimensions</span>
             
             <img loading="lazy" id="modal-main-image" src="" class="max-w-full max-h-[500px] object-contain transition-all duration-300 ease-out origin-center relative z-10 pointer-events-none filter contrast-125" alt="Product Specification" />
             
             <!-- Loader -->
             <div id="modal-loader" class="absolute inset-0 flex items-center justify-center bg-white z-20">
-                <span class="w-12 h-12 border-4 border-stone-100 border-t-[#fabd00] rounded-full animate-spin"></span>
+                <span class="w-12 h-12 border-4 border-stone-100 border-t-[#d4572a] rounded-full animate-spin"></span>
                 <span class="absolute mt-20 text-[9px] font-black uppercase tracking-widest text-stone-400">Loading Blueprint</span>
             </div>
             <!-- Interactive Text Description Section -->
             <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-white/20 via-transparent to-transparent pt-24 pb-6 px-8 z-30 transition-all duration-300 pointer-events-none">
                 <div id="modal-description-container" class="max-w-5xl mx-auto cursor-pointer group pointer-events-auto bg-white/20 backdrop-blur-md p-6 rounded-xl border border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-white/40 transition-colors" onclick="toggleModalText()">
-                    <h4 class="text-[10px] font-black tracking-widest uppercase text-[#fabd00] mb-2 drop-shadow-sm flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">info</span> Technical Overview</h4>
+                    <h4 class="text-[10px] font-black tracking-widest uppercase text-[#d4572a] mb-2 drop-shadow-sm flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">info</span> Technical Overview</h4>
                     <div id="modal-description-text" class="text-xs md:text-sm font-body text-stone-600 leading-relaxed font-medium relative overflow-hidden transition-all duration-500 max-h-[40px] md:max-h-[44px]">
                         <p id="modal-dynamic-desc">Engineered for maximum operational efficiency and industrial-grade safety. This unit features advanced structural integrity, optimized lifting capacities, and precision control systems tailored for demanding construction environments. Built in compliance with global ISO heavy machinery standards. Designed to withstand extreme weather conditions while maintaining micron-level operational precision during critical lifting phases.</p>
                         <!-- Fade overlay -->
@@ -876,19 +892,19 @@ setTimeout(() => {
         <!-- Navigation Tabs -->
         <div class="w-full grid grid-cols-2 md:grid-cols-4 gap-[1px] p-[1px] bg-stone-800 rounded-b-xl overflow-hidden shadow-2xl">
             <button onclick="switchModalTab('Dimensions')" class="modal-tab-btn active bg-stone-900 hover:bg-black font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] py-5 md:py-6 text-stone-500 hover:text-white transition-all border-b-[3px] border-transparent relative group">
-                <span class="material-symbols-outlined text-[20px] mb-2 block group-hover:text-[#fabd00] transition-colors">straighten</span>
+                <span class="material-symbols-outlined text-[20px] mb-2 block group-hover:text-[#d4572a] transition-colors">straighten</span>
                 Dimensions
             </button>
             <button onclick="switchModalTab('Mast Sections')" class="modal-tab-btn bg-stone-900 hover:bg-black font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] py-5 md:py-6 text-stone-500 hover:text-white transition-all border-b-[3px] border-transparent relative group">
-                <span class="material-symbols-outlined text-[20px] mb-2 block group-hover:text-[#fabd00] transition-colors">account_tree</span>
+                <span class="material-symbols-outlined text-[20px] mb-2 block group-hover:text-[#d4572a] transition-colors">account_tree</span>
                 Mast Sections
             </button>
             <button onclick="switchModalTab('Diagrams')" class="modal-tab-btn bg-stone-900 hover:bg-black font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] py-5 md:py-6 text-stone-500 hover:text-white transition-all border-b-[3px] border-transparent relative group">
-                <span class="material-symbols-outlined text-[20px] mb-2 block group-hover:text-[#fabd00] transition-colors">architecture</span>
+                <span class="material-symbols-outlined text-[20px] mb-2 block group-hover:text-[#d4572a] transition-colors">architecture</span>
                 Diagrams
             </button>
             <button onclick="switchModalTab('Specifications')" class="modal-tab-btn bg-stone-900 hover:bg-black font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] py-5 md:py-6 text-stone-500 hover:text-white transition-all border-b-[3px] border-transparent relative group">
-                <span class="material-symbols-outlined text-[20px] mb-2 block group-hover:text-[#fabd00] transition-colors">fact_check</span>
+                <span class="material-symbols-outlined text-[20px] mb-2 block group-hover:text-[#d4572a] transition-colors">fact_check</span>
                 Specifications
             </button>
         </div>
@@ -899,10 +915,10 @@ setTimeout(() => {
     .modal-tab-btn.active {
         color: white;
         background-color: #0c0a09; /* stone-950 */
-        border-color: #fabd00;
+        border-color: #d4572a;
     }
     .modal-tab-btn.active span.material-symbols-outlined {
-        color: #fabd00;
+        color: #d4572a;
         transform: scale(1.1) translateY(-2px);
     }
 </style>
@@ -1179,5 +1195,16 @@ function navOverlayGo(e, url) {
     window.navigateToSPA ? window.navigateToSPA(url, true) : (window.location.href = url);
   }, 370);
 }
+</script>
+
+<!-- Lenis Smooth Scroll -->
+<script src='https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js'></script>
+<script>
+(function(){
+  var lenis = new Lenis({ duration: 1.3, easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10*t)); }, smoothWheel: true, wheelMultiplier: 0.85 });
+  function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+  window.__lenis = lenis;
+})();
 </script>
 </body></html>

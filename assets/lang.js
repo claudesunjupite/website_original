@@ -35,9 +35,9 @@
       '© 2567 บริษัท ซัน จูปิเตอร์ จำกัด สงวนลิขสิทธิ์',
 
     /* ── HOME PAGE ─────────────────────────────────────────────── */
-    // h1 — preserve yellow italic on translated word
+    // h1 — no italic on yellow span
     'We are reliable for the best products and services by expert technicians.':
-      'เรามุ่งมั่นส่งมอบ<span class="text-yellow-500 italic">ผลิตภัณฑ์และบริการ</span>ที่ดีที่สุดโดยช่างผู้เชี่ยวชาญ',
+      'ความน่าเชื่อถือคือสิ่งที่เราส่งมอบพร้อมกับ<span class="text-yellow-500 font-bold">ทุกผลิตภัณฑ์</span>',
     'Global leaders in high-capacity lifting and specialized structural solutions. Delivering integrity and precision to move the future of heavy industry.':
       'ผู้นำระดับโลกด้านการยกของหนักและโซลูชันโครงสร้างพิเศษ ขับเคลื่อนอนาคตของอุตสาหกรรมหนักด้วยความซื่อสัตย์และความแม่นยำ',
     'View Products':          'ดูสินค้า',
@@ -186,7 +186,7 @@
 
     // Hero h1 with inner span styling preserved
     'Precision Engineering Meets Monumental Scale.':
-      'วิศวกรรมความแม่นยำ <br/> พบกับ <span class="text-primary italic">ขนาดอัน</span>ยิ่งใหญ่',
+      'วิศวกรรมความแม่นยำ <br/> พบกับ <span class="text-primary font-bold">ขนาดอัน</span>ยิ่งใหญ่',
 
     'Explore the structural backbone of modern civilization. From high-altitude skyscraper cores to expansive bridge spans, SUN JUPITER heavy-lift solutions define the horizon of possibility.':
       'สำรวจโครงสร้างพื้นฐานของอารยธรรมสมัยใหม่ ตั้งแต่แกนกลางตึกระฟ้าความสูงจรดฟ้าจนถึงสะพานขนาดใหญ่ โซลูชันการยกหนักของ SUN JUPITER กำหนดขอบเขตความเป็นไปได้',
@@ -222,7 +222,7 @@
     /* ── CONTACT US PAGE ───────────────────────────────────────── */
     // Hero h1 with italic span
     'DIRECT LIAISON':
-      'ติดต่อ<br/><span class="text-primary italic">โดยตรง</span>',
+      'ช่องทาง<br/><span class="text-primary font-bold">ติดต่อ</span>',
 
     'Direct Line':   'สายตรง',
     'Mon-Sat 8:00 AM - 5:00 PM': 'จ.-ส. 8:00 - 17:00 น.',
@@ -461,15 +461,14 @@
 
   /** Called by the SPA router after each page swap */
   window.applyTranslations = function () {
-    applyTranslations(window.sjLang || localStorage.getItem('sjLang') || 'en');
+    applyTranslations('th');
   };
 
-  /** Auto-init on DOMContentLoaded */
+  /** Auto-init on DOMContentLoaded — always Thai */
   function init() {
-    const saved = localStorage.getItem('sjLang') || 'en';
-    window.sjLang = saved;
-    if (saved === 'th') applyTranslations('th');
-    else updateNavLabel('en');
+    window.sjLang = 'th';
+    localStorage.setItem('sjLang', 'th');
+    applyTranslations('th');
   }
 
   if (document.readyState === 'loading') {
