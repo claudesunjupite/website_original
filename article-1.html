@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="th"><head>
+  <title>ความปลอดภัยในไซต์งานก่อสร้าง | บริษัท ซัน จูปิเตอร์ จำกัด</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>html,body{background-color:#ffffff}body{min-height:100vh;display:flex;flex-direction:column;}#main-content{flex:1;}::-webkit-scrollbar-track,::-webkit-scrollbar{background:#ffffff}</style>
+<link rel="stylesheet" href="assets/tailwind.css"/>
+
+<style>
+    /* ── SPA View Transition ────────────────── */
+    ::view-transition-old(root) {
+        animation: sj-fade-out 120ms ease-out forwards;
+    }
+    ::view-transition-new(root) {
+        animation: sj-fade-in 160ms ease-in forwards;
+    }
+    @keyframes sj-fade-out {
+        from { opacity: 1; transform: translateY(0); }
+        to   { opacity: 0; transform: translateY(-6px); }
+    }
+    @keyframes sj-fade-in {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body { font-family: 'Sarabun', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Kanit', sans-serif; }
+
+/* ════ SITE FOOTER ════ */
+.site-footer { background: #111214; border-top: 3px solid #d4572a; }
+.footer-main { max-width: 1280px; margin: 0 auto; padding: 64px 60px 52px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.4fr; gap: 64px; }
+.foot-logo-wrap { display: inline-block; margin-bottom: 20px; text-decoration: none; }
+.foot-logo-wrap img { height: 40px; width: auto; display: block; }
+.foot-company-th { font-family: 'Kanit', sans-serif; font-size: 1rem; font-weight: 600; color: #e8e4dc; line-height: 1.4; margin-bottom: 2px; }
+.foot-company-en { font-family: 'Kanit', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; color: #d4572a; margin-bottom: 18px; }
+.foot-address { font-size: 0.84rem; line-height: 1.9; font-weight: 400; color: rgba(232,228,220,0.45); }
+.foot-col-title { font-family: 'Kanit', sans-serif; font-size: 1.05rem; font-weight: 600; color: #e8e4dc; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: 12px; }
+.foot-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; }
+.foot-list li { display: flex; align-items: flex-start; gap: 8px; }
+.foot-list li::before { content: '›'; color: #d4572a; font-size: 1rem; line-height: 1.4; flex-shrink: 0; }
+.foot-list a, .foot-list span { font-size: 0.875rem; font-weight: 400; color: rgba(232,228,220,0.52); line-height: 1.4; transition: color 0.2s; text-decoration: none; }
+.foot-list a:hover { color: #d4572a; }
+.foot-contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; text-decoration: none; }
+.foot-contact-icon { width: 30px; height: 30px; border-radius: 50%; background: rgba(212,87,42,0.12); border: 1px solid rgba(212,87,42,0.22); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #d4572a; font-size: 0.85rem; }
+.foot-contact-text { font-size: 0.875rem; font-weight: 400; color: rgba(232,228,220,0.52); line-height: 1.4; transition: color 0.2s; }
+.foot-contact-item:hover .foot-contact-text { color: #d4572a; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 18px 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.footer-copy { font-size: 0.75rem; font-weight: 400; color: rgba(232,228,220,0.28); letter-spacing: 0.02em; }
+.footer-policy { display: flex; gap: 20px; }
+.footer-policy a { font-size: 0.72rem; color: rgba(232,228,220,0.28); transition: color 0.2s; text-decoration: none; }
+.footer-policy a:hover { color: #d4572a; }
+@media (max-width: 960px) {
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 36px; padding: 48px 28px 36px; }
+  .footer-bottom { padding: 16px 28px; flex-direction: column; gap: 8px; align-items: flex-start; }
+}
+
+/* ════ NAV ════ */
+#site-nav, nav#site-nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 9000;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+#site-nav .nav-inner {
+  display: flex; align-items: center; justify-content: flex-start;
+  padding: 18px 48px;
+  gap: 52px; max-width: 1440px; margin: 0 auto;
+}
+#site-nav .nav-logo img { height: 50px; width: auto; object-fit: contain; display: block; transition: transform 0.2s; }
+#site-nav .nav-logo:hover img { transform: scale(1.04); }
+#site-nav .nav-logo::after, #site-nav .nav-credo::after { display: none !important; }
+#site-nav .nav-logo, #site-nav .nav-credo { outline: none; text-decoration: none; }
+#site-nav .nav-links { display: flex; align-items: center; gap: 38px; list-style: none; margin: 0; padding: 0; }
+#site-nav .nav-links a { font-family: 'Kanit', sans-serif; font-size: 0.82rem; font-weight: 400; color: #444; letter-spacing: 0.02em; text-decoration: none; white-space: nowrap; transition: color 0.2s; position: relative; }
+#site-nav .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 1.5px; background: #d4572a; transition: width 0.25s; }
+#site-nav .nav-links a:hover { color: #d4572a; }
+#site-nav .nav-links a:hover::after { width: 100%; }
+#site-nav .nav-links a.active { color: #d4572a; font-weight: 600; }
+#site-nav .nav-links a.active::after { width: 100%; }
+#site-nav .nav-right { display: flex; align-items: center; gap: 18px; flex-shrink: 0; margin-left: auto; }
+#site-nav .nav-phone { font-size: 0.82rem; font-weight: 700; color: #333; letter-spacing: 0.02em; white-space: nowrap; display: flex; align-items: center; gap: 5px; transition: color 0.2s; text-decoration: none; }
+#site-nav .nav-phone:hover { color: #d4572a; }
+#site-nav .nav-credo img { height: 28px; width: auto; object-fit: contain; display: block; }
+@media (max-width: 900px) { #site-nav .nav-inner { padding: 10px 20px; } #site-nav .nav-links { display: none; } }
+
+/* ── Nav Dropdown ── */
+.nav-has-drop{position:relative;}
+.nav-drop-trigger{display:flex!important;align-items:center;gap:5px;}
+.nav-chevron{font-size:.55rem;transition:transform .2s;line-height:1;opacity:.6;}
+.nav-has-drop:hover .nav-chevron{transform:rotate(180deg);opacity:1;}
+.nav-drop{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(-6px);background:#fff;border-top:2px solid #d4572a;box-shadow:0 8px 36px rgba(0,0,0,.13);display:flex;align-items:stretch;min-width:360px;opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:999;}
+.nav-has-drop:hover .nav-drop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+.nav-drop-col{flex:1 1 0;min-width:0;padding:20px 22px;text-decoration:none;color:#1c1a16;transition:background .15s;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.nav-drop-col:hover{background:#f7f4ef;}
+.nav-drop-cat{font-family:'Kanit',sans-serif;font-size:.88rem;font-weight:400;color:#1c1a16;margin-bottom:8px;}
+.nav-drop-brands{font-size:.62rem;color:#9a9690;line-height:1.8;word-break:break-word;}
+.nav-drop-sep{width:1px;background:#e8e4de;}
+.nav-has-drop .nav-drop-trigger::after{display:none!important;}
+</style>
+
+<script id="spa-router">
+if (!window.spaRouterLoaded) {
+    window.spaRouterLoaded = true;
+    window.spaCache = {};
+
+    document.addEventListener('mouseover', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:')) return;
+
+        const cleanHref = href.split('?')[0].split('#')[0];
+        if (!window.spaCache[cleanHref]) {
+            window.spaCache[cleanHref] = fetch(href).then(r => r.text()).catch(() => null);
+        }
+    });
+
+    window.navigateToSPA = async (url, useTransition = true) => {
+        try {
+            const cleanUrl = url.split('?')[0].split('#')[0];
+            let text;
+            if (window.spaCache && window.spaCache[cleanUrl]) {
+                text = await window.spaCache[cleanUrl];
+            } else {
+                const response = await fetch(url);
+                text = await response.text();
+            }
+            if (!text) { window.location.href = url; return; }
+
+            const doc = new DOMParser().parseFromString(text, 'text/html');
+
+            const performSwap = () => {
+                const scriptTexts = Array.from(doc.querySelectorAll('body script:not([src])')).map(s => s.textContent);
+
+                const currentMain = document.querySelector('main');
+                const newMain = doc.querySelector('main');
+                if (currentMain && newMain) {
+                    currentMain.replaceWith(newMain);
+                } else {
+                    window.location.href = url; return;
+                }
+
+                const currentNav = document.querySelector('nav');
+                const newNav = doc.querySelector('nav');
+                if (currentNav && newNav) {
+                    currentNav.innerHTML = newNav.innerHTML;
+                }
+
+                const currentFooter = document.querySelector('footer');
+                const newFooter = doc.querySelector('footer');
+                if (currentFooter && newFooter) {
+                    currentFooter.replaceWith(newFooter);
+                }
+
+                document.title = doc.title;
+
+                Array.from(doc.body.children).forEach(el => {
+                    const tag = el.tagName.toLowerCase();
+                    if (tag === 'script' || tag === 'main' || tag === 'nav' || tag === 'footer' || tag === 'noscript') return;
+                    const existingEl = el.id ? document.getElementById(el.id) : null;
+                    if (existingEl) {
+                        existingEl.replaceWith(el);
+                    } else {
+                        document.body.appendChild(el);
+                    }
+                });
+
+                scriptTexts.forEach(text => {
+                    const newScript = document.createElement('script');
+                    newScript.textContent = text;
+                    document.body.appendChild(newScript);
+                });
+
+                if (window.tailwind && typeof window.tailwind.refresh === 'function') {
+                    window.tailwind.refresh();
+                }
+            };
+
+            if (useTransition && document.startViewTransition) {
+                document.startViewTransition(performSwap);
+            } else {
+                performSwap();
+            }
+
+            window.history.pushState({}, '', url);
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        } catch(e) {
+            window.location.href = url;
+        }
+    };
+
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+        if (link.getAttribute('target') === '_blank') return;
+        e.preventDefault();
+        window.navigateToSPA(href, true);
+    });
+
+    window.addEventListener('popstate', () => {
+        window.navigateToSPA(window.location.pathname, false);
+    });
+}
+</script>
+
+  <meta name="description" content="ความปลอดภัยในไซต์งานก่อสร้าง — สาเหตุอุบัติเหตุและมาตรการป้องกัน"/>
+  <meta name="robots" content="index, follow"/>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#d4572a] focus:text-white focus:px-4 focus:py-2 focus:font-bold focus:rounded">Skip to main content</a>
+<nav id="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/sunjupiter-logo.webp" alt="SUN JUPITER CO.,LTD.">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">หน้าแรก</a></li>
+      <li><a href="about.html">เกี่ยวกับเรา</a></li>
+      <li class="nav-has-drop"><a href="#" class="nav-drop-trigger">ผลิตภัณฑ์ <span class="nav-chevron">▾</span></a><div class="nav-drop"><a class="nav-drop-col" href="construction-hoists.html"><div class="nav-drop-cat">ลิฟต์ก่อสร้าง</div><div class="nav-drop-brands"><img src="assets/credo.png" alt="CREDO" style="height:11px;vertical-align:middle;display:inline;"></div></a><div class="nav-drop-sep"></div><a class="nav-drop-col" href="tower-cranes.html"><div class="nav-drop-cat">ทาวเวอร์เครน</div><div style="font-size:.78rem;font-weight:400;color:#9a9690;margin-top:-4px;margin-bottom:4px;">เดอร์ริคเครน</div><div class="nav-drop-brands">QLCM · JARLWAY · ZOOMLION · BQ</div></a></div></li>
+      <li><a href="site-reference.html">ผลงาน</a></li>
+      <li><a href="articles.html" class="active">บทความ</a></li>
+      <li><a href="contact.html">ติดต่อเรา</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:0992181919" class="nav-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+        099-218-1919
+      </a>
+      <a href="about.html" class="nav-credo">
+        <img src="assets/credo.webp" alt="CREDO">
+      </a>
+      <button class="md:hidden flex flex-col items-center justify-center" id="hamburger-btn" aria-label="เมนูนำทาง" onclick="toggleNavOverlay(true)" style="gap:5px;width:38px;height:38px;border:2px solid #d0cdc8;border-radius:6px;background:transparent;cursor:pointer;flex-shrink:0;transition:border-color 0.2s" onmouseover="this.style.borderColor='#d4572a'" onmouseout="this.style.borderColor='#d0cdc8'">
+        <span style="display:block;width:16px;height:2px;background:#404040;border-radius:1px"></span>
+        <span style="display:block;width:16px;height:2px;background:#404040;border-radius:1px"></span>
+        <span style="display:block;width:16px;height:2px;background:#404040;border-radius:1px"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div id="nav-overlay" style="display:none;opacity:0;transition:opacity 0.35s ease;position:fixed;inset:0;z-index:60;background:#0a0a0a;flex-direction:column;align-items:center;justify-content:center">
+<button onclick="toggleNavOverlay(false)" aria-label="ปิดเมนู" style="position:absolute;top:24px;right:32px;background:none;border:none;cursor:pointer;color:#fff;line-height:1;padding:8px">
+  <span class="material-symbols-outlined" style="font-size:32px">close</span>
+</button>
+<div style="display:flex;flex-direction:column;align-items:flex-start;gap:28px;padding:48px 32px">
+  <a href="index.html" onclick="navOverlayGo(event,'index.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">หน้าแรก</a>
+  <a href="about.html" onclick="navOverlayGo(event,'about.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">เกี่ยวกับเรา</a>
+  <a href="tower-cranes.html" onclick="navOverlayGo(event,'tower-cranes.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">ผลิตภัณฑ์</a>
+  <a href="site-reference.html" onclick="navOverlayGo(event,'site-reference.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">ผลงาน</a>
+  <a href="articles.html" onclick="navOverlayGo(event,'articles.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">บทความ</a>
+  <a href="contact.html" onclick="navOverlayGo(event,'contact.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">ติดต่อเรา</a>
+  <a href="tel:0992181919" style="font-family:'Kanit',sans-serif;font-size:clamp(18px,3.5vw,32px);font-weight:700;color:#d4572a;text-decoration:none;display:flex;align-items:center;gap:8px;margin-top:8px;">
+    <span class="material-symbols-outlined" style="font-size:24px">phone_in_talk</span>099-218-1919
+  </a>
+</div>
+</div>
+<main id="main-content" class="pt-24">
+
+<section style="background:#f8f7f4;padding:60px 0 100px;">
+  <div style="max-width:860px;margin:0 auto;padding:0 32px;">
+
+    <!-- Back button -->
+    <div style="margin-bottom:36px;">
+      <a href="articles.html" onclick="if(window.navigateToSPA){event.preventDefault();window.navigateToSPA('articles.html',true);}" style="display:inline-flex;align-items:center;gap:8px;font-family:'Kanit',sans-serif;font-size:0.85rem;font-weight:500;color:#d4572a;text-decoration:none;transition:gap 0.2s;" onmouseover="this.style.gap='12px'" onmouseout="this.style.gap='8px'">← กลับไปหน้าบทความ</a>
+    </div>
+
+    <article style="background:#fff;padding:48px 52px;box-shadow:0 2px 24px rgba(0,0,0,0.07);border-top:3px solid #d4572a;">
+      <div style="font-family:'Kanit',sans-serif;font-size:0.72rem;font-weight:600;color:#d4572a;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;">ความปลอดภัย</div>
+      <h2 style="font-family:'Kanit',sans-serif;font-size:1.7rem;font-weight:700;color:#1a1a1a;margin:0 0 8px;line-height:1.3;">ความปลอดภัยในไซต์งานก่อสร้าง</h2>
+      <div style="font-family:'Sarabun',sans-serif;font-size:0.8rem;color:#9a9690;margin-bottom:24px;">23 เมษายน 2569</div>
+      <div style="margin-bottom:28px;border-radius:6px;overflow:hidden;">
+        <img src="assets/articles/art1-cover.webp" alt="ความปลอดภัยในไซต์งานก่อสร้าง" style="width:100%;height:auto;display:block;max-height:420px;object-fit:cover;" loading="lazy">
+      </div>
+      <div style="font-family:'Sarabun',sans-serif;font-size:1rem;color:#3a3a3a;line-height:1.95;">
+        <p style="margin:0 0 16px;">ไซต์งานก่อสร้างเป็นสภาพแวดล้อมที่มีความเสี่ยงสูงที่สุดแห่งหนึ่ง สาเหตุหลักของอันตรายแบ่งเป็น 3 กลุ่ม ได้แก่ <strong>สาเหตุจากตัวบุคคล</strong> เช่น ไม่สวม PPE หรือขาดความระมัดระวัง <strong>สาเหตุจากสภาพแวดล้อม</strong> เช่น พื้นที่ทำงานไม่เป็นระเบียบหรือแสงสว่างไม่เพียงพอ และ <strong>สาเหตุจากเครื่องจักร</strong> เช่น อุปกรณ์ขาดการบำรุงรักษาตามกำหนด</p>
+        <h4 style="font-family:'Kanit',sans-serif;font-size:1rem;font-weight:600;color:#1a1a1a;margin:24px 0 10px;">มาตรการความปลอดภัยพื้นฐาน 9 ข้อ</h4>
+        <ol style="padding-left:22px;margin:0 0 16px;display:flex;flex-direction:column;gap:7px;">
+          <li>จัดทำแผนความปลอดภัย (Safety Plan) และรับการอนุมัติก่อนเริ่มโครงการ</li>
+          <li>อบรม Safety Induction ให้แรงงานทุกคนก่อนเข้าพื้นที่ครั้งแรก</li>
+          <li>กำหนดเขตพื้นที่งานและติดป้ายเตือนให้ชัดเจนทุกจุด</li>
+          <li>ตรวจสอบสภาพอุปกรณ์และเครื่องจักรก่อนใช้งานทุกวัน</li>
+          <li>จัดแสงสว่างให้เพียงพอในทุกพื้นที่ปฏิบัติงาน</li>
+          <li>จัดทำและซักซ้อมแผนป้องกันอัคคีภัยอย่างสม่ำเสมอ</li>
+          <li>เตรียมอุปกรณ์ปฐมพยาบาลและแผนส่งต่อผู้บาดเจ็บให้พร้อมเสมอ</li>
+          <li>รายงานสภาพอันตรายต่อหัวหน้างานทันทีที่พบ</li>
+          <li>ห้ามดื่มแอลกอฮอล์หรือใช้สารเสพติดขณะปฏิบัติงานโดยเด็ดขาด</li>
+        </ol>
+        <p style="margin:0;">หน่วยงานที่มีแรงงาน 50 คนขึ้นไปต้องจัดตั้งคณะกรรมการความปลอดภัย (Safety Committee) ตามกฎหมาย และต้องบริหารความปลอดภัยให้ครอบคลุมทั้งพนักงานประจำ ผู้รับเหมา และแรงงานรับจ้างช่วงทุกราย</p>
+      </div>
+      <div style="margin-top:32px;padding-top:20px;border-top:1px solid #e8e4de;">
+        <div style="font-family:'Kanit',sans-serif;font-size:0.72rem;font-weight:600;color:#9a9690;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">แหล่งข้อมูล</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a href="https://ekcrane.com/th/safety-of-construction/" target="_blank" rel="noopener" style="font-size:0.8rem;color:#d4572a;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">↗ ekcrane.com — 10 ข้อความปลอดภัยในงานก่อสร้าง</a>
+          <a href="https://www.tosh.or.th/index.php/blog/item/1607-2025-04-22-06-13-28" target="_blank" rel="noopener" style="font-size:0.8rem;color:#d4572a;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">↗ tosh.or.th — ความปลอดภัยในงานก่อสร้างต่อเติมอาคาร (สสปท.)</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="footer-main">
+    <div>
+      <a href="index.html" class="foot-logo-wrap">
+        <img src="assets/sunjupiter-logo.webp" alt="Sun Jupiter">
+      </a>
+      <div class="foot-company-th">บริษัท ซันจูปิเตอร์ จำกัด</div>
+      <div class="foot-company-en">SUN JUPITER CO., LTD.</div>
+      <div class="foot-address">
+        55 ถนนจตุโชติ<br>
+        แขวงออเงิน เขตสายไหม<br>
+        กรุงเทพฯ 10220
+      </div>
+    </div>
+    <div>
+      <div class="foot-col-title">ติดต่อเรา</div>
+      <a href="https://www.facebook.com/SUNJUPITERFANPAGE/" target="_blank" class="foot-contact-item">
+        <span class="foot-contact-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </span>
+        <span class="foot-contact-text" style="white-space:nowrap;font-size:0.72rem;">Facebook : SUNJUPITERFANPAGE</span>
+      </a>
+      <a href="#" class="foot-contact-item" onclick="showQR(event,'line')">
+        <span class="foot-contact-icon" style="font-size:0.75rem;font-weight:700;letter-spacing:-0.04em;">LINE</span>
+        <span class="foot-contact-text">LINE ID : amp2000016</span>
+      </a>
+      <a href="#" class="foot-contact-item" onclick="showQR(event,'wechat')">
+        <span class="foot-contact-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.295.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c-.276-.94-.42-1.93-.42-2.955 0-3.763 3.352-6.813 7.484-6.813.262 0 .522.015.776.04C15.668 4.08 12.478 2.188 8.69 2.188zm-2.46 3.477a1.003 1.003 0 110 2.007 1.003 1.003 0 010-2.007zm4.913 0a1.003 1.003 0 110 2.007 1.003 1.003 0 010-2.007zM24 14.875c0-3.315-3.14-6.012-7.006-6.012-3.865 0-7.006 2.697-7.006 6.012 0 3.316 3.14 6.013 7.006 6.013.833 0 1.63-.13 2.372-.357a.71.71 0 01.59.08l1.545.905a.268.268 0 00.137.044.242.242 0 00.242-.242c0-.059-.023-.117-.04-.176l-.318-1.207a.484.484 0 01.174-.543C23.076 18.47 24 16.764 24 14.875zm-9.304-1.07a.822.822 0 110-1.644.822.822 0 010 1.644zm4.597 0a.822.822 0 110-1.644.822.822 0 010 1.644z"/></svg>
+        </span>
+        <span class="foot-contact-text">WeChat : amp2000016</span>
+      </a>
+      <a href="mailto:sunisa.s@sunjupiter.co.th" class="foot-contact-item">
+        <span class="foot-contact-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </span>
+        <span class="foot-contact-text">sunisa.s@sunjupiter.co.th</span>
+      </a>
+      <a href="tel:0992181919" class="foot-contact-item">
+        <span class="foot-contact-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 0 0 .12 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        </span>
+        <span class="foot-contact-text">099-218-1919</span>
+      </a>
+    </div>
+    <div>
+      <div class="foot-col-title">ผลิตภัณฑ์</div>
+      <ul class="foot-list">
+        <li><a href="tower-cranes.html">ทาวเวอร์เครน</a></li>
+        <li><a href="construction-hoists.html">ลิฟต์ก่อสร้าง</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-title">เมนูหลัก</div>
+      <ul class="foot-list">
+        <li><a href="index.html">หน้าแรก</a></li>
+        <li><a href="about.html">เกี่ยวกับเรา</a></li>
+        <li><a href="tower-cranes.html">ผลิตภัณฑ์</a></li>
+        <li><a href="site-reference.html">ผลงาน</a></li>
+        <li><a href="articles.html">บทความ</a></li>
+        <li><a href="contact.html">ติดต่อเรา</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2569 บริษัท ซันจูปิเตอร์ จำกัด · SUN JUPITER CO., LTD. All rights reserved.</span>
+    <div class="footer-policy">
+      <a href="#">นโยบายความเป็นส่วนตัว</a>
+      <a href="#">ข้อกำหนดการใช้งาน</a>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleNavOverlay(open) {
+  const overlay = document.getElementById('nav-overlay');
+  if (!overlay) return;
+  if (open) {
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() { overlay.style.opacity = '1'; }, 10);
+  } else {
+    overlay.style.opacity = '0';
+    document.body.style.overflow = '';
+    setTimeout(function() { overlay.style.display = 'none'; }, 350);
+  }
+}
+function navOverlayGo(e, url) {
+  e.preventDefault();
+  toggleNavOverlay(false);
+  setTimeout(function() {
+    window.navigateToSPA ? window.navigateToSPA(url, true) : (window.location.href = url);
+  }, 370);
+}
+</script>
+
+<!-- Lenis Smooth Scroll -->
+<script src='https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js'></script>
+<script>
+(function(){
+  var lenis = new Lenis({ duration: 1.3, easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10*t)); }, smoothWheel: true, wheelMultiplier: 0.85 });
+  function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+  window.__lenis = lenis;
+})();
+</script>
+<!-- QR Popup Modal -->
+<div id="qr-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.65);align-items:center;justify-content:center;cursor:pointer;" onclick="this.style.display='none'">
+  <div onclick="event.stopPropagation()" style="background:#fff;border-radius:20px;padding:36px 40px 28px;text-align:center;max-width:280px;width:90%;box-shadow:0 24px 64px rgba(0,0,0,0.35);">
+    <div id="qr-title" style="font-family:'Kanit',sans-serif;font-size:1.15rem;font-weight:700;color:#1a1a1a;margin-bottom:4px;"></div>
+    <div id="qr-subtitle" style="font-family:'Sarabun',sans-serif;font-size:0.78rem;color:#9a9690;margin-bottom:20px;"></div>
+    <img id="qr-img" src="" alt="QR Code" width="200" height="200" style="display:block;margin:0 auto 16px;border-radius:8px;border:1px solid #f0f0f0;">
+    <div style="font-family:'Sarabun',sans-serif;font-size:0.8rem;color:#64748b;">ID: <strong id="qr-id" style="color:#1a1a1a;"></strong></div>
+    <button onclick="document.getElementById('qr-modal').style.display='none'" style="margin-top:20px;font-family:'Kanit',sans-serif;font-size:0.78rem;color:#9a9690;background:none;border:1px solid #e2e8f0;border-radius:8px;padding:6px 20px;cursor:pointer;">ปิด</button>
+  </div>
+</div>
+<script>
+function showQR(e,type){
+  e.preventDefault();
+  var d=document.getElementById('qr-modal');
+  if(type==='line'){
+    document.getElementById('qr-title').textContent='LINE';
+    document.getElementById('qr-subtitle').textContent='สแกน QR เพื่อเพิ่มเพื่อน';
+    document.getElementById('qr-img').src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=06C755&data=https%3A%2F%2Fline.me%2Fti%2Fp%2F~amp2000016';
+    document.getElementById('qr-id').textContent='amp2000016';
+  } else {
+    document.getElementById('qr-title').textContent='WeChat';
+    document.getElementById('qr-subtitle').textContent='สแกน QR หรือค้นหา ID';
+    document.getElementById('qr-img').src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=07C160&data=amp2000016';
+    document.getElementById('qr-id').textContent='amp2000016';
+  }
+  d.style.display='flex';
+}
+</script>
+</body></html>

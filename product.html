@@ -39,7 +39,7 @@
 
 /* ════ SITE FOOTER ════ */
 .site-footer { background: #111214; border-top: 3px solid #d4572a; }
-.footer-main { max-width: 1280px; margin: 0 auto; padding: 64px 60px 52px; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; }
+.footer-main { max-width: 1280px; margin: 0 auto; padding: 64px 60px 52px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.4fr; gap: 64px; }
 .foot-logo-wrap { display: inline-block; margin-bottom: 20px; text-decoration: none; }
 .foot-logo-wrap img { height: 40px; width: auto; display: block; }
 .foot-company-th { font-family: 'Kanit', sans-serif; font-size: 1rem; font-weight: 600; color: #e8e4dc; line-height: 1.4; margin-bottom: 2px; }
@@ -250,8 +250,8 @@ if (!window.spaRouterLoaded) {
     <ul class="nav-links">
       <li><a href="index.html">หน้าแรก</a></li>
       <li><a href="about.html">เกี่ยวกับเรา</a></li>
-      <li><a href="product.html" class="active">ผลิตภัณฑ์</a></li>
       <li><a href="site-reference.html">ผลงาน</a></li>
+      <li><a href="articles.html">บทความ</a></li>
       <li><a href="contact.html">ติดต่อเรา</a></li>
     </ul>
     <div class="nav-right">
@@ -277,8 +277,8 @@ if (!window.spaRouterLoaded) {
 <div style="display:flex;flex-direction:column;align-items:flex-start;gap:28px;padding:48px 32px">
   <a href="index.html" onclick="navOverlayGo(event,'index.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">หน้าแรก</a>
   <a href="about.html" onclick="navOverlayGo(event,'about.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">เกี่ยวกับเรา</a>
-  <span style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#d4572a">ผลิตภัณฑ์</span>
   <a href="site-reference.html" onclick="navOverlayGo(event,'site-reference.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">ผลงาน</a>
+  <a href="articles.html" onclick="navOverlayGo(event,'articles.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">บทความ</a>
   <a href="contact.html" onclick="navOverlayGo(event,'contact.html')" style="font-family:'Kanit',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-0.02em;color:#fff;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#d4572a'" onmouseout="this.style.color='#fff'">ติดต่อเรา</a>
   <a href="tel:0992181919" style="font-family:'Kanit',sans-serif;font-size:clamp(18px,3.5vw,32px);font-weight:700;color:#d4572a;text-decoration:none;display:flex;align-items:center;gap:8px;margin-top:8px;">
     <span class="material-symbols-outlined" style="font-size:24px">phone_in_talk</span>099-218-1919
@@ -517,27 +517,27 @@ if (!window.spaRouterLoaded) {
     </div>
     <div>
       <div class="foot-col-title">ติดต่อเรา</div>
-      <a href="https://www.facebook.com/sunjupiter" target="_blank" class="foot-contact-item">
+      <a href="https://www.facebook.com/SUNJUPITERFANPAGE/" target="_blank" class="foot-contact-item">
         <span class="foot-contact-icon">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
         </span>
-        <span class="foot-contact-text">Facebook : sunjupiter</span>
+        <span class="foot-contact-text" style="white-space:nowrap;font-size:0.72rem;">Facebook : SUNJUPITERFANPAGE</span>
       </a>
-      <a href="#" class="foot-contact-item">
+      <a href="#" class="foot-contact-item" onclick="showQR(event,'line')">
         <span class="foot-contact-icon" style="font-size:0.75rem;font-weight:700;letter-spacing:-0.04em;">LINE</span>
-        <span class="foot-contact-text">LINE ID : @sunjupiter</span>
+        <span class="foot-contact-text">LINE ID : amp2000016</span>
       </a>
-      <a href="#" class="foot-contact-item">
+      <a href="#" class="foot-contact-item" onclick="showQR(event,'wechat')">
         <span class="foot-contact-icon">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.295.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c-.276-.94-.42-1.93-.42-2.955 0-3.763 3.352-6.813 7.484-6.813.262 0 .522.015.776.04C15.668 4.08 12.478 2.188 8.69 2.188zm-2.46 3.477a1.003 1.003 0 110 2.007 1.003 1.003 0 010-2.007zm4.913 0a1.003 1.003 0 110 2.007 1.003 1.003 0 010-2.007zM24 14.875c0-3.315-3.14-6.012-7.006-6.012-3.865 0-7.006 2.697-7.006 6.012 0 3.316 3.14 6.013 7.006 6.013.833 0 1.63-.13 2.372-.357a.71.71 0 01.59.08l1.545.905a.268.268 0 00.137.044.242.242 0 00.242-.242c0-.059-.023-.117-.04-.176l-.318-1.207a.484.484 0 01.174-.543C23.076 18.47 24 16.764 24 14.875zm-9.304-1.07a.822.822 0 110-1.644.822.822 0 010 1.644zm4.597 0a.822.822 0 110-1.644.822.822 0 010 1.644z"/></svg>
         </span>
-        <span class="foot-contact-text">WeChat : sunjupiter</span>
+        <span class="foot-contact-text">WeChat : amp2000016</span>
       </a>
-      <a href="mailto:info@sunjupiter.com" class="foot-contact-item">
+      <a href="mailto:sunisa.s@sunjupiter.co.th" class="foot-contact-item">
         <span class="foot-contact-icon">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </span>
-        <span class="foot-contact-text">info@sunjupiter.com</span>
+        <span class="foot-contact-text">sunisa.s@sunjupiter.co.th</span>
       </a>
       <a href="tel:0992181919" class="foot-contact-item">
         <span class="foot-contact-icon">
@@ -558,8 +558,8 @@ if (!window.spaRouterLoaded) {
       <ul class="foot-list">
         <li><a href="index.html">หน้าแรก</a></li>
         <li><a href="about.html">เกี่ยวกับเรา</a></li>
-        <li><a href="product.html">ผลิตภัณฑ์</a></li>
         <li><a href="site-reference.html">ผลงานอ้างอิง</a></li>
+        <li><a href="articles.html">บทความ</a></li>
         <li><a href="contact.html">ติดต่อเรา</a></li>
       </ul>
     </div>
@@ -626,6 +626,34 @@ function navOverlayGo(e, url) {
     curtain.style.pointerEvents = "none";
   };
 })();
+</script>
+<!-- QR Popup Modal -->
+<div id="qr-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.65);align-items:center;justify-content:center;cursor:pointer;" onclick="this.style.display='none'">
+  <div onclick="event.stopPropagation()" style="background:#fff;border-radius:20px;padding:36px 40px 28px;text-align:center;max-width:280px;width:90%;box-shadow:0 24px 64px rgba(0,0,0,0.35);">
+    <div id="qr-title" style="font-family:'Kanit',sans-serif;font-size:1.15rem;font-weight:700;color:#1a1a1a;margin-bottom:4px;"></div>
+    <div id="qr-subtitle" style="font-family:'Sarabun',sans-serif;font-size:0.78rem;color:#9a9690;margin-bottom:20px;"></div>
+    <img id="qr-img" src="" alt="QR Code" width="200" height="200" style="display:block;margin:0 auto 16px;border-radius:8px;border:1px solid #f0f0f0;">
+    <div style="font-family:'Sarabun',sans-serif;font-size:0.8rem;color:#64748b;">ID: <strong id="qr-id" style="color:#1a1a1a;"></strong></div>
+    <button onclick="document.getElementById('qr-modal').style.display='none'" style="margin-top:20px;font-family:'Kanit',sans-serif;font-size:0.78rem;color:#9a9690;background:none;border:1px solid #e2e8f0;border-radius:8px;padding:6px 20px;cursor:pointer;">ปิด</button>
+  </div>
+</div>
+<script>
+function showQR(e,type){
+  e.preventDefault();
+  var d=document.getElementById('qr-modal');
+  if(type==='line'){
+    document.getElementById('qr-title').textContent='LINE';
+    document.getElementById('qr-subtitle').textContent='สแกน QR เพื่อเพิ่มเพื่อน';
+    document.getElementById('qr-img').src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=06C755&data=https%3A%2F%2Fline.me%2Fti%2Fp%2F~amp2000016';
+    document.getElementById('qr-id').textContent='amp2000016';
+  } else {
+    document.getElementById('qr-title').textContent='WeChat';
+    document.getElementById('qr-subtitle').textContent='สแกน QR หรือค้นหา ID';
+    document.getElementById('qr-img').src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=07C160&data=amp2000016';
+    document.getElementById('qr-id').textContent='amp2000016';
+  }
+  d.style.display='flex';
+}
 </script>
 </body></html>
 
