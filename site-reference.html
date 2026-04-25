@@ -286,18 +286,19 @@ if (!window.spaRouterLoaded) {
 .sr-filters { display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:44px; }
 .sr-filter { padding:8px 22px;background:transparent;border:1.5px solid #ccc8c0;color:#7a766e;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;cursor:pointer;transition:all .2s;border-radius:2px;font-family:'Sarabun',sans-serif; }
 .sr-filter:hover,.sr-filter.active { background:#1c1a16;border-color:#1c1a16;color:#fff; }
-.sr-masonry { display:grid;grid-template-columns:repeat(4,1fr);gap:12px;grid-auto-flow:dense;transition:opacity 0.45s ease; }
-@media(max-width:1100px){ .sr-masonry{ grid-template-columns:repeat(3,1fr); } }
-@media(max-width:768px) { .sr-masonry{ grid-template-columns:repeat(2,1fr); } }
+/* ── Gallery Grid ── */
+.sr-masonry { display:grid;grid-template-columns:repeat(5,1fr);gap:4px;grid-auto-flow:row dense;transition:opacity 0.45s ease; }
+@media(max-width:1100px){ .sr-masonry{ grid-template-columns:repeat(4,1fr); } }
+@media(max-width:768px) { .sr-masonry{ grid-template-columns:repeat(3,1fr); } }
+@media(max-width:480px) { .sr-masonry{ grid-template-columns:repeat(2,1fr); } }
 .sr-masonry.sr-grid-exit { opacity:0;pointer-events:none; }
-.sr-item { position:relative;overflow:hidden;cursor:pointer;background:#1a1a1a;aspect-ratio:4/3; }
-.sr-item.sr-large { grid-column:span 2;grid-row:span 2;aspect-ratio:auto; }
-.sr-item img { width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;transition:transform .5s ease; }
-.sr-item:hover img { transform:scale(1.06); }
-.sr-tag { position:absolute;bottom:0;left:0;width:100%;padding:10px 14px;background:linear-gradient(transparent,rgba(0,0,0,0.75));opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;min-height:60px; }
+.sr-item { position:relative;overflow:hidden;cursor:pointer;background:#1a1a1a;aspect-ratio:3/4; }
+.sr-item.sr-large { grid-row:span 2;aspect-ratio:auto; }
+.sr-item img { width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .45s ease; }
+.sr-item:hover img { transform:scale(1.07); }
+.sr-tag { position:absolute;bottom:0;left:0;width:100%;padding:7px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.75));opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;min-height:44px; }
 .sr-item:hover .sr-tag { opacity:1; }
-.sr-tag span { background:#d4572a;color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px; }
-.sr-item.sr-large .sr-tag { min-height:90px;padding:16px 20px; }
+.sr-tag span { background:#d4572a;color:#fff;font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px; }
 .sr-load-more { display:block;margin:40px auto 0;padding:13px 44px;background:transparent;border:1.5px solid #c4c0b8;color:#7a766e;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;cursor:pointer;transition:all .2s;font-family:'Sarabun',sans-serif; }
 .sr-load-more:hover { border-color:#1c1a16;color:#1c1a16; }
 .sr-load-more.hidden { display:none; }
@@ -332,13 +333,6 @@ if (!window.spaRouterLoaded) {
   <div class="sr-dots" id="sr-dots"></div>
 </section>
 
-<!-- ── STATS BAR ── -->
-<div class="sr-stats">
-  <div class="sr-stat"><span class="sr-stat-num">25+</span><span class="sr-stat-lbl">ปีในอุตสาหกรรม</span></div>
-  <div class="sr-stat"><span class="sr-stat-num">200+</span><span class="sr-stat-lbl">โครงการที่ผ่านมา</span></div>
-  <div class="sr-stat"><span class="sr-stat-num">500+</span><span class="sr-stat-lbl">ลูกค้าที่ไว้วางใจ</span></div>
-  <div class="sr-stat"><span class="sr-stat-num">24/7</span><span class="sr-stat-lbl">ทีมช่างพร้อมให้บริการ</span></div>
-</div>
 
 <!-- ── GALLERY ── -->
 <section class="sr-gallery">
@@ -546,24 +540,61 @@ function balancedShuffle() {
 
 let visibleImages = balancedShuffle();
 
+const SR_PRETTY = [
+  'assets/รูปสวย/S__10952709_0.webp','assets/รูปสวย/S__10952710_0.webp',
+  'assets/รูปสวย/S__10952711_0.webp','assets/รูปสวย/S__10952713_0.webp',
+  'assets/รูปสวย/S__10952715_0.webp','assets/รูปสวย/S__10952716_0.webp',
+  'assets/รูปสวย/S__10952718_0.webp','assets/รูปสวย/S__10952720_0.webp',
+  'assets/รูปสวย/S__10952721_0.webp','assets/รูปสวย/S__10952722_0.webp',
+  'assets/รูปสวย/S__10952723_0.webp','assets/รูปสวย/S__10952724_0.webp',
+  'assets/รูปสวย/S__10952725_0.webp','assets/รูปสวย/S__10952727_0.webp',
+  'assets/รูปสวย/S__10952728_0.webp','assets/รูปสวย/S__10952729_0.webp',
+  'assets/รูปสวย/S__10952732_0.webp','assets/รูปสวย/S__10952734_0.webp',
+  'assets/รูปสวย/S__175644682.webp','assets/รูปสวย/146522.webp',
+  'assets/รูปสวย/69479.webp'
+];
+let shuffledPretty = [];
+let prettyIdx = 0;
+
 function buildGrid(reset) {
   const grid = document.getElementById('sr-masonry');
-  if (reset) { grid.innerHTML = ''; shown = 0; }
+  if (reset) {
+    grid.innerHTML = '';
+    shown = 0;
+    shuffledPretty = shuffle(SR_PRETTY.slice());
+    prettyIdx = 0;
+  }
   const end = Math.min(shown + BATCH, visibleImages.length);
   const frag = document.createDocumentFragment();
 
+  // Insert 1 large feature image every 8 regular items, alternating left/right edge
+  const LARGE_EVERY = 8;
+  let batchCount = 0; // regular items added in this call
+
   for (let i = shown; i < end; i++) {
+    // Before each group of LARGE_EVERY regular items, insert a large feature block
+    if (batchCount > 0 && batchCount % LARGE_EVERY === 0) {
+      const prettySrc = shuffledPretty[prettyIdx % shuffledPretty.length];
+      prettyIdx++;
+      const large = document.createElement('div');
+      large.className = 'sr-item sr-large';
+      // alternate: even → left edge (col 1-2), odd → right edge (col 4-5)
+      large.style.gridColumn = (prettyIdx % 2 === 1) ? '1 / span 2' : '4 / span 2';
+      large.innerHTML = `<img src="${prettySrc}" alt="ผลงาน" loading="lazy"/>`;
+      large.onclick = () => { document.getElementById('sr-lb-img').src = prettySrc; document.getElementById('sr-lb-count').textContent = ''; document.getElementById('sr-lightbox').classList.add('open'); document.body.style.overflow='hidden'; };
+      frag.appendChild(large);
+    }
+
     const src = visibleImages[i];
     const globalIdx = visibleImages.indexOf(src);
     const item = document.createElement('div');
-    const groupPos = i % 6;
-    const isLarge = groupPos === 0;
-    item.className = 'sr-item' + (isLarge ? ' sr-large' : '');
+    item.className = 'sr-item';
     item.dataset.idx = globalIdx;
     const cat = src.includes('/hoist/') ? 'ลิฟต์ก่อสร้าง' : 'เครนทาวเวอร์';
     item.innerHTML = `<img src="${src}" alt="ผลงาน ${i + 1}" loading="lazy"/><div class="sr-tag"><span>${cat}</span></div>`;
     item.onclick = () => srOpenLB(globalIdx);
     frag.appendChild(item);
+    batchCount++;
   }
   grid.appendChild(frag);
   shown = end;
