@@ -172,13 +172,6 @@ if (!window.spaRouterLoaded) {
                 if (window.applyTranslations) window.applyTranslations();
             };
 
-            // Trigger exit animation if hero-slider exists
-            const slider = document.getElementById('hero-slider');
-            if (slider && useTransition) {
-                slider.classList.add('anim-out');
-                await new Promise(r => setTimeout(r, 380));
-            }
-
             window.history.pushState({}, '', url);
             if (document.startViewTransition && useTransition) {
                 document.startViewTransition(() => performSwap());
