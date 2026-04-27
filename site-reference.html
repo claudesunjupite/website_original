@@ -292,14 +292,16 @@ if (!window.spaRouterLoaded) {
 @media(max-width:768px) { .sr-masonry{ grid-template-columns:repeat(3,1fr); } }
 @media(max-width:480px) { .sr-masonry{ grid-template-columns:repeat(2,1fr); } }
 .sr-masonry.sr-grid-exit { opacity:0;pointer-events:none; }
-.sr-item { position:relative;overflow:hidden;cursor:pointer;background:#1a1a1a;aspect-ratio:3/4; }
-.sr-item.sr-large { grid-row:span 2;aspect-ratio:auto; }
+.sr-item { position:relative;overflow:hidden;cursor:pointer;background:#1a1a1a; }
+.sr-item.sr-large { grid-column:span 2;grid-row:span 2; }
 .sr-item img { width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .45s ease; }
 .sr-item:hover img { transform:scale(1.07); }
 .sr-tag { position:absolute;bottom:0;left:0;width:100%;padding:7px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.75));opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;min-height:44px; }
 .sr-item:hover .sr-tag { opacity:1; }
 .sr-tag span { background:#d4572a;color:#fff;font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px; }
-.sr-load-more { display:block;margin:40px auto 0;padding:13px 44px;background:transparent;border:1.5px solid #c4c0b8;color:#7a766e;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;cursor:pointer;transition:all .2s;font-family:'Sarabun',sans-serif; }
+.sr-gallery-fade { height:140px;margin-top:-140px;background:linear-gradient(transparent,#f7f4ef);position:relative;z-index:2;pointer-events:none;transition:opacity .4s; }
+.sr-gallery-fade.hidden { opacity:0; }
+.sr-load-more { display:block;margin:32px auto 0;padding:13px 44px;background:transparent;border:1.5px solid #c4c0b8;color:#7a766e;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;cursor:pointer;transition:all .2s;font-family:'Sarabun',sans-serif; }
 .sr-load-more:hover { border-color:#1c1a16;color:#1c1a16; }
 .sr-load-more.hidden { display:none; }
 .sr-lightbox { display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.96);align-items:center;justify-content:center; }
@@ -348,8 +350,11 @@ if (!window.spaRouterLoaded) {
     <button class="sr-filter" data-filter="hoist">🔧 ลิฟต์ก่อสร้าง (50)</button>
   </div>
 
-  <div class="sr-masonry" id="sr-masonry"></div>
-  <button class="sr-load-more" id="sr-load-more" onclick="loadMore()">โหลดเพิ่มเติม →</button>
+  <div style="position:relative;">
+    <div class="sr-masonry" id="sr-masonry"></div>
+    <div class="sr-gallery-fade" id="sr-gallery-fade"></div>
+  </div>
+  <button class="sr-load-more" id="sr-load-more" onclick="loadMore()">โหลดภาพเพิ่มเติม →</button>
 </section>
 
 <!-- ── CTA ── -->
@@ -466,7 +471,7 @@ function navOverlayGo(e, url) {
 }
 
 // ── Image arrays by category ────────────────────────────────────
-const SR_CRANES = ["assets/site-ref/118360.webp","assets/site-ref/118469.webp","assets/site-ref/118547.webp","assets/site-ref/120359.webp","assets/site-ref/136174.webp","assets/site-ref/136761.webp","assets/site-ref/19417.webp","assets/site-ref/324205.webp","assets/site-ref/55619.webp","assets/site-ref/56684.webp","assets/site-ref/56742.webp","assets/site-ref/56831.webp","assets/site-ref/60968.webp","assets/site-ref/61695.webp","assets/site-ref/68016.webp","assets/site-ref/69342.webp","assets/site-ref/69479.webp","assets/site-ref/70202.webp","assets/site-ref/71382.webp","assets/site-ref/71383.webp","assets/site-ref/85368.webp","assets/site-ref/85498.webp","assets/site-ref/85999.webp","assets/site-ref/91230.webp","assets/site-ref/91460.webp","assets/site-ref/91858.webp","assets/site-ref/99224.webp","assets/site-ref/S__10092595.webp","assets/site-ref/S__10108937.webp","assets/site-ref/S__10272979.webp","assets/site-ref/S__10272981.webp","assets/site-ref/S__11346051.webp","assets/site-ref/S__11378782.webp","assets/site-ref/S__11673621.webp","assets/site-ref/S__11755543.webp","assets/site-ref/S__11788310.webp","assets/site-ref/S__11845674.webp","assets/site-ref/S__11976729.webp","assets/site-ref/S__12124284.webp","assets/site-ref/S__12124286.webp","assets/site-ref/S__12828677.webp","assets/site-ref/S__12886109.webp","assets/site-ref/S__12894225.webp","assets/site-ref/S__12894267.webp","assets/site-ref/S__132186148.webp","assets/site-ref/S__132186157.webp","assets/site-ref/S__132382739.webp","assets/site-ref/S__132956261.webp","assets/site-ref/S__132956275.webp","assets/site-ref/S__133226512.webp","assets/site-ref/S__133333019.webp","assets/site-ref/S__133423112.webp","assets/site-ref/S__133472265.webp","assets/site-ref/S__133554235.webp","assets/site-ref/S__133783574.webp","assets/site-ref/S__133849097.webp","assets/site-ref/S__133849101.webp","assets/site-ref/S__134135813.webp","assets/site-ref/S__134135814.webp","assets/site-ref/S__134135815.webp","assets/site-ref/S__134381589.webp","assets/site-ref/S__134381592.webp","assets/site-ref/S__134610963.webp","assets/site-ref/S__134610964.webp","assets/site-ref/S__134676490.webp","assets/site-ref/S__134733852.webp","assets/site-ref/S__134733880.webp","assets/site-ref/S__134791177.webp","assets/site-ref/S__13533224.webp","assets/site-ref/S__137846787.webp","assets/site-ref/S__138035223.webp","assets/site-ref/S__138125346.webp","assets/site-ref/S__138305558.webp","assets/site-ref/S__138420246.webp","assets/site-ref/S__138477586.webp","assets/site-ref/S__138477641.webp","assets/site-ref/S__141475868.webp","assets/site-ref/S__141500436.webp","assets/site-ref/S__142655513.webp","assets/site-ref/S__143138820.webp","assets/site-ref/S__143843342.webp","assets/site-ref/S__143859720.webp","assets/site-ref/S__144064527.webp","assets/site-ref/S__144629773.webp","assets/site-ref/S__144646150.webp","assets/site-ref/S__144646157.webp","assets/site-ref/S__144646158.webp","assets/site-ref/S__144646167.webp","assets/site-ref/S__144662533.webp","assets/site-ref/S__144662535.webp","assets/site-ref/S__144662536.webp","assets/site-ref/S__144662537.webp","assets/site-ref/S__144810011.webp","assets/site-ref/S__144810012.webp","assets/site-ref/S__144810013.webp","assets/site-ref/S__144810014.webp","assets/site-ref/S__145350669.webp","assets/site-ref/S__151396395.webp","assets/site-ref/S__151396404.webp","assets/site-ref/S__151535623.webp"];
+const SR_CRANES = ["assets/site-ref/118360.webp","assets/site-ref/118469.webp","assets/site-ref/118547.webp","assets/site-ref/120359.webp","assets/site-ref/136761.webp","assets/site-ref/324205.webp","assets/site-ref/56742.webp","assets/site-ref/56831.webp","assets/site-ref/60968.webp","assets/site-ref/61695.webp","assets/site-ref/68016.webp","assets/site-ref/69342.webp","assets/site-ref/69479.webp","assets/site-ref/70202.webp","assets/site-ref/71382.webp","assets/site-ref/71383.webp","assets/site-ref/85368.webp","assets/site-ref/85498.webp","assets/site-ref/85999.webp","assets/site-ref/91230.webp","assets/site-ref/91460.webp","assets/site-ref/91858.webp","assets/site-ref/S__10092595.webp","assets/site-ref/S__10108937.webp","assets/site-ref/S__10272979.webp","assets/site-ref/S__10272981.webp","assets/site-ref/S__11346051.webp","assets/site-ref/S__11378782.webp","assets/site-ref/S__11673621.webp","assets/site-ref/S__11755543.webp","assets/site-ref/S__11788310.webp","assets/site-ref/S__11845674.webp","assets/site-ref/S__11976729.webp","assets/site-ref/S__12124284.webp","assets/site-ref/S__12124286.webp","assets/site-ref/S__12828677.webp","assets/site-ref/S__12886109.webp","assets/site-ref/S__12894225.webp","assets/site-ref/S__12894267.webp","assets/site-ref/S__132186148.webp","assets/site-ref/S__132186157.webp","assets/site-ref/S__132382739.webp","assets/site-ref/S__132956261.webp","assets/site-ref/S__132956275.webp","assets/site-ref/S__133226512.webp","assets/site-ref/S__133333019.webp","assets/site-ref/S__133423112.webp","assets/site-ref/S__133472265.webp","assets/site-ref/S__133554235.webp","assets/site-ref/S__133783574.webp","assets/site-ref/S__133849097.webp","assets/site-ref/S__133849101.webp","assets/site-ref/S__134135813.webp","assets/site-ref/S__134135814.webp","assets/site-ref/S__134135815.webp","assets/site-ref/S__134381589.webp","assets/site-ref/S__134381592.webp","assets/site-ref/S__134610963.webp","assets/site-ref/S__134610964.webp","assets/site-ref/S__134676490.webp","assets/site-ref/S__134733852.webp","assets/site-ref/S__134733880.webp","assets/site-ref/S__134791177.webp","assets/site-ref/S__13533224.webp","assets/site-ref/S__137846787.webp","assets/site-ref/S__138035223.webp","assets/site-ref/S__138305558.webp","assets/site-ref/S__138420246.webp","assets/site-ref/S__138477586.webp","assets/site-ref/S__141475868.webp","assets/site-ref/S__143138820.webp","assets/site-ref/S__143843342.webp","assets/site-ref/S__143859720.webp","assets/site-ref/S__144064527.webp","assets/site-ref/S__144629773.webp","assets/site-ref/S__144646150.webp","assets/site-ref/S__144646157.webp","assets/site-ref/S__144662535.webp","assets/site-ref/S__144810012.webp","assets/site-ref/S__144810014.webp","assets/site-ref/S__145350669.webp","assets/site-ref/S__151396395.webp","assets/site-ref/S__151396404.webp","assets/site-ref/S__151535623.webp","assets/site-ref/S__15294531.webp","assets/site-ref/S__15335551.webp","assets/site-ref/S__15343630.webp","assets/site-ref/S__15376504.webp","assets/site-ref/S__15376506.webp","assets/site-ref/S__15376508.webp","assets/site-ref/S__15663184.webp","assets/site-ref/S__15663185.webp","assets/site-ref/S__15663186.webp","assets/site-ref/S__152657927.webp","assets/site-ref/S__153321481.webp","assets/site-ref/S__153640977.webp","assets/site-ref/S__158613576.webp","assets/site-ref/S__159293449.webp","assets/site-ref/S__159399953.webp","assets/site-ref/S__159399956.webp"];
 const SR_HOISTS = ["assets/site-ref/hoist/109456.webp","assets/site-ref/hoist/120074.webp","assets/site-ref/hoist/120075.webp","assets/site-ref/hoist/120097.webp","assets/site-ref/hoist/121991.webp","assets/site-ref/hoist/122004.webp","assets/site-ref/hoist/129790.webp","assets/site-ref/hoist/129791.webp","assets/site-ref/hoist/129801.webp","assets/site-ref/hoist/S__2080797.webp","assets/site-ref/hoist/S__2080801.webp","assets/site-ref/hoist/S__2080801ฟ.webp","assets/site-ref/hoist/S__2080806.webp","assets/site-ref/hoist/S__2080807.webp","assets/site-ref/hoist/S__2080808.webp","assets/site-ref/hoist/S__2080863.webp","assets/site-ref/hoist/S__2097159.webp","assets/site-ref/hoist/S__2105409.webp","assets/site-ref/hoist/S__2121808.webp","assets/site-ref/hoist/S__2842662.webp","assets/site-ref/hoist/S__2932780.webp","assets/site-ref/hoist/S__3358914.webp","assets/site-ref/hoist/S__3629077.webp","assets/site-ref/hoist/S__39084049.webp","assets/site-ref/hoist/S__39084053.webp","assets/site-ref/hoist/S__39084054.webp","assets/site-ref/hoist/S__39084057.webp","assets/site-ref/hoist/S__39084059.webp","assets/site-ref/hoist/S__39157771.webp","assets/site-ref/hoist/S__39157772.webp","assets/site-ref/hoist/S__39157773.webp","assets/site-ref/hoist/S__39157774.webp","assets/site-ref/hoist/S__39157791.webp","assets/site-ref/hoist/S__39157792.webp","assets/site-ref/hoist/S__39157793.webp","assets/site-ref/hoist/S__39206919.webp","assets/site-ref/hoist/S__39206922.webp","assets/site-ref/hoist/S__4309044.webp","assets/site-ref/hoist/S__4366388.webp","assets/site-ref/hoist/S__4366411.webp","assets/site-ref/hoist/S__63905801.webp","assets/site-ref/hoist/S__6406188.webp","assets/site-ref/hoist/S__64086030.webp","assets/site-ref/hoist/S__64086032.webp","assets/site-ref/hoist/S__64086033.webp","assets/site-ref/hoist/S__64086034.webp","assets/site-ref/hoist/S__7192646.webp","assets/site-ref/hoist/S__7241805.webp","assets/site-ref/hoist/S__7241807.webp","assets/site-ref/hoist/S__7241810.webp"];
 const SR_ALL = ["assets/site-ref/118360.webp","assets/site-ref/hoist/109456.webp","assets/site-ref/118469.webp","assets/site-ref/hoist/120074.webp","assets/site-ref/118547.webp","assets/site-ref/hoist/120075.webp","assets/site-ref/120359.webp","assets/site-ref/hoist/120097.webp","assets/site-ref/136174.webp","assets/site-ref/hoist/121991.webp","assets/site-ref/136761.webp","assets/site-ref/hoist/122004.webp","assets/site-ref/19417.webp","assets/site-ref/hoist/129790.webp","assets/site-ref/324205.webp","assets/site-ref/hoist/129791.webp","assets/site-ref/55619.webp","assets/site-ref/hoist/129801.webp","assets/site-ref/56684.webp","assets/site-ref/hoist/S__2080797.webp","assets/site-ref/56742.webp","assets/site-ref/hoist/S__2080801.webp","assets/site-ref/56831.webp","assets/site-ref/hoist/S__2080801ฟ.webp","assets/site-ref/60968.webp","assets/site-ref/hoist/S__2080806.webp","assets/site-ref/61695.webp","assets/site-ref/hoist/S__2080807.webp","assets/site-ref/68016.webp","assets/site-ref/hoist/S__2080808.webp","assets/site-ref/69342.webp","assets/site-ref/hoist/S__2080863.webp","assets/site-ref/69479.webp","assets/site-ref/hoist/S__2097159.webp","assets/site-ref/70202.webp","assets/site-ref/hoist/S__2105409.webp","assets/site-ref/71382.webp","assets/site-ref/hoist/S__2121808.webp","assets/site-ref/71383.webp","assets/site-ref/hoist/S__2842662.webp","assets/site-ref/85368.webp","assets/site-ref/hoist/S__2932780.webp","assets/site-ref/85498.webp","assets/site-ref/hoist/S__3358914.webp","assets/site-ref/85999.webp","assets/site-ref/hoist/S__3629077.webp","assets/site-ref/91230.webp","assets/site-ref/hoist/S__39084049.webp","assets/site-ref/91460.webp","assets/site-ref/hoist/S__39084053.webp","assets/site-ref/91858.webp","assets/site-ref/hoist/S__39084054.webp","assets/site-ref/99224.webp","assets/site-ref/hoist/S__39084057.webp","assets/site-ref/S__10092595.webp","assets/site-ref/hoist/S__39084059.webp","assets/site-ref/S__10108937.webp","assets/site-ref/hoist/S__39157771.webp","assets/site-ref/S__10272979.webp","assets/site-ref/hoist/S__39157772.webp","assets/site-ref/S__10272981.webp","assets/site-ref/hoist/S__39157773.webp","assets/site-ref/S__11346051.webp","assets/site-ref/hoist/S__39157774.webp","assets/site-ref/S__11378782.webp","assets/site-ref/hoist/S__39157791.webp","assets/site-ref/S__11673621.webp","assets/site-ref/hoist/S__39157792.webp","assets/site-ref/S__11755543.webp","assets/site-ref/hoist/S__39157793.webp","assets/site-ref/S__11788310.webp","assets/site-ref/hoist/S__39206919.webp","assets/site-ref/S__11845674.webp","assets/site-ref/hoist/S__39206922.webp","assets/site-ref/S__11976729.webp","assets/site-ref/hoist/S__4309044.webp","assets/site-ref/S__12124284.webp","assets/site-ref/hoist/S__4366388.webp","assets/site-ref/S__12124286.webp","assets/site-ref/hoist/S__4366411.webp","assets/site-ref/S__12828677.webp","assets/site-ref/hoist/S__63905801.webp","assets/site-ref/S__12886109.webp","assets/site-ref/hoist/S__6406188.webp","assets/site-ref/S__12894225.webp","assets/site-ref/hoist/S__64086030.webp","assets/site-ref/S__12894267.webp","assets/site-ref/hoist/S__64086032.webp","assets/site-ref/S__132186148.webp","assets/site-ref/hoist/S__64086033.webp","assets/site-ref/S__132186157.webp","assets/site-ref/hoist/S__64086034.webp","assets/site-ref/S__132382739.webp","assets/site-ref/hoist/S__7192646.webp","assets/site-ref/S__132956261.webp","assets/site-ref/hoist/S__7241805.webp","assets/site-ref/S__132956275.webp","assets/site-ref/hoist/S__7241807.webp","assets/site-ref/S__133226512.webp","assets/site-ref/hoist/S__7241810.webp"];
 const SR_IMAGES = SR_ALL; // default for lightbox
@@ -564,44 +569,71 @@ function buildGrid(reset) {
     shuffledPretty = shuffle(SR_PRETTY.slice());
     prettyIdx = 0;
   }
-  const end = Math.min(shown + BATCH, visibleImages.length);
+
+  updateGridRows(); // ensure row height is set before adding items
+
+  // Trim total so we don't end with exactly 1 item in a partial block (looks bad)
+  const BLOCK_REG = 6;
+  let total = visibleImages.length;
+  if (total % BLOCK_REG === 1) total -= 1;
+
+  let end = Math.min(shown + BATCH, total);
+  // Snap end to complete block boundary when more images remain
+  if (end < total) {
+    const rem = (end - shown) % BLOCK_REG;
+    if (rem !== 0) end -= rem;
+  }
+
+  const snapshots = visibleImages.slice(); // snapshot for lightbox navigation
+
   const frag = document.createDocumentFragment();
 
-  // Insert 1 large feature image every 8 regular items, alternating left/right edge
-  const LARGE_EVERY = 8;
-  let batchCount = 0; // regular items added in this call
+  // 5 cols × 2 rows = 10 cells: large(2×2)=4 + regular=6
+  // Even block: large col 1-2 (left)   Odd block: large col 4-5 (right)
+  for (let pos = shown; pos < end; pos++) {
+    const blockIdx   = Math.floor(pos / BLOCK_REG);
+    const posInBlock = pos % BLOCK_REG;
+    const isLeft     = (blockIdx % 2 === 0);
+    const insertAt   = isLeft ? 0 : 3;
 
-  for (let i = shown; i < end; i++) {
-    // Before each group of LARGE_EVERY regular items, insert a large feature block
-    if (batchCount > 0 && batchCount % LARGE_EVERY === 0) {
+    if (posInBlock === insertAt) {
       const prettySrc = shuffledPretty[prettyIdx % shuffledPretty.length];
       prettyIdx++;
       const large = document.createElement('div');
       large.className = 'sr-item sr-large';
-      // alternate: even → left edge (col 1-2), odd → right edge (col 4-5)
-      large.style.gridColumn = (prettyIdx % 2 === 1) ? '1 / span 2' : '4 / span 2';
+      large.style.gridColumn = isLeft ? '1 / span 2' : '4 / span 2';
+      large.dataset.src = prettySrc;
       large.innerHTML = `<img src="${prettySrc}" alt="ผลงาน" loading="lazy"/>`;
-      large.onclick = () => { document.getElementById('sr-lb-img').src = prettySrc; document.getElementById('sr-lb-count').textContent = ''; document.getElementById('sr-lightbox').classList.add('open'); document.body.style.overflow='hidden'; };
+      large.addEventListener('click', function() {
+        srOpenLB(0, [this.dataset.src]);
+      });
       frag.appendChild(large);
     }
 
-    const src = visibleImages[i];
-    const globalIdx = visibleImages.indexOf(src);
+    const src = visibleImages[pos];
     const item = document.createElement('div');
     item.className = 'sr-item';
-    item.dataset.idx = globalIdx;
     const cat = src.includes('/hoist/') ? 'ลิฟต์ก่อสร้าง' : 'เครนทาวเวอร์';
-    item.innerHTML = `<img src="${src}" alt="ผลงาน ${i + 1}" loading="lazy"/><div class="sr-tag"><span>${cat}</span></div>`;
-    item.onclick = () => srOpenLB(globalIdx);
+    item.innerHTML = `<img src="${src}" alt="ผลงาน" loading="lazy"/><div class="sr-tag"><span>${cat}</span></div>`;
+    item.addEventListener('click', (function(s, snap) {
+      return function() { srOpenLB(snap.indexOf(s), snap); };
+    })(src, snapshots));
     frag.appendChild(item);
-    batchCount++;
   }
+
   grid.appendChild(frag);
   shown = end;
 
   const btn = document.getElementById('sr-load-more');
-  if (shown >= visibleImages.length) { btn.classList.add('hidden'); }
-  else { btn.classList.remove('hidden'); btn.textContent = `โหลดเพิ่มเติม (${visibleImages.length - shown} รูป) →`; }
+  const fade = document.getElementById('sr-gallery-fade');
+  if (shown >= total) {
+    btn.classList.add('hidden');
+    if (fade) fade.classList.add('hidden');
+  } else {
+    btn.classList.remove('hidden');
+    btn.textContent = 'โหลดภาพเพิ่มเติม →';
+    if (fade) fade.classList.remove('hidden');
+  }
 }
 
 function loadMore() { buildGrid(false); }
@@ -619,19 +651,35 @@ document.getElementById('sr-filters').addEventListener('click', function(e) {
   const grid = document.getElementById('sr-masonry');
   grid.classList.add('sr-grid-exit');
   setTimeout(function() {
+    updateGridRows();
     buildGrid(true);
     void grid.offsetWidth; // force reflow
     grid.classList.remove('sr-grid-exit');
   }, 460);
 });
 
-buildGrid(true);
+function updateGridRows() {
+  const grid = document.getElementById('sr-masonry');
+  if (!grid) return;
+  const w = grid.offsetWidth;
+  if (!w) return;
+  const cols = w >= 1100 ? 5 : w >= 768 ? 4 : w >= 480 ? 3 : 2;
+  const colW = (w - (cols - 1) * 4) / cols;
+  grid.style.gridAutoRows = Math.round(colW * 4 / 3) + 'px';
+}
+window.addEventListener('resize', function() { updateGridRows(); });
+
+// rAF ensures DOM is fully laid out before measuring grid width
+requestAnimationFrame(function() { buildGrid(true); });
 
 // ── Lightbox ──────────────────────────────────────────────────────
-function srOpenLB(idx) {
+let lbImages = []; // current navigable image array
+
+function srOpenLB(idx, images) {
+  lbImages = images || visibleImages.slice();
   lbIdx = idx;
-  document.getElementById('sr-lb-img').src = SR_IMAGES[idx];
-  document.getElementById('sr-lb-count').textContent = `${idx + 1} / ${SR_IMAGES.length}`;
+  document.getElementById('sr-lb-img').src = lbImages[idx];
+  document.getElementById('sr-lb-count').textContent = `${idx + 1} / ${lbImages.length}`;
   document.getElementById('sr-lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -640,9 +688,9 @@ function srCloseLB() {
   document.body.style.overflow = '';
 }
 function srNavLB(dir) {
-  lbIdx = (lbIdx + dir + SR_IMAGES.length) % SR_IMAGES.length;
-  document.getElementById('sr-lb-img').src = SR_IMAGES[lbIdx];
-  document.getElementById('sr-lb-count').textContent = `${lbIdx + 1} / ${SR_IMAGES.length}`;
+  lbIdx = (lbIdx + dir + lbImages.length) % lbImages.length;
+  document.getElementById('sr-lb-img').src = lbImages[lbIdx];
+  document.getElementById('sr-lb-count').textContent = `${lbIdx + 1} / ${lbImages.length}`;
 }
 document.getElementById('sr-lightbox').addEventListener('click', function(e) {
   if (e.target === this) srCloseLB();
